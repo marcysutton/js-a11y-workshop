@@ -1,0 +1,33 @@
+@import '../css/reset.css';
+
+body {
+  font-family: sans-serif;
+}
+
+a, a:link, a:visited {
+  color: #333;
+}
+
+header.globalHeader {
+  padding: 1em;
+  color: white;
+  
+  h1 {
+    // display: grid;
+    // grid-gap: 0.5em;
+    // grid-template-columns: min-content auto;
+  }
+  .headerIcon {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+  }
+  a, a:link, a:visited {
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  svg path {
+    fill: currentColor;
+  }
+}

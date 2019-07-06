@@ -1,0 +1,52 @@
+{
+  "name": "js-a11y-workshop",
+  "description": "Accessibility in JavaScript Applications",
+  "version": "1.0.0",
+  "author": "Marcy Sutton <a11y@marcysutton.com>",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.0.10",
+    "@mdx-js/react": "^1.0.6",
+    "autoprefixer": "^9.6.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "gatsby": "^2.3.24",
+    "gatsby-cli": "^2.7.3",
+    "gatsby-image": "^2.0.39",
+    "gatsby-mdx": "^0.6.3",
+    "gatsby-plugin-manifest": "^2.0.29",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sass": "^2.1.0",
+    "gatsby-plugin-sharp": "^2.0.35",
+    "gatsby-source-filesystem": "^2.0.29",
+    "gatsby-transformer-sharp": "^2.1.18",
+    "grommet": "^2.7.2",
+    "grommet-icons": "^4.2.0",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.0",
+    "sass-loader": "^7.1.0",
+    "styled-components": "^4.3.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "format": "prettier --write \"src/**/*.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@mdx-deck/gatsby-theme": "^2.4.0",
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.17.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcysutton/js-a11y-workshop"
+  }
+}
