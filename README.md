@@ -2,8 +2,9 @@
 
 Learn the necessary techniques and tools for building inclusive web applications with JavaScript from Gatsby's Head of Learning Marcy Sutton.
 
-Presented at:
+Presenting at:
 - [Frontend Masters](https://frontendmasters.com/workshops/javascript-accessibility/)
+- [SmashingConf NYC](https://smashingconf.com/ny-2019/)
 
 Some key takeaways:
 
@@ -15,9 +16,9 @@ Some key takeaways:
 - Practice announcing view changes with your code and keeping screen reader users up to date.
 - Achieve wins with semantic markup, unobtrusive animation, and progressive enhancement.
 
-Site URL: https://marcysutton.github.io/js-a11y-workshop
+App URL: https://marcysutton.github.io/js-a11y-workshop
 
-Slides: https://marcysutton.github.io/js-a11y-workshop/slides/
+Workshop slides: https://marcysutton.github.io/js-a11y-workshop/slides/
 
 ---
 
@@ -41,11 +42,11 @@ npm install
 npm start
 ```
 
-View in a browser: http://localhost:8000!
+    View in a browser: http://localhost:8000
 
-4. Edit slide content in `src/slides/*`
+4. Edit files:
 
-5. Edit site pages in `src/pages/*`
-
-6. Edit site components in `src/components/*`
-
+    - Site pages: `src/pages/*`
+    - Site components: `src/components/*`
+    - Templates: `src/templates/*`,
+    - Slide content: `src/slides/index.jsx`
