@@ -1,9 +1,9 @@
-// example Layout.js
 import React from 'react'
 import { css } from "styled-components"
 import styled from "styled-components"
 
 const headerFooterStyles = css`
+  background-color: #fff;
   font-size: 14px;
   left: 0;
   padding: 0.5em;
@@ -22,6 +22,7 @@ const Footer = styled.footer`
 const P = styled.p`
   display: inline-block;
   font-size: inherit;
+  margin-top: 0;
   margin-right: auto;
 `
 const H1 = styled.h1`

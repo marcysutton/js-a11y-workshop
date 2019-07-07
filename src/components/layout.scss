@@ -1,7 +1,20 @@
-@import '../css/reset.css';
-
+* {
+  box-sizing: inherit;
+}
+*:before {
+  box-sizing: inherit;
+}
+*:after {
+  box-sizing: inherit;
+}
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
 body {
   font-family: sans-serif;
+  margin: 0;
 }
 
 a, a:link, a:visited {
@@ -30,4 +43,12 @@ header.globalHeader {
   svg path {
     fill: currentColor;
   }
+}
+
+.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 }

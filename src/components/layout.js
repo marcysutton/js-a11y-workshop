@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 
 // Grommet
 import { Grommet, Grid, Box, ResponsiveContext } from 'grommet'
@@ -8,16 +8,6 @@ import { Grommet, Grid, Box, ResponsiveContext } from 'grommet'
 import Header from './header'
 import Navigation from './navigation'
 import './layout.scss'
-
-// const Theme = {
-//   global: {
-//     breakpoints: {
-//       small: {
-//         value: '640px',
-//       }
-//     },
-//   },
-// };
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

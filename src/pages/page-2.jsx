@@ -5,15 +5,15 @@ import SEO from '../components/seo'
 
 import { Heading } from "grommet"
 
-const IndexPage = () => (
+const PageTwo = () => (
   <Layout>
     <SEO title="Home" keywords={['javascript', 'accessibility', 'react']} />
     <div style={{ padding: `1em` }}>
-      <Heading level="2" margin="none">Hi people</Heading>
+      <Heading level="2" margin="none">Page 2</Heading>
     </div>
   </Layout>
 )
 
-export default IndexPage
+export default PageTwo
 
 

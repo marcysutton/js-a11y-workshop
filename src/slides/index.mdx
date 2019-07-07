@@ -1,15 +1,115 @@
-import SlideLayout from "../templates/slide"
+import Slide from "../templates/slide"
+import ImageSlide from "../templates/image-slide"
 
-<SlideLayout>
+<Slide>
 
 # Accessibility in JavaScript Applications
 
-</SlideLayout>
+</Slide>
 
 ---
 
-<SlideLayout>
+<Slide>
 
-## Beep
+## Who is Marcy Sutton?
 
-</SlideLayout>
+<div style="position: relative; margin:0 auto; max-width: 300px;">
+    <img src="/gatsby-icon.png" alt="Gatsby" style="position:absolute; left: -200px; max-height: 130px; top:60px;" />
+    <img src="/marcysutton-sketch.png" alt="Sketch of Marcy" style="max-height: 400px; margin-bottom: 200px;" />
+    <img src="/a11y-octopus.png" alt="A11y Octopus" style="position:absolute; right: -250px; top: 60px; max-height: 180px;" />
+    <img src="/angular-logo.png" alt="Angular" style="position:absolute; top: 300px; left: 50%; margin-left: -50px; max-height: 120px;" />
+</div>
+
+</Slide>
+
+---
+
+## What we'll cover
+
+- Accessibility debugging
+
+
+- Accessibility in JavaScript apps
+    - Focus management
+    - Announcements
+    - Semantic HTML
+    - Unobtrusive motion
+    - Progressive enhancement
+
+
+- Accessibility units
+- Accessible pages
+- Q & A
+
+---
+
+<Slide>
+
+## Inaccessible web applications
+
+</Slide>
+
+---
+
+<ImageSlide
+    heading="Examples of inaccessible web applications: 1"
+    imageSrc="/user-inyerface.jpg"
+    imageAlt="User in-yer-face"
+/>
+
+---
+<ImageSlide
+    heading="Examples of inaccessible web applications: 2"
+    imageSrc="/slack-focus-trap.png"
+    imageAlt="Slack JSON file viewer"
+/>
+
+---
+
+<Slide>
+
+## Better web applications
+
+</Slide>
+
+---
+
+<ImageSlide
+    heading="Examples of better web applications: 1"
+    imageSrc="/blackboard.png"
+    imageAlt="Blackboard Learn application"
+/>
+
+---
+
+<ImageSlide
+    heading="Examples of better web applications: 2"
+    imageSrc="/facebook-a11y-toolbar.jpg"
+    imageAlt="Facebook's accessibility toolbar"
+/>
+
+---
+
+<Slide>
+
+## Install demos & tools
+
+### This demo app/slides
+
+- https://github.com/marcysutton/js-a11y-workshop
+
+### Tools
+
+- [axe browser extensions](https://deque.com/axe)
+- [Accessibility Insights](http://accessibilityinsights.io)
+- [NVDA](https://www.nvaccess.org/download/) (Windows only)
+
+</Slide>
+
+---
+
+<Slide>
+
+## Accessibility debugging
+
+</Slide>
