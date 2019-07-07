@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Marcy Sutton <a11y@marcysutton.com>",
   "dependencies": {
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@mdx-js/mdx": "^1.0.10",
     "@mdx-js/react": "^1.0.6",
     "autoprefixer": "^9.6.1",

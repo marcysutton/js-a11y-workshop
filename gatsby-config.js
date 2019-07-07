@@ -57,6 +57,12 @@ module.exports = {
         icon: `src/images/blueicon.jpg`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-compile-es6-packages`,
+      options: {
+        modules: [`@mdx-deck/gatsby-theme`]
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // `gatsby-plugin-offline`,
