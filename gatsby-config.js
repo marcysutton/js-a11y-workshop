@@ -7,7 +7,7 @@ module.exports = {
       `Learn the necessary techniques and tools for building inclusive web applications with JavaScript.`,
     author: `@marcysutton`,
   },
-  __experimentalThemes: [
+  plugins: [
     {
       resolve: `@mdx-deck/gatsby-theme`,
       options: {
@@ -19,11 +19,9 @@ module.exports = {
         name: `slides`,
       },
     },
-  ],
-  plugins: [
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: { default: path.resolve(`./src/components/layout.js`) },
       },
