@@ -30,7 +30,7 @@ const H1 = styled.h1`
   font-weight: normal;
   text-align: center;
 `
-export default ({ children }) => (
+export default ({ Counter, children }) => (
   <>
     <Header>
       <P>

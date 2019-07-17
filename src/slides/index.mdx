@@ -1,5 +1,10 @@
+import { Appear } from "@mdx-deck/components"
+import { Split, SplitRight } from "mdx-deck/layouts"
 import Slide from "../templates/slide"
 import ImageSlide from "../templates/image-slide"
+
+import baseTheme from './theme'
+export const theme = baseTheme
 
 <Slide>
 
@@ -11,7 +16,17 @@ import ImageSlide from "../templates/image-slide"
 
 <Slide>
 
-## Who is Marcy Sutton?
+# Accessibility
+
+Making the web more inclusive _with and for_ people with disabilities
+
+</Slide>
+
+---
+
+<Slide>
+
+# Who is Marcy Sutton?
 
 <div style="position: relative; margin:0 auto; max-width: 300px;">
     <img src="/gatsby-icon.png" alt="Gatsby" style="position:absolute; left: -200px; max-height: 130px; top:60px;" />
@@ -20,11 +35,12 @@ import ImageSlide from "../templates/image-slide"
     <img src="/angular-logo.png" alt="Angular" style="position:absolute; top: 300px; left: 50%; margin-left: -50px; max-height: 120px;" />
 </div>
 
+[@marcysutton](https://twitter.com/marcysutton) ~ [marcysutton.com](https://marcysutton.com)
 </Slide>
 
 ---
 
-## What we'll cover
+# What we'll cover
 
 - Accessibility debugging
 
@@ -45,7 +61,7 @@ import ImageSlide from "../templates/image-slide"
 
 <Slide>
 
-## Inaccessible web applications
+# Inaccessible web applications
 
 </Slide>
 
@@ -53,22 +69,23 @@ import ImageSlide from "../templates/image-slide"
 
 <ImageSlide
     heading="Examples of inaccessible web applications: 1"
-    imageSrc="/user-inyerface.jpg"
-    imageAlt="User in-yer-face"
+    imageSrc="/slack-json-viewer.gif"
+    imageAlt="Slack JSON file viewer"
 />
 
 ---
+
 <ImageSlide
     heading="Examples of inaccessible web applications: 2"
-    imageSrc="/slack-focus-trap.png"
-    imageAlt="Slack JSON file viewer"
+    imageSrc="/user-inyerface.jpg"
+    imageAlt="User in-yer-face"
 />
 
 ---
 
 <Slide>
 
-## Better web applications
+# Better web applications
 
 </Slide>
 
@@ -90,19 +107,26 @@ import ImageSlide from "../templates/image-slide"
 
 ---
 
+<ImageSlide
+    heading="Examples of better web applications: 3"
+    imageSrc="/googlemaps.gif"
+    imageAlt="Google Maps keyboard access searching for bakeries in the San Juan Islands"
+/>
+
+---
+
 <Slide>
 
-## Install demos & tools
+# Install time
 
-### This demo app/slides
+## App + Workshop Slides
+- [bit.ly/js-a11y-workshop](http://bit.ly/js-a11y-workshop)
 
-- https://github.com/marcysutton/js-a11y-workshop
+## Tools
 
-### Tools
-
-- [axe browser extensions](https://deque.com/axe)
-- [Accessibility Insights](http://accessibilityinsights.io)
-- [NVDA](https://www.nvaccess.org/download/) (Windows only)
+- [bit.ly/axe-chrome](http://bit.ly/axe-chrome)
+- [accessibilityinsights.io](https://accessibilityinsights.io)
+- [nvaccess.org/download](https://nvaccess.org/download)
 
 </Slide>
 
@@ -110,6 +134,680 @@ import ImageSlide from "../templates/image-slide"
 
 <Slide>
 
-## Accessibility debugging
+# An app for today
+
+- Sandbox for accessible JS
+- Built with Gatsby and React
+- MDX for components in Markdown
+- Outputs HTML pages by default
 
 </Slide>
+
+---
+
+<Slide>
+
+# Which.js?
+
+- Vue
+- React
+- Ember
+- Angular
+- Svelte
+- Polymer
+- Vanilla
+
+</Slide>
+
+---
+
+<Slide>
+
+# It doesn’t matter.
+## People just want to use your site
+
+![Elmo](/elmo-shrug.webp)
+
+</Slide>
+
+---
+
+<Slide>
+
+# Accessibility Debugging
+
+</Slide>
+
+---
+
+<Slide>
+
+# A11y debugging steps
+
+- Rendering in a web browser
+- Testing controls with the keyboard
+- Using accessibility web extensions
+- Checking color contrast
+- Screen reader testing
+- Magnification & zoom
+
+</Slide>
+
+---
+
+<Slide>
+
+# Live debugging demo
+
+</Slide>
+
+---
+
+<Slide>
+
+# Prototyping with [Parcel](https://parceljs.org/)
+
+```shell
+$ npm install parcel-bundler -g
+
+$ parcel index.html
+```
+
+</Slide>
+
+---
+
+<Slide>
+
+# Test with any modern JS framework
+
+<Split>
+<pre><code>
+
+    <html>
+
+        <title>React Routing Test</title>
+
+        <body>
+
+            <div id="app"></div>
+
+            <script src="./index.js"></script>
+
+        </body>
+
+    </html>
+
+</code></pre>
+</Split>
+
+<div>
+<pre><code>
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+const MainView = () => {
+    
+}
+ReactDOM.render(<MainView />, document.getElementById("app"))
+
+</code></pre>
+</div>
+
+</Slide>
+
+---
+
+<Slide>
+
+# Debugging in this Gatsby app
+
+</Slide>
+
+---
+
+<Slide>
+
+# Keyboard debugging tips
+
+- Interactive controls only
+- Focus indicators
+- Hidden vs. visible CSS
+- Force element state in DevTools
+
+</Slide>
+
+---
+
+<Slide>
+
+# Hidden vs. Visible CSS
+
+```css
+.visuallyhidden { 
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+.opacity {
+	opacity: 0;
+}
+.displayNone {
+	display: none;
+}
+.visibility {
+	visibility: hidden;
+}
+```
+
+</Slide>
+
+---
+# The accessibility tree
+
+## Visualize with browser DevTools
+
+How CSS impacts the keyboard and the a11y tree
+
+---
+
+# Focus code haxxx
+
+## Paste into browser DevTools
+
+```js
+document.body.addEventListener('focusin', (event) => {
+    console.log(document.activeElement)
+})
+
+```
+
+---
+
+<Slide>
+
+# Exercise 1
+## Play with keyboard testing
+
+![a wooden doll thing repeatedly hitting a keyboard](/keyboard.webp)
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise 2
+## Run a browser extension
+
+- axe
+- Accessibility Insights
+- Lighthouse
+- WAVE
+- NoCoffee
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise 3
+## Enable and use Chrome A11y Color Picker
+
+</Slide>
+
+---
+
+<Slide>
+
+# Testing with Screen Readers
+
+- https://webaim.org/articles/voiceover/
+- https://webaim.org/articles/nvda/
+- https://webaim.org/articles/jaws/
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise 4
+## Screen reader testing
+
+- OSX Voiceover
+- NVDA
+- JAWS
+- iOS Voiceover
+- Android TalkBack
+- Orca
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise 5
+## Magnification
+
+</Slide>
+
+---
+
+<Slide>
+
+# Intro to Accessibility in JS Apps
+
+<img src="/finally.webp" alt="finally" style="min-width: 400px;" />
+
+</Slide>
+
+---
+
+<Slide>
+
+<img src="/mythbusters.png" alt="mythbusters" style="max-width: 500px;" />
+
+# Accessibility & JavaScript<br />can be BFFs
+
+</Slide>
+
+---
+
+<Slide>
+
+# Focus management
+
+Moving the user's focus after interaction or navigation to alert them to new content
+
+- make content visible
+- expose it to AT
+- get the user into the right place
+
+</Slide>
+
+---
+
+<Slide>
+
+# tabindex in HTML
+
+```html
+tabindex="0"        // in the tab order
+tabindex="-1"       // focusable by script only
+tabindex="99641"    // all up in your tab order
+```
+
+</Slide>
+
+---
+
+<Slide>
+
+# tabindex + role + name
+
+```html
+<div tabindex="0"
+     role="button"
+     aria-label="Close">
+</div>
+```
+
+</Slide>
+
+---
+
+<Slide>
+
+# ARIA:<br />Accessible Rich Internet Applications
+
+https://www.w3.org/TR/wai-aria-1.1/
+
+- **role**: what is it?
+- **state**: what's happening to it?
+- **property**: what's the nature of it?
+
+</Slide>
+
+---
+
+<Slide>
+
+# Focus management patterns
+
+- Layers and modals
+- View changes and deletes
+- Loading screens
+
+</Slide>
+
+---
+
+<Slide>
+
+# Focus patterns (cont‘d)
+
+- Component handling
+- React refs
+- Other framework APIs
+- Focus manager APIs
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise
+## View change demo
+
+</Slide>
+
+---
+
+<Slide>
+
+# Announcements using ARIA Live Regions
+
+![BBC GIF with a young girl with a megaphone saying attention please](/announcement.webp)
+
+</Slide>
+
+---
+
+<Slide>
+
+# Announcement patterns
+
+- Async save / update / etc.
+- Title changes
+- Combobox usage / list filtering
+- Chat widgets
+
+</Slide>
+
+---
+
+<Slide>
+
+# ARIA Live Regions
+https://www.w3.org/TR/wai-aria/#live_region_roles
+
+```html
+<div role="status" aria-live="polite"></div>
+<div role="alert" aria-live="assertive"></div>
+```
+
+</Slide>
+
+---
+
+<Slide>
+
+# Live Region Tips
+
+- Multiple regions
+- Multiple politeness levels
+- Site-level messaging APIs
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise
+## Async action demo (saved!)
+
+</Slide>
+
+---
+
+<Slide>
+
+# Semantic HTML
+
+- Headings & landmarks
+- Other HTML elements
+- Templating specifics
+- Verifying output
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise!
+
+## Semantics demo
+
+</Slide>
+
+---
+
+<Slide>
+
+# Unobtrusive animation
+
+- toggle buttons!
+- OS-level settings!
+
+</Slide>
+
+---
+
+<Slide>
+# Exercise!
+## reduced-motion demo
+
+</Slide>
+
+---
+
+<Slide>
+
+# Progressive enhancement
+
+- accessible baselines
+- fallbacks
+- challenges with frameworks
+
+</Slide>
+
+---
+
+<Slide>
+
+# SSR & Gatsby build
+
+```bash
+gatsby build
+```
+
+</Slide>
+
+---
+
+<Slide>
+
+# Accessibility units
+
+## component-level API concerns
+
+</Slide>
+
+---
+
+<Slide>
+
+# Automated unit test approach
+
+- Test in isolation
+- Stub inputs/fixture data
+- Often headless
+- Fast changing of state
+
+</Slide>
+
+---
+
+<Slide>
+
+# Component examples with failing tests
+
+- Accessible names
+   - don't use "click here"
+   - consider visible labels
+- Keyboard interactions
+- Toggling ARIA states
+
+</Slide>
+
+---
+
+<Slide>
+
+# Bonus unit test info
+
+- configurable heading levels
+- pass ARIA attributes into components
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise
+
+- Write an accessibility unit test!
+
+</Slide>
+
+---
+
+<Slide>
+
+# Accessible pages
+
+## interrop of components
+
+</Slide>
+
+---
+
+<Slide>
+
+# Integration/end-to-end testing approach
+
+- Real-world browser testing
+- Cypress vs. Selenium Webdriver
+- Document/page-level accessibility rules: page title, HTML lang, color contrast, heading hierarchy
+- Component interoperability
+- Framework testing flexibility
+- Accessibility testing APIs make more sense here as you can run an entire ruleset against each page
+
+</Slide>
+
+---
+
+<Slide>
+
+# Selenium Webdriver example
+
+</Slide>
+
+---
+
+<Slide>
+
+# Cypress example
+
+</Slide>
+
+---
+
+<Slide>
+
+# Puppeteer Accessibility tree example
+
+https://pptr.dev/#?product=Puppeteer&version=v1.14.0&show=api-accessibilitysnapshotoptions
+
+```js
+const snapshot = await page.accessibility.snapshot();
+const node = findFocusedNode(snapshot);
+console.log(node && node.name);
+
+function findFocusedNode(node) {
+  if (node.focused)
+    return node;
+  for (const child of node.children || []) {
+    const foundNode = findFocusedNode(child);
+    return foundNode;
+  }
+  return null;
+}
+```
+
+</Slide>
+
+---
+
+<Slide>
+
+# Continuous Integration
+
+</Slide>
+
+---
+
+<Slide>
+
+# Gatsby examples
+
+- Color contrast debugging
+- Fix failing focus management tests
+- Get Cypress tests passing on a page
+
+</Slide>
+
+---
+
+<Slide>
+
+# Accessibility resources
+
+- http://bit.ly/a11y-resources
+- http://bit.ly/a11y-manual-testing
+
+</Slide>
+
+---
+
+<Slide>
+
+# Accessibility User Testing
+
+- [Access Works](https://access-works.com/)
+- [Fable Tech Labs](https://www.makeitfable.com/)
+
+</Slide>
+
+---
+
+<Slide>
+
+# Q & A
+
+</Slide>
+
+---

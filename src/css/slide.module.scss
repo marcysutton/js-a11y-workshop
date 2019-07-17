@@ -1,0 +1,47 @@
+.slide {
+  .slideChrome {
+    background-color: #fff;
+    font-size: 14px;
+    left: 0;
+    padding: 0.5em;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+  }
+  header {
+    top: 0;
+  }
+  footer {
+    bottom: 0;
+
+    .header {
+      font-size: inherit;
+      font-weight: normal;
+      text-align: center;
+    }
+  }
+  p {
+    display: inline-block;
+    font-size: inherit;
+    margin-top: 0;
+    margin-right: auto;
+  }
+  h1 {
+    font-size: 1.25em;
+  }
+  h2 {
+    font-size: 1.15em;
+  }
+  h3 {
+    font-size: 1.05em;
+  }
+  h4 {
+    font-size: 1em;
+  }
+  h1, h2 { 
+    margin-bottom: 0.5em;
+  }
+  h2 + ul {
+    margin-top: 0;
+  }
+}

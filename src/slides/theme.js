@@ -10,9 +10,6 @@ export default {
     code: '#f0f',
     codeBackground: 'transparent',
   },
-  css: {
-    justifyContent: 'start'
-  },
   fontSizes: [
     '0.75em', '1em', '1.5em', '2em', '3em'
   ],
