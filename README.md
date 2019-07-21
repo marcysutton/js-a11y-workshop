@@ -24,21 +24,22 @@ Workshop slides: https://marcysutton.github.io/js-a11y-workshop/slides/
 
 This project was started with [gatsby-starter-mdx-basic](https://github.com/christopherbiscardi/gatsby-starter-mdx-basic) and [@mdx-deck/theme](https://github.com/jxnblk/mdx-deck/tree/master/packages/gatsby-theme).
 
-1. Create a new Gatsby site and slide deck using this starter
+1. Install Gatsby CLI (or clone/`npm install` this repo instead)
 
 ```sh
-gatsby new my-site https://github.com/marcysutton/js-a11y-workshop
+npm install gatsby-cli -g
 ```
 
-2. Install dependencies
+2. Create a new Gatsby site and slide deck using this starter
 
 ```sh
-npm install
+gatsby new js-a11y-workshop https://github.com/marcysutton/js-a11y-workshop
 ```
 
-3. Run the develop script
+3. Go into the directory and start the development server
 
 ```sh
+cd js-a11y-workshop
 npm start
 ```
 
