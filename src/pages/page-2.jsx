@@ -1,7 +1,7 @@
 import React from "react"
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import Layout from '../components/site-chrome/layout'
+import SEO from '../components/site-chrome/seo'
 
 import { Heading } from "grommet"
 

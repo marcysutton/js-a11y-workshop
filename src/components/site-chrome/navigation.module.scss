@@ -1,7 +1,7 @@
 .nav {
     background-color: #ececec;
     height: 100%;
-    padding: 0 1em 1em 1.5em;
+    padding: 1em 1em 1em 1.5em;
 
     ul {
         list-style-position: inside;
@@ -14,6 +14,9 @@
             margin: 0;
             padding-left: 0;
         }
+    }
+    & > ul {
+        margin: 1em 0;
     }
     .navHeading {
         margin: 1em 0;

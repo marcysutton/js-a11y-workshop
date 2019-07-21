@@ -1,16 +1,29 @@
 export default {
   colors: {
+    headerFooterBackground: '#fff',
     text: '#000',
     background: '#fff',
-    link: '#005a9b',
+    link: '#000',
     heading: '#000',
     quote: '#000',
-    pre: '#f0f',
-    preBackground: '#333',
-    code: '#f0f',
+    pre: '#333',
+    preBackground: 'rgb(245, 242, 240)',
+    code: '#333',
     codeBackground: 'transparent',
+    figcaptionBackground: "rebeccapurple",
+    figcaption: "#fff"
   },
-  fontSizes: [
-    '0.75em', '1em', '1.5em', '2em', '3em'
-  ],
+  pre: {
+    fontSize: "1.5rem"
+  },
+  code: {
+    fontSize: "inherit"
+  },
+  figcaption: {
+    fontSize: "1rem"
+  },
+  ul: {
+    display: "inline-block",
+    marginTop: "0"
+  }
 }

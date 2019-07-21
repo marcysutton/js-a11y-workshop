@@ -1,0 +1,43 @@
+.wrap {
+    position: relative;
+}
+button.activator {
+    align-items: center;
+    background-color: inherit;
+    border: 1px solid transparent;
+    border-color: #ccc;
+    display: flex;
+    padding: 1em;
+
+    &:after {
+        content: "";
+        border-bottom: 1px solid #000;
+        border-right: 1px solid #000;
+        height: 0.5em;
+        margin-left: 0.75em;
+        width: 0.5em;
+        transform: rotate(45deg);
+    }
+}
+.itemList {
+    background-color: #ececec;
+    color: black;
+    display: none;
+    margin: 0;
+    min-width: 120px;
+    padding: 0;
+    position: absolute;
+
+    li {
+        list-style: none;
+        margin: 0;
+
+        a, a:link {
+            display: block;
+            padding: 0.5em;
+        }
+    }
+}
+.activated {
+    display: block;
+}

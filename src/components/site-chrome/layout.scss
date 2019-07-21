@@ -44,7 +44,25 @@ header.globalHeader {
     fill: currentColor;
   }
 }
+.skip-link {
+  left: 0;
+  position: absolute;
+  top: 0;
 
+  li {
+    list-style: none;
+  }
+
+  a {
+    display: block;
+    opacity: 0;
+
+    &:focus {
+      background-color: black;
+      opacity: 1;
+    }
+  }
+}
 .visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   position: absolute !important;
   height: 1px; width: 1px;

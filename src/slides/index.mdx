@@ -1,10 +1,10 @@
-import { Appear } from "@mdx-deck/components"
-import { Split, SplitRight } from "mdx-deck/layouts"
+import Code from "../templates/code-figure"
 import Slide from "../templates/slide"
 import ImageSlide from "../templates/image-slide"
+import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
 
 import baseTheme from './theme'
-export const theme = baseTheme
+export const themes = [baseTheme, highlight]
 
 <Slide>
 
@@ -18,7 +18,8 @@ export const theme = baseTheme
 
 # Accessibility
 
-Making the web more inclusive _with and for_ people with disabilities
+Making the web more inclusive <br />
+**_with_** _and_ **_for_ people with disabilities**
 
 </Slide>
 
@@ -29,13 +30,17 @@ Making the web more inclusive _with and for_ people with disabilities
 # Who is Marcy Sutton?
 
 <div style="position: relative; margin:0 auto; max-width: 300px;">
-    <img src="/gatsby-icon.png" alt="Gatsby" style="position:absolute; left: -200px; max-height: 130px; top:60px;" />
+    <img src="/gatsby-icon.png" alt="Gatsby" style="position:absolute; left: -200px; max-height: 130px; top:30px;" />
     <img src="/marcysutton-sketch.png" alt="Sketch of Marcy" style="max-height: 400px; margin-bottom: 200px;" />
-    <img src="/a11y-octopus.png" alt="A11y Octopus" style="position:absolute; right: -250px; top: 60px; max-height: 180px;" />
-    <img src="/angular-logo.png" alt="Angular" style="position:absolute; top: 300px; left: 50%; margin-left: -50px; max-height: 120px;" />
+    <img src="/a11y-octopus.png" alt="A11y Octopus" style="position:absolute; right: -240px; top: 30px; max-height: 180px;" />
+    <img src="/axe-logo.png" alt="axe"  style="position:absolute; top: 280px; left: -20px; max-height: 130px;" />
+    <img src="/angular-logo.png" alt="Angular" style="position:absolute; top: 280px; left: 70%; max-height: 125px;" />
 </div>
+<p style="margin: 0 0 2em;">
+    <a href="https://twitter.com/marcysutton" style="text-decoration: none;">@marcysutton</a>
+     ~ <a href="https://marcysutton.com" style="text-decoration: none;">marcysutton.com</a>
+</p>
 
-[@marcysutton](https://twitter.com/marcysutton) ~ [marcysutton.com](https://marcysutton.com)
 </Slide>
 
 ---
@@ -119,14 +124,32 @@ Making the web more inclusive _with and for_ people with disabilities
 
 # Install time
 
-## App + Workshop Slides
-- [bit.ly/js-a11y-workshop](http://bit.ly/js-a11y-workshop)
+## App + Workshop slides
+- [github.com/marcysutton/js-a11y-workshop](https://github.com/marcysutton/js-a11y-workshop)
 
 ## Tools
 
 - [bit.ly/axe-chrome](http://bit.ly/axe-chrome)
 - [accessibilityinsights.io](https://accessibilityinsights.io)
 - [nvaccess.org/download](https://nvaccess.org/download)
+
+</Slide>
+
+---
+
+<Slide>
+
+# Install workshop materials
+
+```shell
+git clone git@github.com:marcysutton/js-a11y-workshop.git
+npm install
+gatsby develop
+```
+
+View the app: http://localhost:8000
+
+Presentation slides: http://localhost:8000/slides
 
 </Slide>
 
@@ -207,11 +230,15 @@ Making the web more inclusive _with and for_ people with disabilities
 
 # Prototyping with [Parcel](https://parceljs.org/)
 
+<Code>
+
 ```shell
 $ npm install parcel-bundler -g
 
 $ parcel index.html
 ```
+
+</Code>
 
 </Slide>
 
@@ -221,39 +248,36 @@ $ parcel index.html
 
 # Test with any modern JS framework
 
-<Split>
-<pre><code>
+<Code title="index.html" side="left">
 
-    <html>
+```html
+<!DOCTYPE html>
+<html>
+    <title>React Routing Test</title>
+<body>
+    <div id="app"></div>
+    <script src="./index.js"></script>
+</body>
+</html>
+```
 
-        <title>React Routing Test</title>
+</Code>
 
-        <body>
+<Code title="index.js" side="right">
 
-            <div id="app"></div>
-
-            <script src="./index.js"></script>
-
-        </body>
-
-    </html>
-
-</code></pre>
-</Split>
-
-<div>
-<pre><code>
-
+```jsx
 import React from "react"
 import ReactDOM from "react-dom"
 
-const MainView = () => {
-    
-}
-ReactDOM.render(<MainView />, document.getElementById("app"))
+const App = () => (
+    <main>
+        <h1>React Demo</h1>
+    </main>
+)
+ReactDOM.render(<App />, document.getElementById("app"))
+```
 
-</code></pre>
-</div>
+</Code>
 
 </Slide>
 
@@ -284,6 +308,8 @@ ReactDOM.render(<MainView />, document.getElementById("app"))
 
 # Hidden vs. Visible CSS
 
+<Code side="left">
+
 ```css
 .visuallyhidden { 
 	border: 0;
@@ -295,6 +321,13 @@ ReactDOM.render(<MainView />, document.getElementById("app"))
 	position: absolute;
 	width: 1px;
 }
+```
+
+</Code>
+
+<Code side="right">
+
+```css
 .opacity {
 	opacity: 0;
 }
@@ -306,20 +339,43 @@ ReactDOM.render(<MainView />, document.getElementById("app"))
 }
 ```
 
+</Code>
+
 </Slide>
 
 ---
+
+<Slide>
+
 # The accessibility tree
 
-## Visualize with browser DevTools
+## A parallel structure to the DOM
 
-How CSS impacts the keyboard and the a11y tree
+Uses platform Accessibility APIs to communicate page<br /> structure & content to assistive technologies
+
+![Chrome accessibility tree dump](/chrome-accessibility-tree.png)
+
+</Slide>
 
 ---
 
-# Focus code haxxx
+<Slide>
 
-## Paste into browser DevTools
+# Visualize with browser DevTools
+
+Semantic markup and CSS styles impact the accessibility tree
+
+![Chrome DevTools accessibility inspector](/chrome-a11y-inspector.png)
+
+</Slide>
+
+---
+
+<Slide>
+
+# Focus testing haxx
+
+## Paste into browser devTools console
 
 ```js
 document.body.addEventListener('focusin', (event) => {
@@ -327,6 +383,8 @@ document.body.addEventListener('focusin', (event) => {
 })
 
 ```
+
+</Slide>
 
 ---
 
@@ -346,11 +404,11 @@ document.body.addEventListener('focusin', (event) => {
 # Exercise 2
 ## Run a browser extension
 
-- axe
-- Accessibility Insights
-- Lighthouse
-- WAVE
-- NoCoffee
+- [axe](https://deque.com/axe)
+- [Accessibility Insights](https://accessibilityinsights.io)
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
+- [WAVE](https://wave.webaim.org/extension/)
+- [NoCoffee](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US)
 
 </Slide>
 
@@ -359,7 +417,10 @@ document.body.addEventListener('focusin', (event) => {
 <Slide>
 
 # Exercise 3
-## Enable and use Chrome A11y Color Picker
+## Use Accessibility DevTools
+
+- [Chrome color picker & accessibility pane](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane)
+- [Firefox accessibility tools](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector#Accessing_the_Accessibility_Inspector)
 
 </Slide>
 
@@ -426,7 +487,7 @@ document.body.addEventListener('focusin', (event) => {
 
 # Focus management
 
-Moving the user's focus after interaction or navigation to alert them to new content
+Moving the user's focus after interaction or navigation <br /> to alert them to new content
 
 - make content visible
 - expose it to AT
@@ -440,11 +501,15 @@ Moving the user's focus after interaction or navigation to alert them to new con
 
 # tabindex in HTML
 
-```html
-tabindex="0"        // in the tab order
-tabindex="-1"       // focusable by script only
-tabindex="99641"    // all up in your tab order
+<Code>
+
+```javascript
+tabIndex="0"        // in the tab order
+tabIndex="-1"       // focusable by script only
+tabIndex="99641"    // all up in your tab order
 ```
+
+</Code>
 
 </Slide>
 
@@ -455,7 +520,7 @@ tabindex="99641"    // all up in your tab order
 # tabindex + role + name
 
 ```html
-<div tabindex="0"
+<div tabIndex="0"
      role="button"
      aria-label="Close">
 </div>
@@ -483,6 +548,7 @@ https://www.w3.org/TR/wai-aria-1.1/
 
 # Focus management patterns
 
+- Dropdowns and menus
 - Layers and modals
 - View changes and deletes
 - Loading screens
@@ -507,7 +573,10 @@ https://www.w3.org/TR/wai-aria-1.1/
 <Slide>
 
 # Exercise
-## View change demo
+## Dropdown demo
+
+- React: http://localhost:8000/dropdown
+- vanilla.js: https://codepen.io/marcysutton/pen/JgjYVv
 
 </Slide>
 
@@ -606,7 +675,9 @@ https://www.w3.org/TR/wai-aria/#live_region_roles
 ---
 
 <Slide>
+
 # Exercise!
+
 ## reduced-motion demo
 
 </Slide>
@@ -629,9 +700,13 @@ https://www.w3.org/TR/wai-aria/#live_region_roles
 
 # SSR & Gatsby build
 
+<Code>
+
 ```bash
 gatsby build
 ```
+
+</Code>
 
 </Slide>
 
