@@ -1,6 +1,7 @@
 import Code from "../templates/code-figure"
 import Slide from "../templates/slide"
 import ImageSlide from "../templates/image-slide"
+import ReducedMotionDemo from "./reduced-motion-demo"
 import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
 
 import baseTheme from './theme'
@@ -667,8 +668,61 @@ https://www.w3.org/TR/wai-aria/#live_region_roles
 
 # Unobtrusive animation
 
-- toggle buttons!
-- OS-level settings!
+- `prefers-reduced-motion` CSS
+- playback controls
+- no autoplay!
+
+https://source.opennews.org/articles/motion-sick/
+
+</Slide>
+
+---
+
+<Slide>
+
+# Unobtrusive animation
+
+<ReducedMotionDemo></ReducedMotionDemo>
+
+</Slide>
+
+---
+
+<Slide>
+
+# prefers-reduced-motion
+
+<Code title="CSS" side="left">
+
+```css
+@media (prefers-reduced-motion: reduce) {
+    .animation {
+        animation: none;
+        transition: none;
+    }
+}
+```
+
+</Code>
+
+<Code title="JavaScript" side="right">
+
+```js
+var motionQuery = matchMedia('(prefers-reduced-motion)');
+function handleReduceMotionChanged() {
+  if (motionQuery.matches) {
+    /* adjust 'transition' or 'animation' properties */
+  } else { 
+    /* standard motion */
+  }
+}
+motionQuery.addListener(handleReduceMotionChanged);
+handleReduceMotionChanged(); // trigger once on load
+```
+
+</Code>
+
+[MDN docs guide](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
 
 </Slide>
 
@@ -678,7 +732,9 @@ https://www.w3.org/TR/wai-aria/#live_region_roles
 
 # Exercise!
 
-## reduced-motion demo
+## Play with reduced-motion
+
+https://codepen.io/marcysutton/pen/yqVVeY
 
 </Slide>
 
