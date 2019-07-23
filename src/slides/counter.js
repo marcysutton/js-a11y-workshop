@@ -10,9 +10,9 @@ function AtTheBottomCenter ({ children }) {
     textAlign: 'right',
   }
 
-  return <div css={css}>
+  return <nav css={css} aria-label={`Slide ${children[0]} of ${children[2]}`}>
     {children}
-  </div>
+  </nav>
 }
 
 export default function Provider ({ children, ...props }) {
