@@ -7,7 +7,7 @@ import theme from "../slides/theme"
 
 const headerFooterStyles = css`
   background-color: ${theme.colors.headerFooterBackground};
-  font-size: 16px;
+  font-size: 1.25rem;
   left: 0;
   position: absolute;
   text-align: left;

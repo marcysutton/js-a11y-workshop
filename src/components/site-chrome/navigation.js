@@ -25,9 +25,9 @@ const Navigation = () => (
                     Components
                 </Heading>
                 <ul>
-                    <li>Dropdown</li>
+                    <li><Link to="/dropdown">Dropdown</Link></li>
                     <li>Modal</li>
-                    <li>Grid Layout</li>
+                    <li><Link to="/semantics">Grid Layout</Link></li>
                     <li>Carousel</li>
                 </ul>
             </li>

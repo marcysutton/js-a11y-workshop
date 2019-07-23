@@ -44,6 +44,35 @@ header.globalHeader {
     fill: currentColor;
   }
 }
+main.app > div {
+  padding: 1.5em;
+}
+section.two-col {
+  display: grid;
+  grid-template-columns: 1fr  1fr;
+}
+.grid-layout {
+  & [data-el] {
+    border: 1px solid rebeccapurple;
+    padding: 0.5em;
+    position: relative;
+
+    &:before {
+      background-color: #fff;
+      border: 1px solid;
+      content: attr(data-el);
+      display: block;
+      right: 0;
+      line-height: 0.5;
+      padding: 0.25em;
+      position: absolute;
+      top: 0;
+    }
+  }
+  & > div[data-el] {
+    padding: 1em;
+  }
+}
 .skip-link {
   left: 0;
   position: absolute;

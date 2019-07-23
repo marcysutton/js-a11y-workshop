@@ -10,7 +10,7 @@ import Carousel from '../components/carousel'
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={['javascript', 'accessibility', 'react']} />
-    <div style={{ padding: `1.5em` }}>
+    <div>
       <h2>Let’s make the web more accessible!</h2>
       <Dropdown activatorText="About" items={[{
         text: 'Overview',

@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
       <Box gridArea="nav" as="nav">
           <Navigation />
         </Box>
-      <Box gridArea="main" as="main" id="main" tabIndex="-1">
+      <Box gridArea="main" className="app" as="main" id="main" tabIndex="-1">
         {children}
       </Box>
     </>

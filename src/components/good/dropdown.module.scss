@@ -1,12 +1,15 @@
 .wrap {
     position: relative;
 }
-button.activator {
+.activator {
     align-items: center;
     background-color: inherit;
     border: 1px solid transparent;
     border-color: #ccc;
+    color: inherit;
     display: flex;
+    font-size: inherit;
+    max-width: 120px;
     padding: 1em;
 
     &:after {

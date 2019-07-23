@@ -5,7 +5,6 @@ import dropdownStyles from "./dropdown.module.scss"
 
 const Dropdown = ({ activatorText = 'Dropdown', items = [] }) => {
     const [activated, setActivated] = useState(false)
-    const dropdownRef = useRef()
     const activatorBtnRef = useRef()
     const listRef = useRef()
 
@@ -19,7 +18,7 @@ const Dropdown = ({ activatorText = 'Dropdown', items = [] }) => {
         setActivated(!activated)
     }
     const handleClickOutside = (event) => {
-        if (dropdownRef.current.contains(event.target)) {
+        if (listRef.current.contains(event.target) || activatorBtnRef.current.contains(event.target)) {
             return
         }
         setActivated(false)
@@ -37,7 +36,6 @@ const Dropdown = ({ activatorText = 'Dropdown', items = [] }) => {
       }, [activated])
     return (
         <div
-            ref={dropdownRef}
             className={dropdownStyles.wrap}
             onKeyDown={handleEscape}
         >
