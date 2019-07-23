@@ -1,4 +1,9 @@
+import Provider from './counter'
+
 export default {
+  css: {
+    fontSize: '1rem'
+  },
   colors: {
     headerFooterBackground: '#fff',
     text: '#000',
@@ -22,8 +27,9 @@ export default {
   figcaption: {
     fontSize: "1rem"
   },
-  ul: {
-    display: "inline-block",
-    marginTop: "0"
-  }
+  "ul": {
+    margin: '0 auto',
+    maxWidth: '90%',
+  },
+  Provider
 }
