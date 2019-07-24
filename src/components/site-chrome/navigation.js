@@ -22,12 +22,12 @@ const Navigation = () => (
                     size="small"
                     margin="none"
                 >
-                    Components
+                    Demos
                 </Heading>
                 <ul>
                     <li><Link to="/dropdown">Dropdown</Link></li>
                     <li>Modal</li>
-                    <li><Link to="/semantics">Grid Layout</Link></li>
+                    <li><Link to="/semantics">Semantic Layout</Link></li>
                     <li>Carousel</li>
                 </ul>
             </li>
@@ -44,7 +44,7 @@ const Navigation = () => (
                     <li>Focus management</li>
                     <li>Announcements</li>
                     <li>Semantic HTML</li>
-                    <li>Unobtrusive animation</li>
+                    <li>Unobtrusive motion</li>
                     <li>Progressive enhancement</li>
                 </ul>
             </li>

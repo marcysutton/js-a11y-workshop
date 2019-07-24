@@ -3,6 +3,7 @@ import Slide from "../templates/slide"
 import ImageSlide from "../templates/image-slide"
 import ReducedMotionDemo from "./reduced-motion-demo"
 import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
+// import Appear from "@mdx-deck/components/appear"
 
 import baseTheme from './theme'
 export const themes = [baseTheme, highlight]
@@ -200,6 +201,10 @@ Presentation slides: http://localhost:8000/slides
 
 # Accessibility Debugging
 
+<div style="font-size: 6rem; margin-top: 1rem;">
+    <span aria-label="magnifying glass" role="img">🔍</span>
+</div>
+
 </Slide>
 
 ---
@@ -287,6 +292,17 @@ ReactDOM.render(<App />, document.getElementById("app"))
 <Slide>
 
 # Debugging in this Gatsby app
+Fire it up in a browser and start testing
+
+<Code side="left">
+
+```shell
+$ gatsby develop
+```
+
+</Code>
+
+<p style="margin-top:2rem;"><small>http://localhost:8000</small></p>
 
 </Slide>
 
@@ -418,7 +434,7 @@ document.body.addEventListener('focusin', (event) => {
 <Slide>
 
 # Exercise 3
-## Use Accessibility DevTools
+## Test with accessibility devTools
 
 - [Chrome color picker & accessibility pane](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane)
 - [Firefox accessibility tools](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector#Accessing_the_Accessibility_Inspector)
@@ -431,6 +447,7 @@ document.body.addEventListener('focusin', (event) => {
 
 # Testing with Screen Readers
 
+Cheat sheets for getting started
 - https://webaim.org/articles/voiceover/
 - https://webaim.org/articles/nvda/
 - https://webaim.org/articles/jaws/
@@ -445,11 +462,24 @@ document.body.addEventListener('focusin', (event) => {
 ## Screen reader testing
 
 - OSX Voiceover
-- NVDA
-- JAWS
-- iOS Voiceover
-- Android TalkBack
-- Orca
+- NVDA and Firefox
+- JAWS and IE11 or Edge
+- iOS Voiceover and Safari
+- Android TalkBack and Chrome
+- Orca on Linux
+
+</Slide>
+
+---
+
+<Slide>
+
+# Magnification
+## For users with low vision
+
+- Browser zoom
+- OS-level zoom
+- ZoomText & other apps
 
 </Slide>
 
@@ -458,7 +488,13 @@ document.body.addEventListener('focusin', (event) => {
 <Slide>
 
 # Exercise 5
-## Magnification
+## Test with magnification
+
+Things to watch out for:
+
+- Page scrolling
+- Font sizes & scaling
+- UX of interactions when zoomed
 
 </Slide>
 
@@ -486,13 +522,29 @@ document.body.addEventListener('focusin', (event) => {
 
 <Slide>
 
+# Accessible JavaScript Apps
+Common techniques & requirements
+
+- Focus management
+- Live Region announcements
+- Semantic HTML
+- Unobtrusive motion
+- Progressive enhancement
+
+</Slide>
+
+---
+
+<Slide>
+
 # Focus management
 
 Moving the user's focus after interaction or navigation <br /> to alert them to new content
 
 - make content visible
-- expose it to AT
-- get the user into the right place
+- get keyboard users to the right place
+- expose it to Assistive Tech
+- disable irrelevant parts of the page
 
 </Slide>
 
@@ -520,12 +572,61 @@ tabIndex="99641"    // all up in your tab order
 
 # tabindex + role + name
 
+<Code side="left">
+
 ```html
 <div tabIndex="0"
      role="button"
-     aria-label="Close">
+     aria-label="Close">   
 </div>
 ```
+
+</Code>
+
+<Code side="right">
+
+```js
+
+// focusable
+// a button widget, not a DIV
+// an accessible name
+ 
+```
+
+</Code>
+
+</Slide>
+
+---
+
+
+<Slide>
+
+# tabindex + role + name + events
+
+<Code side="left">
+
+```jsx
+<div tabIndex="0"
+     role="button"
+     aria-label="Close"
+     onClick={clickHandler}
+     onKeyDown={keydownHandler}>   
+</div>
+```
+
+</Code>
+
+
+<Code side="right">
+
+```jsx
+<button aria-label="Close"
+        onClick={clickHandler}>   
+</button>
+```
+
+</Code>
 
 </Slide>
 
@@ -596,11 +697,12 @@ https://www.w3.org/TR/wai-aria-1.1/
 <Slide>
 
 # Announcement patterns
+Notify assistive tech users without moving focus
 
-- Async save / update / etc.
-- Title changes
+- Asynchronous save / update / etc.
 - Combobox usage / list filtering
 - Chat widgets
+- Title changes*
 
 </Slide>
 
@@ -609,12 +711,39 @@ https://www.w3.org/TR/wai-aria-1.1/
 <Slide>
 
 # ARIA Live Regions
+Message command centers of varying importance
+
 https://www.w3.org/TR/wai-aria/#live_region_roles
 
+<Code side="left">
+
 ```html
-<div role="status" aria-live="polite"></div>
-<div role="alert" aria-live="assertive"></div>
+<div role="status"></div>
+<div role="alert"></div>
 ```
+
+</Code>
+
+<Code side="right">
+
+```html
+<div aria-live="polite"></div>
+<div aria-live="assertive"></div>
+```
+
+</Code>
+
+
+</Slide>
+
+---
+
+<Slide>
+
+# Live Region Examples
+
+APG combobox?
+Downshift?
 
 </Slide>
 
@@ -643,12 +772,47 @@ https://www.w3.org/TR/wai-aria/#live_region_roles
 
 <Slide>
 
-# Semantic HTML
+# Semantic HTML ✨
 
-- Headings & landmarks
-- Other HTML elements
-- Templating specifics
-- Verifying output
+- Use headings & landmarks
+- Start wih native UI controls
+- Build semantics into templates
+- Verify assistive tech output
+
+[WebAIM: Semantic Structure](https://webaim.org/techniques/semanticstructure/)
+
+</Slide>
+
+---
+
+# Why semantics are important
+
+> _Headings save time, and programattic information is useful_
+
+<p style="max-width: 80%; margin: 0 auto;">
+Semantic HTML communicates what's on a page to users of assistive technology, reader modes, conversational UIs, search engines, and more
+</p>
+
+---
+
+<div class="visually-hidden">
+# Semantics IRL
+</div>
+
+![An Event Apart homepage in Chrome DevTools](/aea-grid-inspect.png)
+
+---
+
+<Slide>
+
+# Tools for testing semantics
+
+- [Accessibility Insights: Headings](https://accessibilityinsights.io)
+- Firefox Web Developer Extension:<br />_Information > View Document Outline_
+- [axe browser extension](http://bit.ly/axe-chrome)
+- NVDA heading navigation, elements list
+- Voiceover rotor
+- Browser reader modes
 
 </Slide>
 
@@ -660,17 +824,21 @@ https://www.w3.org/TR/wai-aria/#live_region_roles
 
 ## Semantics demo
 
+http://localhost:8000/semantics
+
 </Slide>
 
 ---
 
 <Slide>
 
-# Unobtrusive animation
+# Unobtrusive motion
+
+Building safe _and_ delightful interfaces
 
 - `prefers-reduced-motion` CSS
-- playback controls
-- no autoplay!
+- media, animation playback controls
+- opt-in for autoplay
 
 https://source.opennews.org/articles/motion-sick/
 
@@ -680,7 +848,7 @@ https://source.opennews.org/articles/motion-sick/
 
 <Slide>
 
-# Unobtrusive animation
+# Unobtrusive animation demo
 
 <ReducedMotionDemo></ReducedMotionDemo>
 
@@ -722,7 +890,8 @@ handleReduceMotionChanged(); // trigger once on load
 
 </Code>
 
-[MDN docs guide](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+[WebKit guide](https://webkit.org/blog/7551/responsive-design-for-motion/) ~ [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+
 
 </Slide>
 

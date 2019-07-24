@@ -31,5 +31,14 @@ export default {
     margin: '0 auto',
     maxWidth: '90%',
   },
+  h1: {
+    marginBottom: "0.5rem"
+  },
+  h2: {
+    margin: "0.5rem 0"
+  },
+  p: {
+    marginTop: "1rem"
+  },
   Provider
 }

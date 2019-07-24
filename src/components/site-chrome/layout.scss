@@ -47,31 +47,48 @@ header.globalHeader {
 main.app > div {
   padding: 1.5em;
 }
+.heading {
+  font-weight: bold;
+
+  &.level-3 {
+    font-size: 1.35rem;
+    margin-bottom: 1em;
+  }
+}
 section.two-col {
   display: grid;
   grid-template-columns: 1fr  1fr;
 }
-.grid-layout {
-  & [data-el] {
+.semantic-layout {
+  margin-bottom: 2em;
+
+  & [data-el],
+  &[data-el] {
     border: 1px solid rebeccapurple;
     padding: 0.5em;
     position: relative;
 
     &:before {
-      background-color: #fff;
-      border: 1px solid;
+      background-color: rebeccapurple;
+      color: #fff;
       content: attr(data-el);
+      font-weight: bold;
       display: block;
       right: 0;
-      line-height: 0.5;
-      padding: 0.25em;
+      line-height: 0.45;
+      padding: 0.45em;
       position: absolute;
       top: 0;
     }
   }
-  & > div[data-el] {
-    padding: 1em;
+  & > div[data-el],
+  &[data-el] {
+    padding: 1.5em;
   }
+}
+.grid-wrap-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 .skip-link {
   left: 0;
