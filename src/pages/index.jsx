@@ -4,7 +4,7 @@ import Layout from '../components/site-chrome/layout'
 import SEO from '../components/site-chrome/seo'
 
 import Dropdown from '../components/good/dropdown'
-import Modal from '../components/modal'
+import LiveRegion from '../components/good/live-region'
 import Carousel from '../components/carousel'
 
 const IndexPage = () => (
@@ -23,7 +23,7 @@ const IndexPage = () => (
         url: '#'
       }]} />
       <button>Launch modal</button>
-      <Modal />
+      <LiveRegion />
       <Carousel />
     </div>
   </Layout>

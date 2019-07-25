@@ -90,6 +90,35 @@ section.two-col {
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
+textarea {
+  height: 200px;
+  width: 320px;
+}
+.updateUI {
+  max-width: 320px;
+
+  .toast {
+    background-color: lightyellow;
+    display: flex;
+    opacity: 0;
+    padding: 0.5em;
+    pointer-events: none;
+
+    &.updating {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .dismiss {
+      background-color: transparent;
+      border: none;
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: auto;
+    }
+  }
+}
 .skip-link {
   left: 0;
   position: absolute;

@@ -26,7 +26,7 @@ const Navigation = () => (
                 </Heading>
                 <ul>
                     <li><Link to="/dropdown">Dropdown</Link></li>
-                    <li>Modal</li>
+                    <li><Link to="/live-region">Live Region</Link></li>
                     <li><Link to="/semantics">Semantic Layout</Link></li>
                     <li>Carousel</li>
                 </ul>
