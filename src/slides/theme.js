@@ -28,8 +28,11 @@ export default {
     fontSize: "1rem"
   },
   "ul": {
-    margin: '0 auto',
+    margin: '1rem auto',
     maxWidth: '90%',
+  },
+  li: {
+    marginBottom: "0.5rem"
   },
   h1: {
     marginBottom: "0.5rem"

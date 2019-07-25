@@ -3,7 +3,6 @@ import React from "react"
 import Layout from '../components/site-chrome/layout'
 import SEO from '../components/site-chrome/seo'
 
-
 const SemanticsPage = () => (
   <Layout>
     <SEO title="Semantics" keywords={['javascript', 'accessibility', 'react']} />
@@ -34,7 +33,7 @@ const SemanticsPage = () => (
                     <h3>HTML5 and CSS Grid Layout</h3>
                     <nav data-el="nav role[nav]">
                         <ul>
-                            <li><a href="#">Shooberino</a></li>
+                            <li><a href="#">Cheddarino</a></li>
                             <li><a href="#">Sweet Pupper</a></li>
                         </ul>
                     </nav>
