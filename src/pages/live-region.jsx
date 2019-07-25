@@ -49,6 +49,7 @@ const LiveRegionDemoPage = () => {
                 onClick={dismissToast}
                 className="dismiss"
                 type="button"
+                aria-label="dismiss message"
               >
                 X
               </button>
