@@ -1,7 +1,7 @@
-import Code from "../templates/code-figure"
+import CodeBlock from "../templates/code-figure"
 import Slide from "../templates/slide"
 import ImageSlide from "../templates/image-slide"
-import ReducedMotionDemo from "./reduced-motion-demo"
+import AccessibleAnimationDemo from "../components/good/animation"
 import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
 // import Appear from "@mdx-deck/components/appear"
 
@@ -11,6 +11,27 @@ export const themes = [baseTheme, highlight]
 <Slide>
 
 # Accessibility in<br />JavaScript Applications
+
+</Slide>
+
+---
+
+<Slide>
+
+<div style="margin-top: -3em">
+    <h1>Who is Marcy Sutton?</h1>
+</div>
+
+<div style="position: relative; margin:0 auto; max-width: 300px;">
+    <img src="/gatsby-icon.png" alt="Gatsby" style="position:absolute; left: -200px; max-height: 130px; top:30px;" />
+    <img src="/marcysutton-sketch.png" alt="Sketch note portrait of Marcy by Maggie Appleton" style="max-height: 400px; margin-bottom: 200px;" />
+    <img src="/a11y-octopus.png" alt="A11y Octopus" style="position:absolute; right: -240px; top: 30px; max-height: 180px;" />
+    <img src="/axe-logo.png" alt="axe"  style="position:absolute; top: 280px; left: -20px; max-height: 130px;" />
+    <img src="/angular-logo.png" alt="Angular" style="position:absolute; top: 280px; left: 70%; max-height: 125px;" />
+</div>
+<p style="margin: 0;">
+    <a href="https://twitter.com/marcysutton">@marcysutton</a>&nbsp;~&nbsp;<a href="https://marcysutton.com">marcysutton.com</a>
+</p>
 
 </Slide>
 
@@ -29,28 +50,34 @@ Making the web more inclusive <br />
 
 <Slide>
 
-# Who is Marcy Sutton?
+# Accessibility is a civil right
 
-<div style="position: relative; margin:0 auto; max-width: 300px;">
-    <img src="/gatsby-icon.png" alt="Gatsby" style="position:absolute; left: -200px; max-height: 130px; top:30px;" />
-    <img src="/marcysutton-sketch.png" alt="Sketch of Marcy" style="max-height: 400px; margin-bottom: 200px;" />
-    <img src="/a11y-octopus.png" alt="A11y Octopus" style="position:absolute; right: -240px; top: 30px; max-height: 180px;" />
-    <img src="/axe-logo.png" alt="axe"  style="position:absolute; top: 280px; left: -20px; max-height: 130px;" />
-    <img src="/angular-logo.png" alt="Angular" style="position:absolute; top: 280px; left: 70%; max-height: 125px;" />
-</div>
-<p style="margin: 0 0 2em;">
-    <a href="https://twitter.com/marcysutton" style="text-decoration: none;">@marcysutton</a>
-     ~ <a href="https://marcysutton.com" style="text-decoration: none;">marcysutton.com</a>
-</p>
+Notes: human right? How to make this global while keeping with the original spirit of the blog post
+
+https://www.deque.com/blog/javascript-and-civil-rights/
 
 </Slide>
 
 ---
 
-# What we'll cover
+<Slide>
+
+# JavaScript Applications
+
+- Client-rendered–no traditional page reloads
+- Built with frameworks: React, Vue, Ember, Angular, etc.
+- Sometimes server-rendered with “hydration”
+- Challenges and opportunities
+
+</Slide>
+
+---
+
+# What we’ll cover
+
+<div style="font-size: 2.8rem;">
 
 - Accessibility debugging
-
 
 - Accessibility in JavaScript apps
     - Focus management
@@ -64,11 +91,13 @@ Making the web more inclusive <br />
 - Accessible pages
 - Q & A
 
+</div>
+
 ---
 
 <Slide>
 
-# Inaccessible web applications
+# Web accessibility in the wild
 
 </Slide>
 
@@ -90,14 +119,6 @@ Making the web more inclusive <br />
 
 ---
 
-<Slide>
-
-# Better web applications
-
-</Slide>
-
----
-
 <ImageSlide
     heading="Examples of better web applications: 1"
     imageSrc="/blackboard.png"
@@ -116,6 +137,14 @@ Making the web more inclusive <br />
 
 <ImageSlide
     heading="Examples of better web applications: 3"
+    imageSrc="/github-gatsby-sweet-pupperino.png"
+    imageAlt="Gatsby on Github with a special tag"
+/>
+
+---
+
+<ImageSlide
+    heading="Examples of better web applications: 4"
     imageSrc="/googlemaps.gif"
     imageAlt="Google Maps keyboard access searching for bakeries in the San Juan Islands"
 />
@@ -124,16 +153,21 @@ Making the web more inclusive <br />
 
 <Slide>
 
+<div style="margin-top: -2em">
+
 # Install time
 
+</div>
+
 ## App + Workshop slides
-- [github.com/marcysutton/js-a11y-workshop](https://github.com/marcysutton/js-a11y-workshop)
+- https://github.com/marcysutton/js-a11y-workshop
 
 ## Tools
 
-- [bit.ly/axe-chrome](http://bit.ly/axe-chrome)
-- [accessibilityinsights.io](https://accessibilityinsights.io)
-- [nvaccess.org/download](https://nvaccess.org/download)
+- Your keyboard
+- http://bit.ly/axe-chrome
+- https://accessibilityinsights.io
+- https://nvaccess.org/download
 
 </Slide>
 
@@ -174,12 +208,12 @@ Presentation slides: http://localhost:8000/slides
 
 # Which.js?
 
-- Vue
 - React
 - Ember
 - Angular
-- Svelte
 - Polymer
+- Vue
+- Svelte
 - Vanilla
 
 </Slide>
@@ -191,15 +225,39 @@ Presentation slides: http://localhost:8000/slides
 # It doesn’t matter.
 ## People just want to use your site
 
-![Elmo](/elmo-shrug.gif)
+![Elmo](/elmo-shrug-once.gif)
 
 </Slide>
 
 ---
 
+# Framework guides
+
+- [Reactjs.org](https://reactjs.org/docs/accessibility.html)
+- [Emberjs.com](https://guides.emberjs.com/release/reference/accessibility-guide/)
+- [Angular.io](https://angular.io/guide/accessibility) !!!
+- [Polymer: GoogleIO](https://developers.google.com/web/shows/google-io/2014/polymer-making-web-components-accessible)
+- Vue: coming soon!
+
+---
+
+# Hybrid mobile apps
+
+- [Mobile Accessibility at W3C](https://www.w3.org/WAI/standards-guidelines/mobile/)
+- [React Native docs](https://facebook.github.io/react-native/docs/accessibility)
+- [Ionic Framework](https://ionicframework.com/docs/native/mobile-accessibility)
+
+---
+
+# Responsive design is good<br />for accessibility
+
+<img alt="zoomed-in view of a desktop prototype" src="/magnification-a11y.png" style="margin-top: 1em; max-height: 600px;" />
+
+---
+
 <Slide>
 
-# Accessibility Debugging
+# Web Accessibility Debugging
 
 <div style="font-size: 6rem; margin-top: 1rem;">
     <span aria-label="magnifying glass" role="img">🔍</span>
@@ -211,14 +269,14 @@ Presentation slides: http://localhost:8000/slides
 
 <Slide>
 
-# A11y debugging steps
+# #A11y debugging steps
 
-- Rendering in a web browser
-- Testing controls with the keyboard
-- Using accessibility web extensions
-- Checking color contrast
-- Screen reader testing
-- Magnification & zoom
+- Render in a web browser
+- Test controls with the keyboard
+- Use accessibility web extensions
+- Check color contrast
+- Test with screen readers
+- Use magnification & zoom
 
 </Slide>
 
@@ -236,7 +294,7 @@ Presentation slides: http://localhost:8000/slides
 
 # Prototyping with [Parcel](https://parceljs.org/)
 
-<Code>
+<CodeBlock>
 
 ```shell
 $ npm install parcel-bundler -g
@@ -244,7 +302,7 @@ $ npm install parcel-bundler -g
 $ parcel index.html
 ```
 
-</Code>
+</CodeBlock>
 
 </Slide>
 
@@ -252,9 +310,15 @@ $ parcel index.html
 
 <Slide>
 
-# Test with any modern JS framework
+<div style="margin-top: -2em">
 
-<Code title="index.html" side="left">
+# [Parceljs.org](https://parceljs.org/)
+
+</div>
+
+## Test with any modern JS framework
+
+<CodeBlock title="index.html" side="left">
 
 ```html
 <!DOCTYPE html>
@@ -267,9 +331,9 @@ $ parcel index.html
 </html>
 ```
 
-</Code>
+</CodeBlock>
 
-<Code title="index.js" side="right">
+<CodeBlock title="index.js" side="right">
 
 ```jsx
 import React from "react"
@@ -283,7 +347,7 @@ const App = () => (
 ReactDOM.render(<App />, document.getElementById("app"))
 ```
 
-</Code>
+</CodeBlock>
 
 </Slide>
 
@@ -292,17 +356,17 @@ ReactDOM.render(<App />, document.getElementById("app"))
 <Slide>
 
 # Debugging in this Gatsby app
-Fire it up in a browser and start testing
+Fire up a build in a browser and start testing
 
-<Code side="left">
+<CodeBlock side="left">
 
 ```shell
-$ gatsby develop
+$ gatsby build && gatsby serve
 ```
 
-</Code>
+</CodeBlock>
 
-<p style="margin-top:2rem;"><small>http://localhost:8000</small></p>
+<p style="margin-top:2rem;"><small>http://localhost:9000</small></p>
 
 </Slide>
 
@@ -325,7 +389,7 @@ $ gatsby develop
 
 # Hidden vs. Visible CSS
 
-<Code side="left">
+<CodeBlock side="left">
 
 ```css
 .visuallyhidden { 
@@ -340,9 +404,9 @@ $ gatsby develop
 }
 ```
 
-</Code>
+</CodeBlock>
 
-<Code side="right">
+<CodeBlock side="right">
 
 ```css
 .opacity {
@@ -356,7 +420,7 @@ $ gatsby develop
 }
 ```
 
-</Code>
+</CodeBlock>
 
 </Slide>
 
@@ -502,6 +566,17 @@ Things to watch out for:
 
 <Slide>
 
+# Accessibility is an ongoing effort<br />and a culture
+It requires strategy, patience and teamwork: one sprint and pull request at a time
+
+![Cookie Monster's artwork strategy](/strategic-cookie-monster-once.gif)
+
+</Slide>
+
+---
+
+<Slide>
+
 # Intro to Accessibility in JS Apps
 
 <img src="/finally.webp" alt="finally" style="min-width: 400px;" />
@@ -514,7 +589,7 @@ Things to watch out for:
 
 <img src="/mythbusters.png" alt="mythbusters" style="max-width: 500px;" />
 
-# Accessibility & JavaScript<br />can be BFFs
+# JavaScript is an important part of<br />accessible web applications
 
 </Slide>
 
@@ -554,7 +629,7 @@ Moving the user's focus after interaction or navigation <br /> to alert them to 
 
 # tabindex in HTML
 
-<Code>
+<CodeBlock>
 
 ```javascript
 tabIndex="0"        // in the tab order
@@ -562,7 +637,7 @@ tabIndex="-1"       // focusable by script only
 tabIndex="99641"    // all up in your tab order
 ```
 
-</Code>
+</CodeBlock>
 
 </Slide>
 
@@ -572,7 +647,7 @@ tabIndex="99641"    // all up in your tab order
 
 # tabindex + role + name
 
-<Code side="left">
+<CodeBlock side="left">
 
 ```html
 <div tabIndex="0"
@@ -581,9 +656,9 @@ tabIndex="99641"    // all up in your tab order
 </div>
 ```
 
-</Code>
+</CodeBlock>
 
-<Code side="right">
+<CodeBlock side="right">
 
 ```js
 
@@ -593,7 +668,7 @@ tabIndex="99641"    // all up in your tab order
  
 ```
 
-</Code>
+</CodeBlock>
 
 </Slide>
 
@@ -604,7 +679,7 @@ tabIndex="99641"    // all up in your tab order
 
 # tabindex + role + name + events
 
-<Code side="left">
+<CodeBlock side="left">
 
 ```jsx
 <div tabIndex="0"
@@ -615,10 +690,10 @@ tabIndex="99641"    // all up in your tab order
 </div>
 ```
 
-</Code>
+</CodeBlock>
 
 
-<Code side="right">
+<CodeBlock side="right">
 
 ```jsx
 <button aria-label="Close"
@@ -626,7 +701,7 @@ tabIndex="99641"    // all up in your tab order
 </button>
 ```
 
-</Code>
+</CodeBlock>
 
 </Slide>
 
@@ -643,6 +718,13 @@ https://www.w3.org/TR/wai-aria-1.1/
 - **property**: what's the nature of it?
 
 </Slide>
+
+---
+
+# The Rules of ARIA
+https://www.w3.org/TR/using-aria/
+
+> **The first rule of ARIA is _don’t use it_**:<br />use native HTML elements first when available
 
 ---
 
@@ -664,7 +746,7 @@ https://www.w3.org/TR/wai-aria-1.1/
 # Focus management<br />patterns (cont‘d)
 
 - Component handling
-- React refs
+- React refs, Vue $refs
 - Other framework APIs
 - Focus manager APIs
 
@@ -715,23 +797,23 @@ Message command centers of varying importance
 
 https://www.w3.org/TR/wai-aria/#live_region_roles
 
-<Code side="left">
+<CodeBlock side="left">
 
 ```html
 <div role="status"></div>
 <div role="alert"></div>
 ```
 
-</Code>
+</CodeBlock>
 
-<Code side="right">
+<CodeBlock side="right">
 
 ```html
 <div aria-live="polite"></div>
 <div aria-live="assertive"></div>
 ```
 
-</Code>
+</CodeBlock>
 
 
 </Slide>
@@ -812,10 +894,10 @@ Semantic HTML communicates what's on a page to users of assistive technology, re
 # Tools for testing semantics
 
 - [Accessibility Insights: Headings](https://accessibilityinsights.io)
-- Firefox Web Developer Extension:<br />_Information > View Document Outline_
+- [Firefox Web Developer Extension](https://addons.mozilla.org/en-US/firefox/addon/web-developer/):<br />_Information > View Document Outline_
 - [axe browser extension](http://bit.ly/axe-chrome)
-- NVDA heading navigation, elements list
-- Voiceover rotor
+- [NVDA heading navigation, elements list](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts#nvda-the_basics)
+- [Voiceover rotor](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts#vo-mac-the-rotor)
 - Browser reader modes
 
 </Slide>
@@ -854,7 +936,11 @@ https://source.opennews.org/articles/motion-sick/
 
 # Unobtrusive animation demo
 
-<ReducedMotionDemo></ReducedMotionDemo>
+<AccessibleAnimationDemo></AccessibleAnimationDemo>
+
+<div style="font-size: 2rem; margin-top: 2em;">
+    <a href="https://codepen.io/marcysutton/pen/yqVVeY">https://codepen.io/marcysutton/pen/yqVVeY</a>
+</div>
 
 </Slide>
 
@@ -864,7 +950,7 @@ https://source.opennews.org/articles/motion-sick/
 
 # prefers-reduced-motion
 
-<Code title="CSS" side="left">
+<CodeBlock title="CSS" side="left">
 
 ```css
 @media (prefers-reduced-motion: reduce) {
@@ -875,9 +961,9 @@ https://source.opennews.org/articles/motion-sick/
 }
 ```
 
-</Code>
+</CodeBlock>
 
-<Code title="JavaScript" side="right">
+<CodeBlock title="JavaScript" side="right">
 
 ```js
 var motionQuery = matchMedia('(prefers-reduced-motion)');
@@ -892,7 +978,7 @@ motionQuery.addListener(handleReduceMotionChanged);
 handleReduceMotionChanged(); // trigger once on load
 ```
 
-</Code>
+</CodeBlock>
 
 [WebKit guide](https://webkit.org/blog/7551/responsive-design-for-motion/) ~ [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
 
@@ -905,9 +991,9 @@ handleReduceMotionChanged(); // trigger once on load
 
 # Exercise!
 
-## Play with reduced-motion
+## Play with reduced-motion<br />and CSS animation or transitions
 
-https://codepen.io/marcysutton/pen/yqVVeY
+http://localhost:8000/reduced-motion
 
 </Slide>
 
@@ -917,6 +1003,7 @@ https://codepen.io/marcysutton/pen/yqVVeY
 
 # Progressive enhancement
 
+- turning off JavaScript
 - accessible baselines
 - fallbacks
 - challenges with frameworks
@@ -929,13 +1016,13 @@ https://codepen.io/marcysutton/pen/yqVVeY
 
 # SSR & Gatsby build
 
-<Code>
+<CodeBlock>
 
 ```bash
 gatsby build
 ```
 
-</Code>
+</CodeBlock>
 
 </Slide>
 
@@ -948,6 +1035,14 @@ gatsby build
 ## component-level API concerns
 
 </Slide>
+
+---
+
+# Detour: linting
+
+["Being a good citizen of the web"](https://github.com/sveltejs/svelte/issues/374)
+
+https://github.com/evcohen/eslint-plugin-jsx-a11y
 
 ---
 
@@ -1026,14 +1121,6 @@ gatsby build
 
 <Slide>
 
-# Selenium Webdriver example
-
-</Slide>
-
----
-
-<Slide>
-
 # Cypress example
 
 </Slide>
@@ -1085,6 +1172,12 @@ An opportunity to test for accessibility on every commit, pull request, and depl
 - Get Cypress tests passing on a page
 
 </Slide>
+
+---
+
+# Spoiler: we need to do more
+
+Automated testing and linting only gets us so far. Projects need manual human testing, too
 
 ---
 

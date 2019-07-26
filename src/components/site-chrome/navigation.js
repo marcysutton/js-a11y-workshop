@@ -28,6 +28,7 @@ const Navigation = () => (
                     <li><Link to="/dropdown">Dropdown</Link></li>
                     <li><Link to="/live-region">Live Region</Link></li>
                     <li><Link to="/semantics">Semantic Layout</Link></li>
+                    <li><Link to="/reduced-motion">Reduced Motion</Link></li>
                     <li>Carousel</li>
                 </ul>
             </li>

@@ -91,7 +91,7 @@ const Demo = styled.div`
   }
 `
 
-const ReducedMotionDemo = () => {
+const AccessibleAnimationDemo = () => {
     let [animating, setAnimating] = useState(false)
     let [toggleText, setToggleText] = useState('on')
 
@@ -146,4 +146,4 @@ const ReducedMotionDemo = () => {
     )
 }
 
-export default ReducedMotionDemo
+export default AccessibleAnimationDemo
