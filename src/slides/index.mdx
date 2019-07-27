@@ -4,6 +4,7 @@ import ImageSlide from "../templates/image-slide"
 import AccessibleAnimationDemo from "../components/good/animation"
 import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
 // import Appear from "@mdx-deck/components/appear"
+import Autocomplete from "../components/good/downshift-autocomplete"
 
 import baseTheme from './theme'
 export const themes = [baseTheme, highlight]
@@ -616,12 +617,277 @@ Common techniques & requirements
 
 Moving the user's focus after interaction or navigation <br /> to alert them to new content
 
-- make content visible
+- make content visible to everyone
 - get keyboard users to the right place
 - expose it to Assistive Tech
 - disable irrelevant parts of the page
 
 </Slide>
+
+---
+
+<Slide>
+
+# Focus management<br />building blocks
+
+- Reachable and operable elements<br />(a.k.a. “controls”)
+- TAB, escape, and arrow keys
+- Visible focus styles
+- Hidden/inert content
+
+</Slide>
+
+---
+
+<Slide>
+
+# tabindex in HTML
+
+Make non-interactive elements focusable
+
+<CodeBlock>
+
+```javascript
+tabIndex="0"        // in the tab order. see following slides
+tabIndex="-1"       // focusable by script, or removes from tab order
+tabIndex="99641"    // all up in your tab order. hard to manage
+```
+
+</CodeBlock>
+
+<div style="margin-top:3rem;">
+<span role="img" title="light bulb">💡</span> <em>Screen readers go beyond the TAB key</em>
+</div>
+
+</Slide>
+
+---
+
+<Slide>
+
+# tabindex + role + name
+
+Expose accessibility information for focusable elements.
+
+<CodeBlock side="left" marginClass="noRightMargin">
+
+```html
+<div tabIndex="0"
+     role="button"
+     aria-label="Close">   
+</div>
+```
+
+</CodeBlock>
+
+<CodeBlock side="right">
+
+```js
+
+// focusable
+// a button widget, not a DIV
+// an accessible name
+ 
+```
+
+</CodeBlock>
+
+<div style="margin-top:3rem;">
+
+<span role="img" title="light bulb">💡</span> <em>Intended for custom interactive elements, not wrapper DIVs</em>
+
+</div>
+
+</Slide>
+
+---
+
+
+<Slide>
+
+# tabindex + role + name + events
+
+Make custom controls fully interactive
+
+<CodeBlock side="left">
+
+```jsx
+<div tabIndex="0"
+     role="button"
+     aria-label="Close"
+     onClick={clickHandler}
+     onKeyDown={keydownHandler}>   
+</div>
+```
+
+</CodeBlock>
+
+
+<CodeBlock side="right">
+
+```jsx
+// or just use a button :)
+<button aria-label="Close"
+        onClick={clickHandler}>   
+</button>
+```
+
+</CodeBlock>
+
+</Slide>
+
+---
+
+<Slide>
+
+# ARIA: Accessible<br />Rich Internet Applications
+
+https://www.w3.org/TR/wai-aria-1.1/
+
+- **role**: what is it?
+- **state**: what's happening to it?
+- **property**: what's the nature of it?
+
+</Slide>
+
+---
+
+# The Rules of ARIA
+https://www.w3.org/TR/using-aria/
+
+> **The first rule of ARIA is _don’t use it_**:<br />use native HTML elements first when available
+
+[![Aliens Meme with Paul Adam: I'm not saying the answer is ARIA...but add ARIA](/paul-adam-aria.png)](https://twitter.com/stevefaulkner/status/445874167544434688 "Originally from a tweet by Steve Faulkner about Paul Adam")
+
+---
+
+<Slide>
+
+# ARIA states in focus management
+
+https://www.w3.org/TR/wai-aria-1.1/#states_and_properties<br />
+http://w3c.github.io/aria-practices/
+
+<div style="display: inline-block; vertical-align: top; width: 50%;">
+
+- aria-haspopup
+- aria-expanded
+- aria-modal
+- aria-controls ([is poop](https://www.heydonworks.com/article/aria-controls-is-poop))
+
+</div>
+
+<div style="display: inline-block; width: 50%;">
+
+- aria-activedescendant
+- aria-owns
+- aria-current
+
+</div>
+
+<div style="margin-top:3rem;">
+
+<span role="img" title="light bulb">💡</span> <em>Test in assistive technologies</em>
+
+</div>
+
+</Slide>
+
+---
+
+# role="application"
+
+<span role="img" title="alarm">🚨</span><em>rarely the right solution</em><span role="img" title="alarm">🚨</span>
+
+Control is given to the browser and web application to handle keyboard and assistive technology interaction
+
+<CodeBlock side="split">
+
+```html
+<div role="application">
+    <h1>Good luck</h1>
+</div>
+```
+
+</CodeBlock>
+
+<div style="margin-top: 2em">
+    <a href="https://a11ywins.tumblr.com/post/182992115383/aria-authoring-practices-on-accessible-date)">A11yWins on Date Pickers</a>
+</div>
+
+---
+
+# Modal vs. non-modal
+## Block interacting with the background?
+
+<div style="display: inline-block; width: 50%;">
+
+### Modal 
+
+- Modal dialogs
+- Layers covering the whole screen
+- Focus management!
+
+</div>
+
+
+<div style="display: inline-block; width: 50%;">
+
+### Non-modal
+- Dropdowns
+- Sections of a fully visible layout
+- Skip links!
+
+</div>
+
+---
+
+# Modal layers: <br />disabling background content
+
+- `aria-hidden="true"` and `tabindex="-1"`
+- `inert` (+ [polyfill](https://github.com/WICG/inert))
+- CSS `display: none`
+
+<CodeBlock side="left">
+
+```html
+<div aria-hidden="true">
+    <a href="..." tabIndex="-1">Hidden link</a>
+</div>
+```
+
+</CodeBlock>
+
+<CodeBlock side="left">
+
+```html
+<div inert>
+    <a href="...">Inert link</a>
+</div>
+```
+
+</CodeBlock>
+
+---
+
+<Slide>
+
+# Focus management<br />patterns
+
+- Dropdowns and menus
+- Layers and modals
+- View changes and deletes
+- Loading screens
+
+</Slide>
+
+---
+
+# Widget interactions:<br />arrow keys or nah?
+
+It depends on the role and pattern <span role="img" title="sparkle">✨</span>
+
+http://w3c.github.io/aria-practices/
 
 ---
 
@@ -654,17 +920,11 @@ https://marcysutton.com/links-vs-buttons-in-modern-web-applications
 
 <Slide>
 
-# tabindex in HTML
+# Exercise
+## Dropdown demo
 
-<CodeBlock>
-
-```javascript
-tabIndex="0"        // in the tab order
-tabIndex="-1"       // focusable by script only
-tabIndex="99641"    // all up in your tab order
-```
-
-</CodeBlock>
+- React: http://localhost:8000/dropdown
+- vanilla.js: https://codepen.io/marcysutton/pen/JgjYVv
 
 </Slide>
 
@@ -672,63 +932,13 @@ tabIndex="99641"    // all up in your tab order
 
 <Slide>
 
-# tabindex + role + name
+# Client-side routing
 
-<CodeBlock side="left">
+Navigation where JavaScript controls browser history<br />and dynamically maps URLs to each page or view
 
-```html
-<div tabIndex="0"
-     role="button"
-     aria-label="Close">   
-</div>
-```
+![Animation of Grommet sorting letters](/mail.gif)
 
-</CodeBlock>
-
-<CodeBlock side="right">
-
-```js
-
-// focusable
-// a button widget, not a DIV
-// an accessible name
- 
-```
-
-</CodeBlock>
-
-</Slide>
-
----
-
-
-<Slide>
-
-# tabindex + role + name + events
-
-<CodeBlock side="left">
-
-```jsx
-<div tabIndex="0"
-     role="button"
-     aria-label="Close"
-     onClick={clickHandler}
-     onKeyDown={keydownHandler}>   
-</div>
-```
-
-</CodeBlock>
-
-
-<CodeBlock side="right">
-
-```jsx
-<button aria-label="Close"
-        onClick={clickHandler}>   
-</button>
-```
-
-</CodeBlock>
+[User testing research on the Gatsby blog](https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/)
 
 </Slide>
 
@@ -736,33 +946,13 @@ tabIndex="99641"    // all up in your tab order
 
 <Slide>
 
-# ARIA: Accessible<br />Rich Internet Applications
+# Routing recommendations
 
-https://www.w3.org/TR/wai-aria-1.1/
+- A small interactive UI control in each view target, like a skip link
+- Label with nearby content and what action it does,<br />e.g. "Portfolio, skip to navigation"
+- When a user clicks a nav link, move focus to this control
 
-- **role**: what is it?
-- **state**: what's happening to it?
-- **property**: what's the nature of it?
-
-</Slide>
-
----
-
-# The Rules of ARIA
-https://www.w3.org/TR/using-aria/
-
-> **The first rule of ARIA is _don’t use it_**:<br />use native HTML elements first when available
-
----
-
-<Slide>
-
-# Focus management<br />patterns
-
-- Dropdowns and menus
-- Layers and modals
-- View changes and deletes
-- Loading screens
+![focus diagram](/focus-diagram.png)
 
 </Slide>
 
@@ -770,12 +960,13 @@ https://www.w3.org/TR/using-aria/
 
 <Slide>
 
-# Focus management<br />patterns (cont‘d)
+# Focus management<br />patterns: underlying tech
 
-- Component handling
-- React refs, Vue $refs
-- Other framework APIs
-- Focus manager APIs
+- Access DOM nodes with [React refs](https://reactjs.org/docs/refs-and-the-dom.html)
+- New: [React FocusScopes](https://twitter.com/devongovett/status/1100829054800846848)
+- [Vue.js $refs](https://vuejs.org/v2/api/#vm-refs)
+- Other framework APIs?
+- Custom focus manager APIs
 
 </Slide>
 
@@ -784,10 +975,10 @@ https://www.w3.org/TR/using-aria/
 <Slide>
 
 # Exercise
-## Dropdown demo
+## Client-side routing demo
 
-- React: http://localhost:8000/dropdown
-- vanilla.js: https://codepen.io/marcysutton/pen/JgjYVv
+- React: 
+- vanilla.js: 
 
 </Slide>
 
@@ -849,10 +1040,11 @@ https://www.w3.org/TR/wai-aria/#live_region_roles
 
 <Slide>
 
-# Live Region Examples
+# Live Region Example
 
-APG combobox?
-Downshift?
+[Downshift](https://github.com/downshift-js/downshift)
+
+<Autocomplete />
 
 </Slide>
 
@@ -1069,7 +1261,7 @@ gatsby build
 
 ["Being a good citizen of the web"](https://github.com/sveltejs/svelte/issues/374)
 
-https://github.com/evcohen/eslint-plugin-jsx-a11y
+[eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)
 
 ---
 
@@ -1088,13 +1280,14 @@ https://github.com/evcohen/eslint-plugin-jsx-a11y
 
 <Slide>
 
-# Component examples<br />with failing tests
+# A11y unit test topics
 
-- Accessible names
-   - don't use "click here"
-   - consider visible labels
-- Keyboard interactions
-- Toggling ARIA states
+- Component-specific behavior
+- Interaction/focus APIs
+- Text alternatives
+- ARIA states
+
+https://www.deque.com/blog/writing-automated-tests-accessibility/
 
 </Slide>
 
@@ -1102,10 +1295,24 @@ https://github.com/evcohen/eslint-plugin-jsx-a11y
 
 <Slide>
 
-# Bonus unit test info
+# Unit test frameworks
 
-- configurable heading levels
-- pass ARIA attributes into components
+- Jest
+- Jasmine
+- Mocha
+- QUnit
+- Karma
+- AVA
+
+</Slide>
+
+---
+
+<Slide>
+
+# Unit test example
+
+https://codepen.io/marcysutton/pen/YbXZYK?editors=1010
 
 </Slide>
 
@@ -1115,7 +1322,9 @@ https://github.com/evcohen/eslint-plugin-jsx-a11y
 
 # Exercise
 
-- Write an accessibility unit test!
+Write an accessibility unit test!
+
+[Test example](https://github.com/marcysutton/js-a11y-workshop/tree/master/src/components/good/__tests__)
 
 </Slide>
 
@@ -1125,7 +1334,8 @@ https://github.com/evcohen/eslint-plugin-jsx-a11y
 
 # Accessible pages
 
-## interrop of components
+- interroperability of components
+- page-level concerns
 
 </Slide>
 
@@ -1133,14 +1343,25 @@ https://github.com/evcohen/eslint-plugin-jsx-a11y
 
 <Slide>
 
-# Integration/end-to-end<br />testing approach
+# Integration/end-to-end tests
 
 - Real-world browser testing
-- Cypress vs. Selenium Webdriver
-- Document/page-level accessibility rules: page title, HTML lang, color contrast, heading hierarchy
-- Component interoperability
-- Framework testing flexibility
-- Accessibility testing APIs make more sense here as you can run an entire ruleset against each page
+- Document/page-level rules
+- Widget interrop
+- Color contrast
+- Framework testing options
+
+</Slide>
+
+---
+
+<Slide>
+
+# Integration test frameworks
+
+- Cypress
+- Selenium Webdriver
+- Puppeteer
 
 </Slide>
 
@@ -1182,9 +1403,65 @@ function findFocusedNode(node) {
 
 <Slide>
 
+# _No matter what kind of test you’re writing, focus on the outcome, not the implementation_ ✨
+
+</Slide>
+
+---
+
+<Slide>
+
+# Using a test API
+## Rules you don’t have to write
+
+- [axe-core](https://github.com/dequelabs/axe-core)
+- [cypress-axe](https://www.npmjs.com/package/cypress-axe)
+- [axe-webdriverjs](https://github.com/dequelabs/axe-webdriverjs)
+- [WAVE](https://wave.webaim.org/api/)
+
+</Slide>
+
+---
+
+<Slide>
+
+# What can we automate?
+
+Tests can catch roughly 30-50% of accessibility issues,<br />depending on the rule set
+
+👉 _Screen readers can’t be automated_
+
+</Slide>
+
+---
+
+<Slide>
+
+# Write a combination<br />of tests to catch a variety<br />of bugs 💻🔎🐛
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise!
+
+Write an end-to-end test
+
+[Test example](https://github.com/marcysutton/js-a11y-workshop/tree/master/cypress/integration)
+
+</Slide>
+
+---
+
+<Slide>
+
 # Continuous Integration
 
 An opportunity to test for accessibility on every commit, pull request, and deployment
+
+https://marcysutton.github.io/a11y-and-ci/
 
 </Slide>
 
@@ -1204,7 +1481,9 @@ An opportunity to test for accessibility on every commit, pull request, and depl
 
 # Spoiler: we need to do more
 
-Automated testing and linting only gets us so far. Projects need manual human testing, too
+Automated testing and linting only gets us so far.<br />Projects need manual human testing, too
+
+<span role="img" title="bow in respect">🙇‍♀️</span>
 
 ---
 

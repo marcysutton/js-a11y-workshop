@@ -5,10 +5,14 @@
   "author": "Marcy Sutton <a11y@marcysutton.com>",
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@emotion/core": "^10.0.14",
+    "@emotion/styled": "^10.0.14",
     "@mdx-deck/gatsby-theme": "^2.5.0",
     "@mdx-js/mdx": "^1.0.10",
     "@mdx-js/react": "^1.0.6",
     "autoprefixer": "^9.6.1",
+    "downshift": "^3.2.10",
+    "emotion": "^10.0.14",
     "extract-text-webpack-plugin": "^3.0.2",
     "gatsby": "^2.13.25",
     "gatsby-image": "^2.2.6",
@@ -23,6 +27,7 @@
     "gatsby-transformer-sharp": "^2.2.3",
     "grommet": "^2.7.2",
     "grommet-icons": "^4.2.0",
+    "match-sorter": "^4.0.1",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -30,6 +35,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "sass-loader": "^7.1.0",
+    "starwars-names": "^1.6.0",
     "styled-components": "^4.3.2"
   },
   "keywords": [

@@ -39,9 +39,8 @@ const SemanticsPage = () => (
                     </nav>
                 </header>
                 <article data-el="article role=[group]">
-                    <h3>TODO: update to moar awesome ipsum</h3>
-                    <p>
-                        Doggo ipsum stop it fren borking doggo shoober floofs, very jealous pupper thicc. Pats smol borking doggo with a long snoot for pats blop pupper, borking doggo wrinkler. Lotsa pats big ol pupper h*ck heckin angery woofer pupper, blop heckin mlem.</p>
+                    <h3>Maximum borkdrive</h3>
+                    <p>Very hand that feed shibe puggorino very taste wow.  Maximum borkdrive much ruin diet very hand that feed shibe very taste wow long water shoob doge doggo heckin, shoober ruff shoob wrinkler bork much ruin diet. he made many woofs woofer. Wow such tempt mlem very hand that feed shibe porgo, wrinkler shoob. Vvv puggo doggorino very good spot such treat length boy puggo, woofer heckin angery woofer wow very biscit pupperino very taste wow.</p>
                 </article>
             </div>
         </section>

@@ -1,6 +1,6 @@
 import React from 'react'
-import { css } from "styled-components"
-import styled from "styled-components"
+import { css } from "@emotion/core"
+import styled from "@emotion/styled"
 
 import SEO from "../components/site-chrome/seo"
 import theme from "../slides/theme"

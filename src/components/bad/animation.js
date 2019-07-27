@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react"
-import { css } from "styled-components"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 
 const Demo = styled.div`
 .animationToggle {

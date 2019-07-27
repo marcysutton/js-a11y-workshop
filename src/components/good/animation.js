@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react"
-import { css } from "styled-components"
-import styled from "styled-components"
+import { css } from "@emotion/core"
+import styled from "@emotion/styled"
 
 const noAnimate = css`
     .pulse, circle {

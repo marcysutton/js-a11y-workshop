@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 
 import theme from "../slides/theme"
 
@@ -13,6 +13,9 @@ const Figure = styled.figure`
   }
   &.left {
     margin-right: 1rem;
+  }
+  &.noRightMargin {
+    margin-right: 0;
   }
   pre {
     margin: 0 !important;
@@ -29,17 +32,21 @@ const Figure = styled.figure`
     text-align: left;
   }
 `
-const blockClassName = (side) => {
-    if (side) {
-        return `split ${side}`;
-    }
-    return null;
+const blockClassName = (side, marginClass) => {
+  let margin = '';
+  if (marginClass) {
+    margin = marginClass;
+  }
+  if (side) {
+      return `split ${side} ${margin}`;
+  }
+  return null;
 }
-export default ({ title, side, children }) => (
-<Figure className={blockClassName(side)}>
-  { children }
-  { title ?
-    <figcaption>{ title }</figcaption> 
-    : null }
-</Figure>
+export default ({ title, side, marginClass, children }) => (
+  <Figure className={blockClassName(side, marginClass)}>
+    { children }
+    { title ?
+      <figcaption>{ title }</figcaption> 
+      : null }
+  </Figure>
 )
