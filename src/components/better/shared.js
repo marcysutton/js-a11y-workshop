@@ -51,7 +51,7 @@ const onAttention = '&:hover, &:focus'
 const Input = styled('input')(
   {
     width: '100%', // full width - icon width/2 - border
-    fontSize: 14,
+    fontSize: '1rem',
     wordWrap: 'break-word',
     lineHeight: '1em',
     outline: 0,
@@ -83,9 +83,10 @@ const Input = styled('input')(
 )
 
 const Label = styled('label')({
+  fontSize: '1.5rem',
   fontWeight: 'bold',
   display: 'block',
-  marginBottom: 10,
+  marginBottom: '0.25rem',
 })
 
 const BaseMenu = styled('ul')(
@@ -96,6 +97,7 @@ const BaseMenu = styled('ul')(
     backgroundColor: 'white',
     width: '100%',
     maxHeight: '20rem',
+    maxWidth: '100%',
     overflowY: 'auto',
     overflowX: 'hidden',
     outline: '0',
@@ -120,6 +122,8 @@ const Menu = React.forwardRef((props, ref) => (
 
 const ControllerButton = styled('button')({
   backgroundColor: 'transparent',
+  fontSize: '1rem',
+  lineHeight: '1',
   border: 'none',
   position: 'absolute',
   right: 0,

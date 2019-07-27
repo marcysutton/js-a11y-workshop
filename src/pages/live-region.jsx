@@ -3,7 +3,7 @@ import React, {useState} from "react"
 import Layout from '../components/site-chrome/layout'
 import SEO from '../components/site-chrome/seo'
 
-import LiveRegion from "../components/good/live-region"
+import LiveRegion from "../components/better/live-region"
 import {DebounceInput} from 'react-debounce-input'
 
 const Textarea = ({handleUpdateFunc}) => (

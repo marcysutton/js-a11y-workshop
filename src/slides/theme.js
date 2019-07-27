@@ -27,10 +27,6 @@ export default {
   figcaption: {
     fontSize: "1rem"
   },
-  "ul": {
-    margin: '1rem auto',
-    maxWidth: '90%',
-  },
   li: {
     marginBottom: "0.5rem"
   },

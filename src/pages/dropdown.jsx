@@ -4,7 +4,7 @@ import Layout from '../components/site-chrome/layout'
 import SEO from '../components/site-chrome/seo'
 
 import BadDropdown from '../components/bad/dropdown'
-import GoodDropdown from '../components/good/dropdown'
+import BetterDropdown from '../components/better/dropdown'
 
 const DropdownPage = () => (
   <Layout>
@@ -30,7 +30,7 @@ const DropdownPage = () => (
         </div>
         <div>
           <h3>Link list dropdown 2</h3>
-          <GoodDropdown activatorText="About" items={[{
+          <BetterDropdown activatorText="About" items={[{
             text: 'Overview',
             url: '#'
           },{

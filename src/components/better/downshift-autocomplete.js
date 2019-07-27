@@ -50,9 +50,9 @@ class Autocomplete extends React.Component {
             inputValue,
             highlightedIndex,
           }) => (
-            <div {...css({width: 250, margin: 'auto'})}>
+            <div {...css({width: 300, margin: 'auto'})}>
               <Label {...getLabelProps()}>Find a Star Wars character</Label>
-              <div {...css({position: 'relative'})}>
+              <div {...css({position: 'relative', fontSize: '1rem'})}>
                 <Input
                   {...getInputProps({
                     isOpen,

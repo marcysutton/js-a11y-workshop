@@ -1,10 +1,10 @@
 import CodeBlock from "../templates/code-figure"
 import Slide from "../templates/slide"
 import ImageSlide from "../templates/image-slide"
-import AccessibleAnimationDemo from "../components/good/animation"
+import AccessibleAnimationDemo from "../components/better/animation"
 import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
 // import Appear from "@mdx-deck/components/appear"
-import Autocomplete from "../components/good/downshift-autocomplete"
+import Autocomplete from "../components/better/downshift-autocomplete"
 
 import baseTheme from './theme'
 export const themes = [baseTheme, highlight]
@@ -1042,9 +1042,13 @@ https://www.w3.org/TR/wai-aria/#live_region_roles
 
 # Live Region Example
 
-[Downshift](https://github.com/downshift-js/downshift)
+<div class="demo">
+    <Autocomplete />
+</div>
 
-<Autocomplete />
+<div style="margin-top:2em;">
+    <a href="https://github.com/downshift-js/downshift">Downshift.js</a>
+</div>
 
 </Slide>
 
@@ -1324,7 +1328,7 @@ https://codepen.io/marcysutton/pen/YbXZYK?editors=1010
 
 Write an accessibility unit test!
 
-[Test example](https://github.com/marcysutton/js-a11y-workshop/tree/master/src/components/good/__tests__)
+[Test example](https://github.com/marcysutton/js-a11y-workshop/tree/master/src/components/better/__tests__)
 
 </Slide>
 

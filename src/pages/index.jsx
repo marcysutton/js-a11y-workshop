@@ -3,8 +3,8 @@ import React from "react"
 import Layout from '../components/site-chrome/layout'
 import SEO from '../components/site-chrome/seo'
 
-import Dropdown from '../components/good/dropdown'
-import LiveRegion from '../components/good/live-region'
+import Dropdown from '../components/better/dropdown'
+import LiveRegion from '../components/better/live-region'
 import Carousel from '../components/carousel'
 
 const IndexPage = () => (
