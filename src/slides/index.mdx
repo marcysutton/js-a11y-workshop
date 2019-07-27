@@ -965,6 +965,7 @@ Navigation where JavaScript controls browser history<br />and dynamically maps U
 - Access DOM nodes with [React refs](https://reactjs.org/docs/refs-and-the-dom.html)
 - New: [React FocusScopes](https://twitter.com/devongovett/status/1100829054800846848)
 - [Vue.js $refs](https://vuejs.org/v2/api/#vm-refs)
+- [Ember suggestions](https://twitter.com/marcysutton/status/1154942698408648704)
 - Other framework APIs?
 - Custom focus manager APIs
 
@@ -1253,27 +1254,55 @@ gatsby build
 
 <Slide>
 
-# Accessibility units
+# Testing <span role="img" title="test tube">🧪</span>
 
-## component-level API concerns
+Improving quality in development
+
+- linting
+- unit tests
+- integration/end-to-end
+- accessibility test APIs
+- continuous integration
+- manual & user testing
 
 </Slide>
 
 ---
 
-# Detour: linting
+<Slide>
 
-["Being a good citizen of the web"](https://github.com/sveltejs/svelte/issues/374)
+# Linting
 
+Testing for quality live in a file or on a commit
+
+["Being a good citizen of the web"](https://github.com/sveltejs/svelte/issues/374)<br />
 [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)
+
+- you might need to [reconfigure rules](https://www.gatsbyjs.org/docs/making-your-site-accessible/#linting-with-eslint-jsx-plugin-a11y)
+- CSS can have an impact
+- rendering makes a difference
+
+</Slide>
 
 ---
 
 <Slide>
 
-# Automated unit test approach
+# Accessibility Units
 
-- Test in isolation
+## component-level API concerns
+
+<p style="font-size: 1.5em;"><span role="img" title="puzzle piece">🧩</span></p>
+
+</Slide>
+
+---
+
+<Slide>
+
+# Unit test approach
+
+- Test code in isolation
 - Stub inputs/fixture data
 - Often headless
 - Fast changing of state
@@ -1284,14 +1313,14 @@ gatsby build
 
 <Slide>
 
-# A11y unit test topics
+# Accessibility unit tests
 
 - Component-specific behavior
 - Interaction/focus APIs
 - Text alternatives
 - ARIA states
 
-https://www.deque.com/blog/writing-automated-tests-accessibility/
+Article: [Writing Automated tests for Accessibility](https://www.deque.com/blog/writing-automated-tests-accessibility/)
 
 </Slide>
 
@@ -1301,12 +1330,25 @@ https://www.deque.com/blog/writing-automated-tests-accessibility/
 
 # Unit test frameworks
 
-- Jest
-- Jasmine
-- Mocha
-- QUnit
-- Karma
-- AVA
+<div style="width: 90%; margin: 0 auto">
+
+<div style="display: inline-block; vertical-align: top; width: 50%;">
+
+- [Jest](https://jestjs.io/)
+- [Jasmine](https://jasmine.github.io/)
+- [Mocha](https://mochajs.org/)
+
+</div>
+
+<div style="display: inline-block; vertical-align: top; width: 50%;">
+
+- [Karma](https://karma-runner.github.io/latest/index.html)
+- [AVA](https://github.com/avajs/ava)
+- [QUnit](https://qunitjs.com/)
+
+</div>
+
+</div>
 
 </Slide>
 
@@ -1315,6 +1357,8 @@ https://www.deque.com/blog/writing-automated-tests-accessibility/
 <Slide>
 
 # Unit test example
+
+Modal dialog with Jasmine tests
 
 https://codepen.io/marcysutton/pen/YbXZYK?editors=1010
 
@@ -1336,10 +1380,10 @@ Write an accessibility unit test!
 
 <Slide>
 
-# Accessible pages
+# Accessible Pages
+## interroperability of components
 
-- interroperability of components
-- page-level concerns
+<p style="font-size: 1.5em;"><span role="img" title="newspaper">📰</span></p>
 
 </Slide>
 
@@ -1347,13 +1391,13 @@ Write an accessibility unit test!
 
 <Slide>
 
-# Integration/end-to-end tests
+# Integration &<br />end-to-end tests
 
 - Real-world browser testing
 - Document/page-level rules
 - Widget interrop
 - Color contrast
-- Framework testing options
+- Framework flexibility
 
 </Slide>
 
@@ -1361,19 +1405,12 @@ Write an accessibility unit test!
 
 <Slide>
 
-# Integration test frameworks
+# Integration<br />test frameworks
 
-- Cypress
-- Selenium Webdriver
-- Puppeteer
-
-</Slide>
-
----
-
-<Slide>
-
-# Cypress example
+- [Cypress](https://www.cypress.io/)
+- [WebdriverIO](https://webdriver.io/)
+- [Nightwatch](https://nightwatchjs.org/)
+- [Selenium Webdriver](https://www.npmjs.com/package/selenium-webdriver)
 
 </Slide>
 
@@ -1381,24 +1418,23 @@ Write an accessibility unit test!
 
 <Slide>
 
-# Puppeteer Accessibility tree example
-
-https://pptr.dev/#?product=Puppeteer&version=v1.14.0&show=api-accessibilitysnapshotoptions
+# [Cypress example](https://github.com/marcysutton/empathy-driven-development/blob/master/cypress/integration/nav.spec.js)
 
 ```js
-const snapshot = await page.accessibility.snapshot();
-const node = findFocusedNode(snapshot);
-console.log(node && node.name);
-
-function findFocusedNode(node) {
-  if (node.focused)
-    return node;
-  for (const child of node.children || []) {
-    const foundNode = findFocusedNode(child);
-    return foundNode;
-  }
-  return null;
-}
+context("Nav menu", () => {
+    beforeEach(() => {
+        cy.visit(`http://localhost:8000`)
+        cy.injectAxe()
+        cy.wait(100)
+    })
+    it("has no accessibility violations on load", () => {
+        cy.checkA11y()
+    })
+    it("has a focusable, labeled button", () => {
+        cy.get("[aria-label='Open menu']").focus()
+        cy.focused().should("have.attr", "aria-label")
+    })
+})
 ```
 
 </Slide>
@@ -1407,7 +1443,30 @@ function findFocusedNode(node) {
 
 <Slide>
 
-# _No matter what kind of test you’re writing, focus on the outcome, not the implementation_ ✨
+# [Selenium Webdriverjs example](https://github.com/marcysutton/axe-webdriverjs-demo)
+
+```js
+const WebDriver = require('selenium-webdriver')
+ 
+describe('Keyboard tests', () => {
+    let driver = new selenium.Builder().forBrowser('chrome').build()
+        driver.get('http://localhost:4000').then(() => done())
+
+    it('should change state with the keyboard', () => {
+      var selector = 'span[role="radio"][aria-labelledby="radiogroup-0-label-0"]';
+
+      driver.findElement(selenium.By.css(selector))
+        .then((element) => {
+            element.sendKeys(Key.SPACE)
+            return element
+        })
+        .then((element) => element.getAttribute('aria-checked'))
+        .then((attr) => {
+            expect(attr).toEqual('true')
+        })
+    })
+})
+```
 
 </Slide>
 
@@ -1415,13 +1474,31 @@ function findFocusedNode(node) {
 
 <Slide>
 
-# Using a test API
+# _No matter what kind of test:<br />focus on the outcome,<br />not the code implementation_ ✨
+
+</Slide>
+
+---
+
+<Slide>
+
+# Using an A11y test API
 ## Rules you don’t have to write
+
+<div style="display: inline-block; width: 50%;">
 
 - [axe-core](https://github.com/dequelabs/axe-core)
 - [cypress-axe](https://www.npmjs.com/package/cypress-axe)
 - [axe-webdriverjs](https://github.com/dequelabs/axe-webdriverjs)
+
+</div>
+<div style="display: inline-block; width: 50%; vertical-align: top;">
+
 - [WAVE](https://wave.webaim.org/api/)
+- [accessibilityjs](https://github.com/github/accessibilityjs)
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse/)*
+
+</div>
 
 </Slide>
 
@@ -1441,7 +1518,9 @@ Tests can catch roughly 30-50% of accessibility issues,<br />depending on the ru
 
 <Slide>
 
-# Write a combination<br />of tests to catch a variety<br />of bugs 💻🔎🐛
+<div style="text-align: left;">
+    <h1><em>Write a combination<br />of tests to catch a variety<br />of bugs</em> <span role="img" title="laptop">💻</span><span role="img" title="magnifying glass">🔎</span><span role="img" title="bug">🐛</span></h1>
+</div>
 
 </Slide>
 
@@ -1451,7 +1530,7 @@ Tests can catch roughly 30-50% of accessibility issues,<br />depending on the ru
 
 # Exercise!
 
-Write an end-to-end test
+Write an end-to-end accessibility test for<br />keyboard interactions and/or with an accessibility test API
 
 [Test example](https://github.com/marcysutton/js-a11y-workshop/tree/master/cypress/integration)
 
@@ -1463,7 +1542,7 @@ Write an end-to-end test
 
 # Continuous Integration
 
-An opportunity to test for accessibility on every commit, pull request, and deployment
+Opportunities to test for accessibility on every commit,<br />pull request, and deployment
 
 https://marcysutton.github.io/a11y-and-ci/
 
@@ -1473,11 +1552,14 @@ https://marcysutton.github.io/a11y-and-ci/
 
 <Slide>
 
-# Gatsby examples
+# Track who broke the build
+https://twitter.com/zqxwzq/status/868039653697482753
 
-- Color contrast debugging
-- Fix failing focus management tests
-- Get Cypress tests passing on a page
+<div style="max-width: 65%; margin: 1em auto;">
+
+![A TV monitor with broken build bandits wanted for bounty](/ci-bandits.jpg)
+
+</div>
 
 </Slide>
 
@@ -1493,10 +1575,10 @@ Automated testing and linting only gets us so far.<br />Projects need manual hum
 
 <Slide>
 
-# Accessibility resources
+# Manual testing advice
+From Eric Bailey
 
-- http://bit.ly/a11y-resources
-- http://bit.ly/a11y-manual-testing
+https://www.smashingmagazine.com/2018/09/importance-manual-accessibility-testing/
 
 </Slide>
 
@@ -1508,6 +1590,8 @@ Automated testing and linting only gets us so far.<br />Projects need manual hum
 
 - [Access Works](https://access-works.com/)
 - [Fable Tech Labs](https://www.makeitfable.com/)
+
+https://inclusivedesign24.org/2019/
 
 </Slide>
 
