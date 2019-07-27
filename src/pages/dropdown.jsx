@@ -16,7 +16,7 @@ const DropdownPage = () => (
 
       <section className="two-col">
         <div>
-          <h3>Link list dropdown 1</h3>
+          <h3>Bad link list dropdown [<a href="https://github.com/marcysutton/js-a11y-workshop/blob/master/src/components/bad/dropdown.js" aria-label="inaccessible demo source">source</a>]</h3>
           <BadDropdown activatorText="About" items={[{
             text: 'Overview',
             url: '#'
@@ -29,7 +29,7 @@ const DropdownPage = () => (
           }]} />
         </div>
         <div>
-          <h3>Link list dropdown 2</h3>
+          <h3>Better link list dropdown [<a href="https://github.com/marcysutton/js-a11y-workshop/blob/master/src/components/better/dropdown.js" aria-label="inaccessible demo source">source</a>]</h3>
           <BetterDropdown activatorText="About" items={[{
             text: 'Overview',
             url: '#'

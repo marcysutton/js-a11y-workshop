@@ -21,6 +21,11 @@ a, a:link, a:visited {
   color: #333;
 }
 
+p > code {
+  background-color: #f6f7b4;
+  font-weight: bold;
+  padding: 1px 3px;
+}
 header.globalHeader {
   padding: 1em;
   color: white;
@@ -89,6 +94,11 @@ section.two-col {
 .grid-wrap-2 {
   display: grid;
   grid-template-columns: 1fr 2fr;
+}
+.split {
+  width: '50%';
+  display: 'inline-block';
+  vertical-align: 'top';
 }
 textarea {
   height: 200px;

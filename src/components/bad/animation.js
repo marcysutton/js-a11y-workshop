@@ -11,11 +11,13 @@ const Demo = styled.div`
     padding: 0.5em 1em;
   }
  .animationTarget {
-    height: 400px;
+    height: 100%;
     margin: 1em auto;
+    min-width: 400px;
+    min-height: 400px;
     overflow: hidden;
     position: relative;
-    width: 400px; 
+    width: 100%;
   }
   .pulse {
       z-index: 1;

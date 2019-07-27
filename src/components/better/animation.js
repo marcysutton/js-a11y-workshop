@@ -135,13 +135,15 @@ const AccessibleAnimationDemo = () => {
                     <circle cx="512" cy="512" r="512"></circle>
                 </svg>
             </div>
-            <button
-                className="animationToggle"
-                id="animation-toggle"
-                ref={animationToggle}
-                onClick={toggleBtnHandler}>
-                Turn <span>{toggleText}</span> animation
-            </button>
+            <div style={{textAlign: 'center'}}>
+                <button
+                    className="animationToggle"
+                    id="animation-toggle"
+                    ref={animationToggle}
+                    onClick={toggleBtnHandler}>
+                    Turn <span>{toggleText}</span> animation
+                </button>
+            </div>
         </Demo>
     )
 }

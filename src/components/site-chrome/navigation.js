@@ -26,10 +26,10 @@ const Navigation = () => (
                 </Heading>
                 <ul>
                     <li><Link to="/dropdown">Dropdown</Link></li>
-                    <li><Link to="/live-region">Live Region</Link></li>
-                    <li><Link to="/semantics">Semantic Layout</Link></li>
-                    <li><Link to="/reduced-motion">Reduced Motion</Link></li>
-                    <li>Carousel</li>
+                    <li><Link to="/async-form">Async Form</Link></li>
+                    <li><Link to="/layout">Layout</Link></li>
+                    <li><Link to="/animation">Animation</Link></li>
+                    <li><Link to="/enhanced-tablist">Enhanced Tablist</Link></li>
                 </ul>
             </li>
             <li className={`navItemGroup ${navStyles.navItemGroup} `}>

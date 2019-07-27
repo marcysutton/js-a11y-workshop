@@ -1074,7 +1074,7 @@ https://github.com/AlmeroSteyn/react-aria-live
 # Exercise
 ## Async action demo
 
-http://localhost:8000/live-region
+http://localhost:8000/async-form
 
 </Slide>
 
@@ -1134,7 +1134,7 @@ Semantic HTML communicates what's on a page to users of assistive technology, re
 
 ## Semantics demo
 
-http://localhost:8000/semantics
+http://localhost:8000/layout
 
 </Slide>
 
@@ -1217,7 +1217,7 @@ handleReduceMotionChanged(); // trigger once on load
 
 ## Play with reduced-motion<br />and CSS animation or transitions
 
-http://localhost:8000/reduced-motion
+http://localhost:8000/animation
 
 </Slide>
 
@@ -1227,10 +1227,18 @@ http://localhost:8000/reduced-motion
 
 # Progressive enhancement
 
-- turning off JavaScript
-- accessible baselines
-- fallbacks
-- challenges with frameworks
+Emphasize core web page content first, then add layers of presentation and features on top as browsers/network connections allow
+
+<div style="width: 40%; display: inline-block; margin: 0em auto;">
+<ul style="margin-top: 0;">
+    <li>Turn off JavaScript</li>
+    <li>Provide accessible baselines</li>
+    <li>Prioritize core user flows</li>
+</ul>
+
+<p><a href="https://medium.com/@jacobp100/progressive-enhancement-techniques-for-react-part-1-7a551966e4bf">React suggestions</a></p>
+
+</div>
 
 </Slide>
 
@@ -1238,7 +1246,9 @@ http://localhost:8000/reduced-motion
 
 <Slide>
 
-# SSR & Gatsby build
+# Gatsby & SSR
+
+Output static HTML by default at build time
 
 <CodeBlock>
 
@@ -1247,6 +1257,56 @@ gatsby build
 ```
 
 </CodeBlock>
+
+</Slide>
+
+---
+
+
+<Slide>
+
+# Considerations
+Automatic hydration is a bit too automatic
+
+<CodeBlock>
+
+```jsx
+import React, { useEffect, useState } from 'react'
+
+const AccessibleList = ({ items = [] }) => {
+  const [isClient, setClient] = useState(false)
+  /*
+   * Think of this as componentDidMount
+   * on the client, it will run once and update state
+   */
+  useEffect(() => {
+    setClient(true)
+  }, [])
+  return (
+    <ul {...isClient && { 'role': 'tablist' }}>
+      {items.map(item => (
+        <li key={item.id} {...isClient && { 'role': `tab` }}>{item.label}</li>
+      ))}
+    </ul>
+  )
+}
+
+export default AccessibleList
+```
+
+</CodeBlock>
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise!
+
+Play with progressive enhancement
+
+http://localhost:8000/enhanced-tablist
 
 </Slide>
 

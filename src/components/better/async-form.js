@@ -1,20 +1,7 @@
 import React, {useState} from "react"
-
-import Layout from '../components/site-chrome/layout'
-import SEO from '../components/site-chrome/seo'
-
-import LiveRegion from "../components/better/live-region"
 import {DebounceInput} from 'react-debounce-input'
 
-const Textarea = ({handleUpdateFunc}) => (
-  <DebounceInput
-    minLength={2}
-    debounceTimeout={300}
-    forceNotifyByEnter={false}
-    element="textarea"
-    onChange={event => handleUpdateFunc(event.target.value)} />
-)
-const LiveRegionDemoForm = () => {
+const AccessibleAsyncForm = () => {
   const [message, setMessage] = useState(null)
   const [updating, setUpdating] = useState(false)
 
@@ -22,11 +9,7 @@ const LiveRegionDemoForm = () => {
     event.preventDefault()
   }
   const handleTextChange = (value) => {
-    console.log(value)
-    // setMessage(value)
     setUpdating(true)
-    // setMessage('saved!')
-
   }
   const dismissToast = () => {
     setUpdating(false)
@@ -49,24 +32,21 @@ const LiveRegionDemoForm = () => {
             X
           </button>
         </div>
-        <LiveRegion level="polite" message={message} />
+        <div aria-live="polite" role="log" className="visually-hidden">
+            {message ? message : ''}
+        </div>
       </div>
     </form>
   )
 }
 
-const LiveRegionDemoPage = () => {
-  return (
-    <Layout>
-      <SEO title="Live Regions" keywords={['javascript', 'accessibility', 'react']} />
-      <div>
-        <h2>Live Region Demo</h2>
-        <LiveRegionDemoForm />
-      </div>
-    </Layout>
-  )
-}
+const Textarea = ({handleUpdateFunc}) => (
+    <DebounceInput
+      minLength={2}
+      debounceTimeout={300}
+      forceNotifyByEnter={false}
+      element="textarea"
+      onChange={event => handleUpdateFunc(event.target.value)} />
+)
 
-export default LiveRegionDemoPage
-
-
+export default AccessibleAsyncForm
