@@ -3,7 +3,7 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import SEO from "../components/site-chrome/seo"
-import theme from "../slides/theme"
+import theme from "../theme"
 
 const headerFooterStyles = css`
   background-color: ${theme.colors.headerFooterBackground};

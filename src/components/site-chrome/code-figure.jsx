@@ -4,6 +4,7 @@ import styled from "@emotion/styled"
 import theme from "../../theme"
 
 const Figure = styled.figure`
+  font-size: 1.25rem;
   margin: 0;
   vertical-align: top;
 
@@ -29,7 +30,7 @@ const Figure = styled.figure`
     background-color: ${theme.colors.figcaptionBackground};
     box-sizing: border-box;
     color: ${theme.colors.figcaption};
-    font-size: ${theme.figcaption.fontSize};
+    font-size: ${theme.styles.figcaption.fontSize};
     font-weight: bold;
     margin-top: 0;
     padding: 0.5rem;

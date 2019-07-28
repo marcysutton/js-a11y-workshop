@@ -149,11 +149,11 @@ section.two-col {
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
-.split {
-  width: '50%';
-  display: 'inline-block';
-  vertical-align: 'top';
-}
+// .split {
+//   width: 50%;
+//   display: inline-block;
+//   vertical-align: top;
+// }
 textarea {
   height: 200px;
   width: 320px;

@@ -1,8 +1,66 @@
-import Provider from './components/counter'
+import React from 'react'
+
+function Counter ({ children }) {
+  const css = {
+    fontSize: '1.15rem',
+    padding: '0.5em',
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    textAlign: 'right',
+  }
+
+  return <nav css={css} aria-label={`Slide ${children[0]} of ${children[2]}`}>
+    {children}
+  </nav>
+}
+
+const Provider = props => {
+  return <>
+    {props.children}
+    {/* <Counter>{props.index}/{props.slides.length}</Counter> */}
+  </>
+}
 
 export default {
-  css: {
-    fontSize: '1rem'
+  styles: {
+    body: {
+    },
+    Slide: {
+      textAlign: 'center'
+    },
+    p: {
+      fontSize: '2.5rem',
+      margin: "1rem 0",
+      textAlign: 'center'
+    },
+    h1: {
+      fontSize: '5rem',
+      marginBottom: "0.5rem"
+    },
+    h2: {
+      fontSize: '4rem',
+      margin: "0.5rem 0"
+    },
+    'figure': {
+      textAlign: 'left'
+    },
+    code: {
+      fontSize: "inherit"
+    },
+    figcaption: {
+      fontSize: "1.25rem"
+    },
+    li: {
+      marginBottom: "0.5rem",
+      textAlign: 'left'
+    },
+  },
+  text: {
+    heading: {
+      margin: '0 auto 1rem',
+      textAlign: 'center'
+    },
   },
   colors: {
     headerFooterBackground: '#fff',
@@ -17,27 +75,6 @@ export default {
     codeBackground: 'transparent',
     figcaptionBackground: "rebeccapurple",
     figcaption: "#fff"
-  },
-  pre: {
-    fontSize: "1.5rem"
-  },
-  code: {
-    fontSize: "inherit"
-  },
-  figcaption: {
-    fontSize: "1.25rem"
-  },
-  li: {
-    marginBottom: "0.5rem"
-  },
-  h1: {
-    marginBottom: "0.5rem"
-  },
-  h2: {
-    margin: "0.5rem 0"
-  },
-  p: {
-    margin: "1rem 0"
   },
   Provider
 }

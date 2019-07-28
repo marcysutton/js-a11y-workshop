@@ -1,14 +1,14 @@
-import CodeBlock from "../templates/code-figure"
+import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
+
 import Slide from "../templates/slide"
 import ImageSlide from "../templates/image-slide"
+import CodeBlock from "../components/site-chrome/code-figure"
 import AccessibleAnimationDemo from "../components/better/animation"
-// import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
-// import Appear from "@mdx-deck/src/components/appear"
 import Autocomplete from "../components/better/downshift-autocomplete"
 import Dropdown from "../components/better/dropdown"
 
-import baseTheme from './theme'
-export const theme = baseTheme//, highlight]
+import baseTheme from '../theme'
+export const themes = [baseTheme, highlight]
 const openModal = () => {
     document.querySelector('.modal-curtain').removeAttribute('hidden')
 }
@@ -76,15 +76,12 @@ http://bit.ly/microsoft-inclusive-toolkit
 <div style="font-size: 2.25rem;">
 
 - Accessibility debugging
-
 - Accessibility in JavaScript apps
     - Focus management
     - Announcements
     - Semantic HTML
     - Unobtrusive motion
     - Progressive enhancement
-
-
 - Accessibility units
 - Accessible pages
 - Q & A
@@ -95,12 +92,9 @@ http://bit.ly/microsoft-inclusive-toolkit
 
 <Slide>
 
+<div style="margin-top: -4em">
+
 # An app for today
-
-<div style="display: inline-block; max-width: 25%; margin: 0.5em auto 0;">
-
-<img src="../gatsby-icon.png" alt="Gatsby" style="max-width: 47%;margin-right: 0.25em;" />
-<img src="../react-logo.png" alt="React" style="max-width: 47%;" />
 
 </div>
 
@@ -108,6 +102,19 @@ http://bit.ly/microsoft-inclusive-toolkit
 - MDX for components in Markdown
 - Outputs HTML pages by default
 - Includes these slides
+
+<div style="display: inline-block;
+    max-width: 45%;
+    margin: 0.5em auto 0px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    left: 25%;">
+
+<img src="../gatsby-icon.png" alt="Gatsby" style="max-width: 47%;margin-right: 0.25em;" />
+<img src="../react-logo.png" alt="React" style="max-width: 47%;" />
+
+</div>
 
 </Slide>
 
@@ -123,15 +130,17 @@ http://bit.ly/microsoft-inclusive-toolkit
 
 https://github.com/marcysutton/js-a11y-workshop
 
+<CodeBlock>
+
 ```shell
 git clone git@github.com:marcysutton/js-a11y-workshop.git
 npm install
 gatsby develop
 ```
 
-View the app: http://localhost:8000
+</CodeBlock>
 
-Presentation slides: http://localhost:8000/slides
+View the site locally: http://localhost:8000
 
 </Slide>
 
@@ -221,7 +230,7 @@ npm start
 
 </CodeBlock>
 
-- Alternatively: Codepen, Codesandbox, etc.
+Alternatively: Codepen, Codesandbox, etc.
 
 </Slide>
 
@@ -668,7 +677,9 @@ http://w3c.github.io/aria-practices/
 # Navigation vs. Actions
 ## a.k.a. Links vs. Buttons
 
+<div>
 <a href="#">Link</a> <button class="demo-button" onClick={buttonAction}>Button</button>
+</div>
 
 <CodeBlock side="left">
 
@@ -806,7 +817,7 @@ const Layout = () => (
 # Exercise
 ## Dropdown demo
 
-- React: http://localhost:8000/dropdown
+- React: https://marcysutton.github.io/js-a11y-workshop/dropdown
 - vanilla.js: https://codepen.io/marcysutton/pen/JgjYVv
 
 </Slide>
@@ -957,7 +968,7 @@ https://github.com/AlmeroSteyn/react-aria-live
 # Exercise
 ## Async action demo
 
-http://localhost:8000/async-form
+https://marcysutton.github.io/js-a11y-workshop/async-form
 
 </Slide>
 
@@ -1017,7 +1028,7 @@ Semantic HTML communicates what's on a page to users of assistive technology, re
 
 ## Semantics demo
 
-http://localhost:8000/layout
+https://marcysutton.github.io/js-a11y-workshop/layout
 
 </Slide>
 
@@ -1100,7 +1111,7 @@ handleReduceMotionChanged(); // trigger once on load
 
 ## Play with reduced-motion<br />and CSS animation or transitions
 
-http://localhost:8000/animation
+https://marcysutton.github.io/js-a11y-workshop/animation
 
 </Slide>
 
@@ -1189,7 +1200,7 @@ export default AccessibleList
 
 Play with progressive enhancement
 
-http://localhost:8000/enhanced-tablist
+https://marcysutton.github.io/js-a11y-workshop/enhanced-tablist
 
 </Slide>
 
@@ -1271,34 +1282,6 @@ Article: [Writing Automated tests for Accessibility](https://www.deque.com/blog/
 
 <Slide>
 
-# Unit test frameworks
-
-<div style="width: 90%; margin: 0 auto">
-
-<div style="display: inline-block; vertical-align: top; width: 50%;">
-
-- [Jest](https://jestjs.io/)
-- [Jasmine](https://jasmine.github.io/)
-- [Mocha](https://mochajs.org/)
-
-</div>
-
-<div style="display: inline-block; vertical-align: top; width: 50%;">
-
-- [Karma](https://karma-runner.github.io/latest/index.html)
-- [AVA](https://github.com/avajs/ava)
-- [QUnit](https://qunitjs.com/)
-
-</div>
-
-</div>
-
-</Slide>
-
----
-
-<Slide>
-
 # Unit test example
 
 Modal dialog with Jasmine tests
@@ -1348,25 +1331,14 @@ Write an accessibility unit test!
 
 <Slide>
 
-# Integration<br />test frameworks
-
-- [Cypress](https://www.cypress.io/)
-- [WebdriverIO](https://webdriver.io/)
-- [Nightwatch](https://nightwatchjs.org/)
-- [Selenium Webdriver](https://www.npmjs.com/package/selenium-webdriver)
-
-</Slide>
-
----
-
-<Slide>
-
 # [Cypress example](https://github.com/marcysutton/empathy-driven-development/blob/master/cypress/integration/nav.spec.js)
+
+<CodeBlock>
 
 ```js
 context("Nav menu", () => {
     beforeEach(() => {
-        cy.visit(`http://localhost:8000`)
+        cy.visit(`https://marcysutton.github.io/js-a11y-workshop`)
         cy.injectAxe()
         cy.wait(100)
     })
@@ -1380,6 +1352,8 @@ context("Nav menu", () => {
 })
 ```
 
+</CodeBlock>
+
 </Slide>
 
 ---
@@ -1387,6 +1361,8 @@ context("Nav menu", () => {
 <Slide>
 
 # [Selenium Webdriverjs example](https://github.com/marcysutton/axe-webdriverjs-demo)
+
+<CodeBlock>
 
 ```js
 const WebDriver = require('selenium-webdriver')
@@ -1410,6 +1386,7 @@ describe('Keyboard tests', () => {
     })
 })
 ```
+</CodeBlock>
 
 </Slide>
 
