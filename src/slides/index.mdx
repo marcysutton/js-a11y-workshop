@@ -5,9 +5,16 @@ import AccessibleAnimationDemo from "../components/better/animation"
 import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
 // import Appear from "@mdx-deck/components/appear"
 import Autocomplete from "../components/better/downshift-autocomplete"
+import Dropdown from "../components/better/dropdown"
 
 import baseTheme from './theme'
 export const themes = [baseTheme, highlight]
+const openModal = () => {
+    document.querySelector('.modal-curtain').removeAttribute('hidden')
+}
+const buttonAction = () => {
+    alert('Button clicked')
+}
 
 <Slide>
 
@@ -97,11 +104,10 @@ http://bit.ly/microsoft-inclusive-toolkit
 
 </div>
 
-- Sandbox for accessible JS
 - Built with Gatsby and React
 - MDX for components in Markdown
 - Outputs HTML pages by default
-- Also: slides with vanilla.js demos
+- Includes these slides
 
 </Slide>
 
@@ -152,7 +158,7 @@ Presentation slides: http://localhost:8000/slides
 # It doesn’t matter.
 ## People just want to use your site
 
-![Elmo](/elmo-shrug-once.gif)
+![Elmo](/elmo-shrug.gif)
 
 </Slide>
 
@@ -170,19 +176,7 @@ Presentation slides: http://localhost:8000/slides
 
 <Slide>
 
-# Web Accessibility Debugging
-
-<div style="font-size: 6rem; margin-top: 1rem;">
-    <span aria-label="magnifying glass" role="img">🔍</span>
-</div>
-
-</Slide>
-
----
-
-<Slide>
-
-# #A11y debugging steps
+# #A11y debugging
 
 - Render in a web browser
 - Test controls with the keyboard
@@ -197,9 +191,13 @@ Presentation slides: http://localhost:8000/slides
 
 <Slide>
 
-# Web accessibility<br />in the wild
+# Apps in the wild
 
-- [Slack file viewer](https://gatsbyjs.slack.com/files/U964CL6GZ/FKPT589U4/feedback-with-comments.json?origin_team=T6VN36NMP)
+<div style="float: right; font-size: 6rem; margin: 2rem 2rem 0 0;">
+    <span aria-label="magnifying glass" role="img">🔍</span>
+</div>
+
+- [Slack JSON file viewer](https://gatsbyjs.slack.com/files/U964CL6GZ/FKPT589U4/feedback-with-comments.json?origin_team=T6VN36NMP)
 - [GitHub](https://github.com)
 - [Google Maps](https://www.google.com/maps)
 
@@ -211,65 +209,19 @@ Presentation slides: http://localhost:8000/slides
 
 # Prototyping with [Parcel](https://parceljs.org/)
 
-Use your preferred JavaScript libraries
-
 <CodeBlock>
 
 ```shell
-$ npm init
-$ npm install parcel-bundler --save
+git clone https://github.com/marcysutton/parcel-prototype-scaffold parcel-demo
+cd parcel-demo
 
-$ parcel index.html
+npm install
+npm start
 ```
 
 </CodeBlock>
 
 - Alternatively: Codepen, Codesandbox, etc.
-
-</Slide>
-
----
-
-<Slide>
-
-<div style="margin-top: -2em">
-
-# [Parceljs.org](https://parceljs.org/)
-
-</div>
-
-## Test with any modern JS framework
-
-<CodeBlock title="index.html" side="left">
-
-```html
-<!DOCTYPE html>
-<html>
-    <title>React Routing Test</title>
-<body>
-    <div id="app"></div>
-    <script src="./index.js"></script>
-</body>
-</html>
-```
-
-</CodeBlock>
-
-<CodeBlock title="index.js" side="right">
-
-```jsx
-import React from "react"
-import ReactDOM from "react-dom"
-
-const App = () => (
-    <main>
-        <h1>React Demo</h1>
-    </main>
-)
-ReactDOM.render(<App />, document.getElementById("app"))
-```
-
-</CodeBlock>
 
 </Slide>
 
@@ -311,6 +263,10 @@ $ gatsby build && gatsby serve
 <Slide>
 
 # Hidden vs. Visible CSS
+
+<div>
+    <button class="demo-button">Demo button</button>
+</div>
 
 <CodeBlock side="left">
 
@@ -395,7 +351,7 @@ document.body.addEventListener('focusin', (event) => {
 <Slide>
 
 # Exercise 1
-## Play with keyboard testing
+## Test pages with the keyboard
 
 ![a wooden doll thing repeatedly hitting a keyboard](/keyboard.gif)
 
@@ -464,7 +420,7 @@ Cheat sheets for getting started
 # Magnification
 ## For users with low vision
 
-- Browser zoom
+- Browser zoom (all the way: 500%!)
 - OS-level zoom
 - ZoomText & other apps
 
@@ -489,45 +445,17 @@ Things to watch out for:
 
 <Slide>
 
-# Accessibility is an ongoing effort<br />and a culture
-It requires strategy, patience and teamwork: one sprint and pull request at a time
+# Intro to Accessibility<br />in JavaScript Applications
 
-![Cookie Monster's artwork strategy](/strategic-cookie-monster-once.gif)
-
-</Slide>
-
----
-
-<Slide>
-
-# Intro to Accessibility in JS Apps
-
-<img src="/finally.webp" alt="finally" style="min-width: 400px;" />
-
-</Slide>
-
----
-
-<Slide>
-
-<img src="/mythbusters.png" alt="mythbusters" style="max-width: 500px;" />
-
-# JavaScript is an important part of<br />accessible web applications
-
-</Slide>
-
----
-
-<Slide>
-
-# Accessible JavaScript Apps
-Common techniques & requirements
+<div style="width: 55%; margin: 1em auto">
 
 - Focus management
 - Live Region announcements
 - Semantic HTML
 - Unobtrusive motion
 - Progressive enhancement
+
+</div>
 
 </Slide>
 
@@ -537,12 +465,9 @@ Common techniques & requirements
 
 # Focus management
 
-Moving the user's focus after interaction or navigation <br /> to alert them to new content
+_Moving the user’s focus as part of an interaction <br /> to alert them to new content_
 
-- make content visible to everyone
-- get keyboard users to the right place
-- expose it to Assistive Tech
-- disable irrelevant parts of the page
+_Also: handling focus in disabled and mutated parts of the page_
 
 </Slide>
 
@@ -567,6 +492,10 @@ Moving the user's focus after interaction or navigation <br /> to alert them to 
 
 Make non-interactive elements focusable
 
+<div class="demo-button">
+    Demo DIV
+</div>
+
 <CodeBlock>
 
 ```javascript
@@ -590,6 +519,12 @@ tabIndex="99641"    // all up in your tab order. hard to manage
 # tabindex + role + name
 
 Expose accessibility information for focusable elements.
+
+<div>
+    <div class="demo-button" tabindex="0">
+        Demo DIV
+    </div>
+</div>
 
 <CodeBlock side="left" marginClass="noRightMargin">
 
@@ -631,6 +566,12 @@ Expose accessibility information for focusable elements.
 
 Make custom controls fully interactive
 
+<div>
+    <div class="demo-button" tabindex="0" aria-label="Close" role="button">
+        DIV button
+    </div>
+</div>
+
 <CodeBlock side="left">
 
 ```jsx
@@ -670,125 +611,30 @@ https://www.w3.org/TR/wai-aria-1.1/
 - **state**: what's happening to it?
 - **property**: what's the nature of it?
 
+The first [rule of ARIA](https://www.w3.org/TR/using-aria/) is _don’t use it_
+
 </Slide>
-
----
-
-# The Rules of ARIA
-https://www.w3.org/TR/using-aria/
-
-> **The first rule of ARIA is _don’t use it_**:<br />use native HTML elements first when available
-
-[![Aliens Meme with Paul Adam: I'm not saying the answer is ARIA...but add ARIA](/paul-adam-aria.png)](https://twitter.com/stevefaulkner/status/445874167544434688 "Originally from a tweet by Steve Faulkner about Paul Adam")
 
 ---
 
 <Slide>
 
-# ARIA states in focus management
-
-https://www.w3.org/TR/wai-aria-1.1/#states_and_properties<br />
-http://w3c.github.io/aria-practices/
-
-<div style="display: inline-block; vertical-align: top; width: 50%;">
-
-- aria-haspopup
-- aria-expanded
-- aria-modal
-- aria-controls ([is poop](https://www.heydonworks.com/article/aria-controls-is-poop))
-
-</div>
-
-<div style="display: inline-block; width: 50%;">
-
-- aria-activedescendant
-- aria-owns
-- aria-current
-
-</div>
-
-<div style="margin-top:3rem;">
-
-<span role="img" title="light bulb">💡</span> <em>Test in assistive technologies</em>
-
-</div>
-
-</Slide>
-
----
-
-# role="application"
-
-<span role="img" title="alarm">🚨</span><em>rarely the right solution</em><span role="img" title="alarm">🚨</span>
-
-Control is given to the browser and web application to handle keyboard and assistive technology interaction
-
-<CodeBlock side="split">
-
-```html
-<div role="application">
-    <h1>Good luck</h1>
-</div>
-```
-
-</CodeBlock>
-
-<div style="margin-top: 2em">
-    <a href="https://a11ywins.tumblr.com/post/182992115383/aria-authoring-practices-on-accessible-date)">A11yWins on Date Pickers</a>
-</div>
-
----
-
-# Modal vs. non-modal
-## Block interacting with the background?
-
-<div style="display: inline-block; width: 50%;">
-
-### Modal 
-
-- Modal dialogs
-- Layers covering the whole screen
-- Focus management!
-
-</div>
-
-
-<div style="display: inline-block; width: 50%;">
-
-### Non-modal
-- Dropdowns
-- Sections of a fully visible layout
-- Skip links!
-
-</div>
-
----
-
 # Modal layers: <br />disabling background content
+
+<div>
+    <button class="demo-button" onClick={openModal}>Open curtain</button>
+    <div style="display: inline-block; margin-left: 1em;">
+        <a href="#">Demo link</a>
+    </div>
+</div>
 
 - `aria-hidden="true"` and `tabindex="-1"`
 - `inert` (+ [polyfill](https://github.com/WICG/inert))
 - CSS `display: none`
 
-<CodeBlock side="left">
+<div class="modal-curtain" hidden></div>
 
-```html
-<div aria-hidden="true">
-    <a href="..." tabIndex="-1">Hidden link</a>
-</div>
-```
-
-</CodeBlock>
-
-<CodeBlock side="left">
-
-```html
-<div inert>
-    <a href="...">Inert link</a>
-</div>
-```
-
-</CodeBlock>
+</Slide>
 
 ---
 
@@ -805,11 +651,15 @@ Control is given to the browser and web application to handle keyboard and assis
 
 ---
 
+<Slide>
+
 # Widget interactions:<br />arrow keys or nah?
 
 It depends on the role and pattern <span role="img" title="sparkle">✨</span>
 
 http://w3c.github.io/aria-practices/
+
+</Slide>
 
 ---
 
@@ -817,6 +667,8 @@ http://w3c.github.io/aria-practices/
 
 # Navigation vs. Actions
 ## a.k.a. Links vs. Buttons
+
+<a href="#">Link</a> <button class="demo-button" onClick={buttonAction}>Button</button>
 
 <CodeBlock side="left">
 
@@ -845,6 +697,10 @@ https://marcysutton.com/links-vs-buttons-in-modern-web-applications
 # Visible focus styles
 Useful for so many people and situations, but often turned off for everyone
 
+<div>
+<button class="demo-button no-focus">Demo button</button>
+</div>
+
 <CodeBlock side="left" title="🚫 don’t">
 
 ```css
@@ -871,8 +727,9 @@ Useful for so many people and situations, but often turned off for everyone
 
 <Slide>
 
-# A sad reality
-People often think visible focus styles are a bug. Tools for mitigating:
+# Input modality styling tools
+
+_An OS-level preference would be ideal!_ 👍
 
 <CodeBlock side="left" title=":focus-visible + polyfill" url="https://github.com/WICG/focus-visible">
 
@@ -902,18 +759,18 @@ import 'what-input'
 ```
 </CodeBlock>
 
-_An OS-level preference would be ideal!_ 👍
-
 </Slide>
 
 ---
 
 <Slide>
 
-# CSS-in-JS
-## Don’t mess up user-stylesheets
+<div style="margin-top: -2em">
 
-Cached class names aren't human friendly, e.g. `class="sc-bdVaJa"`
+# CSS-in-JS
+</div>
+
+Cached class names aren't user friendly, e.g. `class="sc-bdVaJa"`
 
 <CodeBlock side="center" title="Styled Components" url="https://codepen.io/marcysutton/pen/MRxxyM?editors=1010">
 
@@ -924,7 +781,8 @@ const MegaHeader = styled.header`
     background-color: rebeccapurple;
 `
 const Layout = () => (
-    <MegaHeader className={`site-wrap`}>  {/* add a stable CSS class */}
+    // add a stable CSS class
+    <MegaHeader className={`site-wrap`}>
         <h1>My Gatsby Site</h1>
     </MegaHeader>
 )

@@ -64,6 +64,34 @@ section.two-col {
   display: grid;
   grid-template-columns: 1fr  1fr;
 }
+.demo-button {
+  background-color: #333;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0rem 0 1.5rem;
+  padding: 0.25rem 0.5rem;
+
+  &.no-focus {
+    outline: none;
+  }
+}
+.modal-curtain {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+[hidden] {
+  display: none;
+}
 .semantic-layout {
   margin-bottom: 2em;
 

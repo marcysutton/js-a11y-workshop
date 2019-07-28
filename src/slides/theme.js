@@ -37,7 +37,7 @@ export default {
     margin: "0.5rem 0"
   },
   p: {
-    marginTop: "1rem"
+    margin: "1rem 0"
   },
   Provider
 }
