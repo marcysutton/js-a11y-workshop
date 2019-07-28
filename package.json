@@ -22,7 +22,7 @@
     "gatsby-plugin-sharp": "^2.2.7",
     "gatsby-remark-prismjs": "^3.3.3",
     "gatsby-source-filesystem": "^2.1.5",
-    "gatsby-theme-mdx-deck": "^3.0.7",
+    "gatsby-theme-mdx-deck": "^3.0.8",
     "gatsby-transformer-sharp": "^2.2.3",
     "match-sorter": "^4.0.1",
     "node-sass": "^4.12.0",
