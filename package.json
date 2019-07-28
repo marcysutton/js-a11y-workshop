@@ -14,6 +14,7 @@
     "downshift": "^3.2.10",
     "emotion": "^10.0.14",
     "extract-text-webpack-plugin": "^3.0.2",
+    "focus-visible": "^5.0.2",
     "gatsby": "^2.13.25",
     "gatsby-image": "^2.2.6",
     "gatsby-plugin-manifest": "^2.2.1",
@@ -35,8 +36,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "sass-loader": "^7.1.0",
-    "starwars-names": "^1.6.0",
     "styled-components": "^4.3.2"
+    "starwars-names": "^1.6.0"
   },
   "keywords": [
     "gatsby"

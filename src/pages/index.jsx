@@ -25,6 +25,13 @@ const IndexPage = () => (
         <li><a href="/angular-protractor-accessibility-plugin/">Protractor Accessibility Plugin</a></li>
       </ul>
 
+      <h3>Screen reader cheat sheets</h3>
+      <ul>
+        <li><a href="https://webaim.org/articles/voiceover/">Voiceover</a></li>
+        <li><a href="https://webaim.org/articles/nvda/">NVDA</a></li>
+        <li><a href="https://webaim.org/articles/jaws/">JAWS</a></li>
+      </ul>
+
       <h3>Framework accessibility docs</h3>
       <ul>
         <li><a href="https://reactjs.org/docs/accessibility.html">Reactjs.org</a></li>

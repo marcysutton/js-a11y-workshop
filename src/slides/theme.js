@@ -25,7 +25,7 @@ export default {
     fontSize: "inherit"
   },
   figcaption: {
-    fontSize: "1rem"
+    fontSize: "1.25rem"
   },
   li: {
     marginBottom: "0.5rem"
@@ -37,7 +37,7 @@ export default {
     margin: "0.5rem 0"
   },
   p: {
-    marginTop: "1rem"
+    margin: "1rem 0"
   },
   Provider
 }

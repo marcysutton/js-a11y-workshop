@@ -1,15 +1,6 @@
 import React, {useState} from "react"
 import {DebounceInput} from 'react-debounce-input'
 
-const Textarea = ({handleUpdateFunc}) => (
-  <DebounceInput
-    minLength={2}
-    debounceTimeout={300}
-    forceNotifyByEnter={false}
-    element="textarea"
-    onChange={event => handleUpdateFunc(event.target.value)} />
-)
-
 const InaccessibleAsyncFormDemo = () => {
   const [updating, setUpdating] = useState(false)
 
@@ -38,5 +29,14 @@ const InaccessibleAsyncFormDemo = () => {
     </form>
   )
 }
+
+const Textarea = ({handleUpdateFunc}) => (
+  <DebounceInput
+    minLength={2}
+    debounceTimeout={300}
+    forceNotifyByEnter={false}
+    element="textarea"
+    onChange={event => handleUpdateFunc(event.target.value)} />
+)
 
 export default InaccessibleAsyncFormDemo
