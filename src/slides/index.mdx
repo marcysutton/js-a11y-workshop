@@ -196,10 +196,18 @@ Presentation slides: http://localhost:8000/slides
 
 # An app for today
 
+<div style="display: inline-block; max-width: 25%; margin: 0.5em auto 0;">
+
+<img src="/gatsby-icon.png" alt="Gatsby" style="max-width: 47%;margin-right: 0.25em;" />
+<img src="/react-logo.png" alt="React" style="max-width: 47%;" />
+
+</div>
+
 - Sandbox for accessible JS
 - Built with Gatsby and React
 - MDX for components in Markdown
 - Outputs HTML pages by default
+- Also: slides with vanilla.js demos
 
 </Slide>
 
@@ -295,15 +303,20 @@ Presentation slides: http://localhost:8000/slides
 
 # Prototyping with [Parcel](https://parceljs.org/)
 
+Use your preferred JavaScript libraries
+
 <CodeBlock>
 
 ```shell
-$ npm install parcel-bundler -g
+$ npm init
+$ npm install parcel-bundler --save
 
 $ parcel index.html
 ```
 
 </CodeBlock>
+
+- Alternatively: Codepen, Codesandbox, etc.
 
 </Slide>
 
@@ -913,6 +926,102 @@ http://w3c.github.io/aria-practices/
 </CodeBlock>
 
 https://marcysutton.com/links-vs-buttons-in-modern-web-applications
+
+</Slide>
+
+---
+
+<Slide>
+
+# Visible focus styles
+Useful for so many people and situations, but often turned off for everyone
+
+<CodeBlock side="left" title="🚫 don’t">
+
+```css
+*:focus {
+    outline: none;
+}
+```
+</CodeBlock>
+
+<CodeBlock side="right" title="✅ do">
+
+```css
+:hover, :focus {
+   /* interaction styles here  */
+   outline: 3px solid blue;
+}
+```
+</CodeBlock>
+
+</Slide>
+
+---
+
+
+<Slide>
+
+# A sad reality
+People often think visible focus styles are a bug. Tools for mitigating:
+
+<CodeBlock side="left" title=":focus-visible + polyfill" url="https://github.com/WICG/focus-visible">
+
+```css
+:focus:not(.focus-visible) {
+	outline: 0;
+ }
+ :focus-visible,
+ data-focus-visible-added {
+	outline: 3px solid blue;
+ }
+```
+</CodeBlock>
+
+<CodeBlock side="right" title="What Input.js" url="https://github.com/ten1seven/what-input">
+
+```js
+// in a layout or component
+import 'what-input'
+```
+
+```css
+/* in your CSS */
+[data-whatintent='mouse'] *:focus {
+  outline: none;
+}
+```
+</CodeBlock>
+
+_An OS-level preference would be ideal!_ 👍
+
+</Slide>
+
+---
+
+<Slide>
+
+# CSS-in-JS
+## Don’t mess up user-stylesheets
+
+Cached class names aren't human friendly, e.g. `class="sc-bdVaJa"`
+
+<CodeBlock side="center" title="Styled Components" url="https://codepen.io/marcysutton/pen/MRxxyM?editors=1010">
+
+```jsx
+import React from 'react'
+import { styled } from 'styled-components'
+const MegaHeader = styled.header`
+    background-color: rebeccapurple;
+`
+const Layout = () => (
+    <MegaHeader className={`site-wrap`}>  {/* add a stable CSS class */}
+        <h1>My Gatsby Site</h1>
+    </MegaHeader>
+)
+```
+
+</CodeBlock>
 
 </Slide>
 

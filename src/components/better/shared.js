@@ -60,14 +60,14 @@ const Input = styled('input')(
     background: '#fff',
     display: 'inline-block',
     padding: '1em 2em 1em 1em',
-    color: 'rgba(0,0,0,.87)',
+    color: 'rgba(0,0,0,1)',
     boxShadow: 'none',
-    border: '1px solid rgba(34,36,38,.15)',
+    border: '1px solid rgba(34,36,38,1)',
     borderRadius: '.30rem',
     transition: 'box-shadow .1s ease,width .1s ease',
     [onAttention]: {
-      borderColor: '#96c8da',
-      boxShadow: '0 2px 3px 0 rgba(34,36,38,.15)',
+      borderColor: '#00b7f9',
+      boxShadow: '0 2px 3px 0 rgba(34,36,38,.5)',
     },
   },
   ({isOpen}) =>

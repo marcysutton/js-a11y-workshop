@@ -11,6 +11,10 @@ const Figure = styled.figure`
     display: inline-block;
     min-width: auto;
   }
+  &.center {
+    margin: 0 auto;
+    min-width: 80%;
+  }
   &.left {
     margin-right: 1rem;
   }
@@ -30,6 +34,10 @@ const Figure = styled.figure`
     margin-top: 0;
     padding: 0.5rem;
     text-align: left;
+
+    a {
+      color: inherit;
+    }
   }
 `
 const blockClassName = (side, marginClass) => {
@@ -42,11 +50,13 @@ const blockClassName = (side, marginClass) => {
   }
   return null;
 }
-export default ({ title, side, marginClass, children }) => (
+export default ({ title, side, url, marginClass, children }) => (
   <Figure className={blockClassName(side, marginClass)}>
     { children }
     { title ?
-      <figcaption>{ title }</figcaption> 
+      <figcaption>
+        { url ? <a href={url}>{title}</a> : title }
+      </figcaption> 
       : null }
   </Figure>
 )
