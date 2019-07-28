@@ -1,4 +1,4 @@
-import Provider from './counter'
+import Provider from './components/counter'
 
 export default {
   css: {

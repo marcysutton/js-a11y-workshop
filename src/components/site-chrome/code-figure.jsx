@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import theme from "../slides/theme"
+import theme from "../../theme"
 
 const Figure = styled.figure`
   margin: 0;

@@ -10,23 +10,18 @@ module.exports = {
   pathPrefix: "/js-a11y-workshop",
   plugins: [
     {
-      resolve: `@mdx-deck/gatsby-theme`,
+      resolve: `gatsby-theme-mdx-deck`,
       options: {
         // disable gatsby-mdx plugin – use this when your site already uses gatsby-mdx
         mdx: false,
         // source directory for decks
-        path: `src/slides`,
+        contentPath: `src/slides`,
+        basePath: '/slides',
         // name routes' basepath
         name: `slides`,
       },
     },
     `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        defaultLayouts: { default: path.resolve(`./src/components/layout.js`) },
-      },
-    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -55,12 +50,6 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/blueicon.jpg`, // This path is relative to the root of the site.
       },
-    },
-    {
-      resolve: `gatsby-plugin-compile-es6-packages`,
-      options: {
-        modules: [`@mdx-deck/gatsby-theme`]
-      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline

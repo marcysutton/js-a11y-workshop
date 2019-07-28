@@ -2,13 +2,13 @@ import CodeBlock from "../templates/code-figure"
 import Slide from "../templates/slide"
 import ImageSlide from "../templates/image-slide"
 import AccessibleAnimationDemo from "../components/better/animation"
-import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
-// import Appear from "@mdx-deck/components/appear"
+// import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
+// import Appear from "@mdx-deck/src/components/appear"
 import Autocomplete from "../components/better/downshift-autocomplete"
 import Dropdown from "../components/better/dropdown"
 
 import baseTheme from './theme'
-export const themes = [baseTheme, highlight]
+export const theme = baseTheme//, highlight]
 const openModal = () => {
     document.querySelector('.modal-curtain').removeAttribute('hidden')
 }
