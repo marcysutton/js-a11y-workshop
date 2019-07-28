@@ -1,4 +1,5 @@
 import React from 'react'
+import { useDeck } from 'gatsby-theme-mdx-deck'
 
 function Counter ({ children }) {
   const css = {
@@ -16,9 +17,12 @@ function Counter ({ children }) {
 }
 
 const Provider = props => {
+  const deck = useDeck()
+  const { index, length } = deck
+
   return <>
     {props.children}
-    {/* <Counter>{props.index}/{props.slides.length}</Counter> */}
+    <Counter>{index}/{length}</Counter>
   </>
 }
 
