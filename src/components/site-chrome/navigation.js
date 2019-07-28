@@ -1,29 +1,20 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Heading } from "grommet"
 
 import navStyles from "./navigation.module.scss"
 
 const Navigation = () => (
-    <div className={`nav ${navStyles.nav}`}>
-        <Heading
-            className="visually-hidden"
-            level="2"
-        >
+    <nav className={`nav ${navStyles.nav}`}>
+        <h2 className="visually-hidden">
             Navigation
-        </Heading>
+        </h2>
         <ul>
             <li><Link to="/">App Home</Link></li>
             <li><Link to="/slides">Slide deck</Link></li>
             <li className={`navItemGroup ${navStyles.navItemGroup} `}>
-                <Heading
-                    className={`navHeading ${navStyles.navHeading}`}
-                    level="3"
-                    size="small"
-                    margin="none"
-                >
+                <h3 className={`navHeading ${navStyles.navHeading}`}>
                     Demos
-                </Heading>
+                </h3>
                 <ul>
                     <li><Link to="/dropdown">Dropdown</Link></li>
                     <li><Link to="/async-form">Async Form</Link></li>
@@ -33,14 +24,9 @@ const Navigation = () => (
                 </ul>
             </li>
             <li className={`navItemGroup ${navStyles.navItemGroup} `}>
-                <Heading
-                    className={`navHeading ${navStyles.navHeading}`}
-                    level="3"
-                    size="small"
-                    margin="none"
-                >
+                <h3 className={`navHeading ${navStyles.navHeading}`}>
                     Concepts
-                </Heading>
+                </h3>
                 <ul>
                     <li>Focus management</li>
                     <li>Announcements</li>
@@ -50,7 +36,7 @@ const Navigation = () => (
                 </ul>
             </li>
         </ul>
-    </div>
+    </nav>
 )
 
 export default Navigation

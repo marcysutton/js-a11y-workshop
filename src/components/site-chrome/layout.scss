@@ -8,6 +8,7 @@
   box-sizing: inherit;
 }
 html {
+  font-size: 20px;
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -20,21 +21,46 @@ body {
 a, a:link, a:visited {
   color: #333;
 }
-
 p > code {
   background-color: #f6f7b4;
   font-weight: bold;
   padding: 1px 3px;
 }
-header.globalHeader {
-  padding: 1em;
-  color: white;
-  
-  h1 {
-    // display: grid;
-    // grid-gap: 0.5em;
-    // grid-template-columns: min-content auto;
+.js-workshop-app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "header header"
+                        "nav  main";
+  height: 100vh;
+  width: 100vw;
+
+  main {
+    background-color: #fff;
+    grid-area: main;
   }
+  nav {
+    background-color: #ececec;
+    grid-area: nav;
+  }
+  header {
+    grid-area: header;
+  }
+  p, ul {
+    margin-bottom: 1em;
+    line-height: 1.5;
+  }
+}
+@media screen and (max-width: 600px) {
+  .js-workshop-app {
+    display: block;
+  }
+}
+header.globalHeader {
+  background-color: rebeccapurple;
+  color: white;
+  padding: 1em;
+
   .headerIcon {
     display: inline-block;
     height: 1em;
