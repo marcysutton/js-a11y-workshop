@@ -12,13 +12,9 @@ module.exports = {
     {
       resolve: `gatsby-theme-mdx-deck`,
       options: {
-        // disable gatsby-mdx plugin – use this when your site already uses gatsby-mdx
-        mdx: false,
         // source directory for decks
         contentPath: `src/slides`,
         basePath: '/slides',
-        // name routes' basepath
-        name: `slides`,
       },
     },
     `gatsby-plugin-sass`,

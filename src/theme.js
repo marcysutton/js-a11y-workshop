@@ -1,4 +1,4 @@
-import Provider from './components/counter'
+import Provider from './components/site-chrome/counter'
 
 export default {
   css: {

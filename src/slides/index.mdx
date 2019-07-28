@@ -1,18 +1,19 @@
-import CodeBlock from "../templates/code-figure"
+import CodeBlock from "../components/site-chrome/code-figure"
 import Slide from "../templates/slide"
 import ImageSlide from "../templates/image-slide"
 import AccessibleAnimationDemo from "../components/better/animation"
-// import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
-// import Appear from "@mdx-deck/src/components/appear"
 import Autocomplete from "../components/better/downshift-autocomplete"
 import Dropdown from "../components/better/dropdown"
 
-import baseTheme from './theme'
+import baseTheme from '../theme'
+
 export const theme = baseTheme//, highlight]
-const openModal = () => {
+
+export const openModal = () => {
     document.querySelector('.modal-curtain').removeAttribute('hidden')
 }
-const buttonAction = () => {
+
+export const buttonAction = () => {
     alert('Button clicked')
 }
 
@@ -271,7 +272,7 @@ $ gatsby build && gatsby serve
 <CodeBlock side="left">
 
 ```css
-.visuallyhidden { 
+.visuallyhidden {
 	border: 0;
 	clip: rect(0 0 0 0);
 	height: 1px;
@@ -531,7 +532,7 @@ Expose accessibility information for focusable elements.
 ```html
 <div tabIndex="0"
      role="button"
-     aria-label="Close">   
+     aria-label="Close">
 </div>
 ```
 
@@ -544,7 +545,7 @@ Expose accessibility information for focusable elements.
 // focusable
 // a button widget, not a DIV
 // an accessible name
- 
+
 ```
 
 </CodeBlock>
@@ -579,7 +580,7 @@ Make custom controls fully interactive
      role="button"
      aria-label="Close"
      onClick={clickHandler}
-     onKeyDown={keydownHandler}>   
+     onKeyDown={keydownHandler}>
 </div>
 ```
 
@@ -591,7 +592,7 @@ Make custom controls fully interactive
 ```jsx
 // or just use a button :)
 <button aria-label="Close"
-        onClick={clickHandler}>   
+        onClick={clickHandler}>
 </button>
 ```
 
@@ -861,8 +862,8 @@ Navigation where JavaScript controls browser history<br />and dynamically maps U
 # Exercise
 ## Client-side routing demo
 
-- React: 
-- vanilla.js: 
+- React:
+- vanilla.js:
 
 </Slide>
 
@@ -1077,7 +1078,7 @@ var motionQuery = matchMedia('(prefers-reduced-motion)');
 function handleReduceMotionChanged() {
   if (motionQuery.matches) {
     /* adjust 'transition' or 'animation' properties */
-  } else { 
+  } else {
     /* standard motion */
   }
 }
@@ -1390,7 +1391,7 @@ context("Nav menu", () => {
 
 ```js
 const WebDriver = require('selenium-webdriver')
- 
+
 describe('Keyboard tests', () => {
     let driver = new selenium.Builder().forBrowser('chrome').build()
         driver.get('http://localhost:4000').then(() => done())

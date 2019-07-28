@@ -1,4 +1,5 @@
 import React from 'react'
+import { useDeck } from 'gatsby-theme-mdx-deck'
 
 function AtTheBottomCenter ({ children }) {
   const css = {
@@ -16,8 +17,11 @@ function AtTheBottomCenter ({ children }) {
 }
 
 export default function Provider ({ children, ...props }) {
+  const deck = useDeck()
+  const { index, length } = deck
+
   return <>
     {children}
-    <AtTheBottomCenter>{props.index}/{props.slides.length}</AtTheBottomCenter>
+    <AtTheBottomCenter>{index}/{length}</AtTheBottomCenter>
   </>
 }
