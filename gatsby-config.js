@@ -7,6 +7,7 @@ module.exports = {
       `Learn the necessary techniques and tools for building inclusive web applications with JavaScript.`,
     author: `@marcysutton`,
   },
+  pathPrefix: "/js-a11y-workshop",
   plugins: [
     {
       resolve: `@mdx-deck/gatsby-theme`,
