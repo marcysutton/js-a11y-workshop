@@ -5,7 +5,7 @@ import React from 'react'
 const Header = ({ siteTitle }) => (
   <header className="globalHeader">
     <ul className="skip-link">
-      <li><a href="#main">Skip to main</a></li>
+      <li><a href="#skip-main">Skip to main</a></li>
     </ul>
     <h1>
       <Link

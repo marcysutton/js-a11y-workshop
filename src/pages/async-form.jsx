@@ -13,19 +13,16 @@ const LiveRegionDemoPage = () => {
     <Layout>
       <SEO title="Live Regions" keywords={['javascript', 'accessibility', 'react']} />
       <div>
-        <RouteTargetHeading
-          level={2}
-          targetID="navigation"
-          >
+        <h2>
           Live Region Demo
-        </RouteTargetHeading>
+        </h2>
         <section className="two-col">
           <div>
           <h3>Inaccessible async form demo  [<a href="https://github.com/marcysutton/js-a11y-workshop/tree/master/src/components/bad/async-form.js" aria-label="accessible demo source">source</a>]</h3>
           <InaccessibleAsyncFormDemo />
           </div>
           <div>
-          <h3>More accessible async form demo [<a href="https://github.com/marcysutton/js-a11y-workshop/blob/master/src/components/better/async-form.js" aria-label="accessible demo source">source</a>]</h3>
+          <h3>More accessible async form demo</h3>
             <BetterAsyncFormDemo />
           </div>
         </section>

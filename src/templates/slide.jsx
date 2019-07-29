@@ -67,7 +67,7 @@ const FooterByline = styled.p`
 export default ({ children }) => (
   <>
     <SEO title="Workshop Slides" keywords={['workshop', 'javascript', 'accessibility', 'react']} />
-    <Header>
+    <Header className="header">
       <P>
         <a href="../">
           <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 100 125">
@@ -77,10 +77,10 @@ export default ({ children }) => (
           back to demos</a>
       </P>
     </Header>
-    <Main>
+    <Main className="main">
       {children}
     </Main>
-    <Footer css={headerFooterStyles}>
+    <Footer css={headerFooterStyles} className="footer">
       <Separator />
       <FooterByline>
         Workshop Slides: Accessibility in JavaScript Applications ~  <span>by <a href="https://twitter.com/marcysutton">@marcysutton</a></span>

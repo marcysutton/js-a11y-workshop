@@ -5,19 +5,16 @@ import SEO from '../components/site-chrome/seo'
 
 import RouteTargetHeading from "../components/better/route-target-heading.js"
 
-import EnhancingList from "../components/better/enhancing-list"
+import EnhancingList from "../components/better/tab-list"
 
 const ProgressiveEnhancementPage = () => {
   return (
     <Layout>
       <SEO title="Progressive Enhancement demos" keywords={['javascript', 'accessibility', 'react']} />
       <div>
-        <RouteTargetHeading
-          level={2}
-          targetID="navigation"
-        >
+        <h2>
           Progressive Enhancement Demo
-        </RouteTargetHeading>
+        </h2>
         <p>This widget outputs an unordered list in HTML at build time, with ARIA role enhancements when JavaScript loads.</p>
         <p>To test this demo: run <code>gatsby build && gatsby serve</code> and turn off JavaScript in your browser</p>
         <p><strong>[<a href="https://github.com/marcysutton/js-a11y-workshop/blob/master/src/components/better/enhancing-list.js">component source</a>]</strong></p>

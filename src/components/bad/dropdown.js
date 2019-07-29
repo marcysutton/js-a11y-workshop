@@ -1,24 +1,24 @@
 import React, { useState, useRef, useEffect } from "react"
 import uuid from "uuid"
 
-import dropdownStyles from "./dropdown.module.scss"
+import  "./dropdown.scss"
 
 const Dropdown = ({ activatorText, items = [] }) => {
-    const [activated, setActivated] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
     const activatorRef = useRef()
     const listRef = useRef()
 
     const handleClick = () => {
-        setActivated(!activated)
+        setIsOpen(!isOpen)
     }
     const handleClickOutside = (event) => {
         if (listRef.current.contains(event.target) || activatorRef.current.contains(event.target)) {
             return
         }
-        setActivated(false)
+        setIsOpen(false)
     }
     useEffect(() => {
-        if (activated) {
+        if (isOpen) {
           document.addEventListener("mousedown", handleClickOutside)
         } else {
           document.removeEventListener("mousedown", handleClickOutside)
@@ -27,14 +27,14 @@ const Dropdown = ({ activatorText, items = [] }) => {
         return () => {
           document.removeEventListener("mousedown", handleClickOutside)
         }
-      }, [activated])
+      }, [isOpen])
     return (
         <div
-            className={dropdownStyles.wrap}
+            className="wrap"
         >
             <span
                 ref={activatorRef}
-                className={dropdownStyles.activator}
+                className="activator"
                 onClick={handleClick}
             >
                 { activatorText + '' }
@@ -43,8 +43,8 @@ const Dropdown = ({ activatorText, items = [] }) => {
                 ref={listRef}
                 id={`list${uuid.v4()}`}
                 className={
-                    `itemList ${dropdownStyles.itemList} ` +
-                    (activated ? dropdownStyles.activated : null)
+                    `itemList ` +
+                    (isOpen ? 'active' : null)
                 }
             >
                 {items.map((item, index) => {

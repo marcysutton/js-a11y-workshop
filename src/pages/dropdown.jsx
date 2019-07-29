@@ -12,12 +12,9 @@ const DropdownPage = () => (
   <Layout>
     <SEO title="Dropdown" keywords={['javascript', 'accessibility', 'react']} />
     <div>
-      <RouteTargetHeading
-        level={2}
-        targetID="navigation"
-        >
+      <h2>
         Dropdowns
-      </RouteTargetHeading>
+      </h2>
       <p>Tuck controls into an expandible, collapsible, accessible menu. Consider, however, whether you really need a dropdown.</p>
       <p>Keyboard interactions will depend on what's in the menu. List of links? The TAB key is fine.<br />UI actions with a button or radio buttons? Script the arrow keys.</p>
 
@@ -36,8 +33,8 @@ const DropdownPage = () => (
           }]} />
         </div>
         <div>
-          <h3>Better link list dropdown [<a href="https://github.com/marcysutton/js-a11y-workshop/blob/master/src/components/better/dropdown.js" aria-label="inaccessible demo source">source</a>]</h3>
-          <BetterDropdown activatorText="About" items={[{
+          <h3>Better link list dropdown</h3>
+          <BetterDropdown items={[{
             text: 'Overview',
             url: '#'
           },{

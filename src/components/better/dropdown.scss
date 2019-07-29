@@ -1,7 +1,7 @@
-.wrap {
+.dropdown-wrap {
     position: relative;
 }
-.activator {
+.dropdown-activator {
     align-items: center;
     background-color: inherit;
     border: 1px solid transparent;
@@ -9,7 +9,7 @@
     color: inherit;
     display: flex;
     font-size: inherit;
-    max-width: 120px;
+    max-width: 160px;
     padding: 1em;
 
     &:after {
@@ -22,12 +22,12 @@
         transform: rotate(45deg);
     }
 }
-.itemList {
+.dropdown-itemList {
     background-color: #ececec;
     color: black;
     display: none;
     margin: 0;
-    min-width: 120px;
+    min-width: 160px;
     padding: 0;
     position: absolute;
 
@@ -40,7 +40,8 @@
             padding: 0.5em;
         }
     }
-}
-.activated {
-    display: block;
+
+    &.active {
+        display: block;
+    }
 }

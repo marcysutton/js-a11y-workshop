@@ -12,12 +12,9 @@ const ReducedMotionDemoPage = () => (
   <Layout>
     <SEO title="Reducing motion" keywords={['javascript', 'accessibility', 'react']} />
     <div>
-      <RouteTargetHeading
-        level={2}
-        targetID="navigation"
-      >
+      <h2>
         Reducing motion for accessibility
-      </RouteTargetHeading>
+      </h2>
       <p>Let‘s build safe interfaces that delight.</p>
       <section className="two-col">
         <div>
@@ -25,7 +22,7 @@ const ReducedMotionDemoPage = () => (
           <InaccessibleAnimationDemo />
         </div>
         <div>
-          <h3>More accessible animation demo [<a href="https://github.com/marcysutton/js-a11y-workshop/blob/master/src/components/better/animation.js" aria-label="more accessible demo source">source</a>]</h3>
+          <h3>More accessible animation demo</h3>
           <AccessibleAnimationDemo />
         </div>
       </section>

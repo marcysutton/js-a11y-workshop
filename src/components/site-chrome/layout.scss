@@ -21,6 +21,13 @@ body {
 a, a:link, a:visited {
   color: #333;
 }
+.js-focus-visible :focus {
+  outline: none;
+}
+.js-focus-visible :focus-visible {
+  outline: 5px auto lightblue;
+  outline: 5px auto -webkit-focus-ring-color;
+}
 p > code {
   background-color: #f6f7b4;
   font-weight: bold;
@@ -43,7 +50,7 @@ p > code {
     background-color: #ececec;
     grid-area: nav;
   }
-  header {
+  header.globalHeader {
     grid-area: header;
   }
   p, ul {
@@ -149,11 +156,6 @@ section.two-col {
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
-// .split {
-//   width: 50%;
-//   display: inline-block;
-//   vertical-align: top;
-// }
 textarea {
   height: 200px;
   width: 320px;

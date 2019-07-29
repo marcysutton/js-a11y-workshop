@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const AccessibleTabList = ({ items = [] }) => {
+const TabList = ({ items = [] }) => {
   const [isClient, setClient] = useState(false)
   /*
    * Think of this as componentDidMount
@@ -22,4 +22,4 @@ const AccessibleTabList = ({ items = [] }) => {
   )
 }
 
-export default AccessibleTabList
+export default TabList

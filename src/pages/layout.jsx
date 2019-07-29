@@ -5,16 +5,13 @@ import SEO from '../components/site-chrome/seo'
 
 import RouteTargetHeading from "../components/better/route-target-heading.js"
 
-const SemanticsPage = () => (
+const LayoutPage = () => (
   <Layout>
     <SEO title="Semantics" keywords={['javascript', 'accessibility', 'react']} />
     <div>
-        <RouteTargetHeading
-            level={2}
-            targetID="navigation"
-        >
+        <h2>
             Semantics and CSS layout
-        </RouteTargetHeading>
+        </h2>
         <p>CSS layouts are modern now. You can use CSS Grid and HTML5! Inspect these semantic layouts in DevTools and screen readers. Play with the rotor/elements list, heading navigation, </p>
         <p><strong>[<a href="https://github.com/marcysutton/js-a11y-workshop/blob/master/src/pages/layout.jsx">page source</a>]</strong></p>
         <div className="semantic-layout">
@@ -55,6 +52,6 @@ const SemanticsPage = () => (
   </Layout>
 )
 
-export default SemanticsPage
+export default LayoutPage
 
 

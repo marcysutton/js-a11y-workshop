@@ -5,7 +5,6 @@ import ImageSlide from "../templates/image-slide"
 import CodeBlock from "../components/site-chrome/code-figure"
 import AccessibleAnimationDemo from "../components/better/animation"
 import Autocomplete from "../components/better/downshift-autocomplete"
-import Dropdown from "../components/better/dropdown"
 
 import baseTheme from '../theme'
 export const themes = [baseTheme, highlight]
@@ -101,7 +100,7 @@ http://bit.ly/microsoft-inclusive-toolkit
 - Built with Gatsby and React
 - MDX for components in Markdown
 - Outputs HTML pages by default
-- Includes these slides
+- Includes this slide deck
 
 <div style="display: inline-block;
     max-width: 45%;
@@ -133,7 +132,8 @@ https://github.com/marcysutton/js-a11y-workshop
 <CodeBlock>
 
 ```shell
-git clone git@github.com:marcysutton/js-a11y-workshop.git
+git clone https://github.com/marcysutton/js-a11y-workshop.git
+cd js-a11y-workshop
 npm install
 gatsby develop
 ```
@@ -141,6 +141,46 @@ gatsby develop
 </CodeBlock>
 
 View the site locally: http://localhost:8000
+
+Online: https://marcysutton.github.io/js-a11y-workshop
+
+</Slide>
+
+---
+
+<Slide>
+
+# Get some tools
+
+⚒
+
+- [NVDA](https://nvaccess.org/download) (Windows)
+- [axe extensions](https://deque.com/axe)
+- [Accessibility Insights](https://accessibilityinsights.io)
+- [more](http://marcysutton.github.io/js-a11y-workshop#Testing-Tools)
+
+</Slide>
+
+---
+
+<Slide>
+
+# Prototyping with [Parcel](https://parceljs.org/)
+Modern development with any JavaScript framework/library
+
+<CodeBlock>
+
+```shell
+git clone https://github.com/marcysutton/parcel-prototype-scaffold parcel-demo
+cd parcel-demo
+
+npm install
+npm start
+```
+
+</CodeBlock>
+
+Alternatively: Codepen, Codesandbox, etc.
 
 </Slide>
 
@@ -167,7 +207,7 @@ View the site locally: http://localhost:8000
 # It doesn’t matter.
 ## People just want to use your site
 
-![Elmo](/elmo-shrug.gif)
+![Elmo](../elmo-shrug.gif)
 
 </Slide>
 
@@ -216,28 +256,6 @@ View the site locally: http://localhost:8000
 
 <Slide>
 
-# Prototyping with [Parcel](https://parceljs.org/)
-
-<CodeBlock>
-
-```shell
-git clone https://github.com/marcysutton/parcel-prototype-scaffold parcel-demo
-cd parcel-demo
-
-npm install
-npm start
-```
-
-</CodeBlock>
-
-Alternatively: Codepen, Codesandbox, etc.
-
-</Slide>
-
----
-
-<Slide>
-
 # Debugging in this Gatsby app
 Fire up a build in a browser and start testing
 
@@ -257,20 +275,6 @@ $ gatsby build && gatsby serve
 
 <Slide>
 
-# Keyboard debugging tips
-
-- Interactive controls only
-- Focus indicators
-- Hidden vs. visible CSS
-- Force element state in DevTools
-
-</Slide>
-
----
-
-
-<Slide>
-
 # Hidden vs. Visible CSS
 
 <div>
@@ -280,7 +284,7 @@ $ gatsby build && gatsby serve
 <CodeBlock side="left">
 
 ```css
-.visuallyhidden { 
+.visually-hidden { 
 	border: 0;
 	clip: rect(0 0 0 0);
 	height: 1px;
@@ -322,7 +326,7 @@ $ gatsby build && gatsby serve
 
 Uses platform Accessibility APIs to communicate page<br /> structure & content to assistive technologies
 
-![Chrome accessibility tree dump](/chrome-accessibility-tree.png)
+![Chrome accessibility tree dump](../chrome-accessibility-tree.png)
 
 </Slide>
 
@@ -334,7 +338,7 @@ Uses platform Accessibility APIs to communicate page<br /> structure & content t
 
 Semantic markup and CSS styles impact the accessibility tree
 
-![Chrome DevTools accessibility inspector](/chrome-a11y-inspector.png)
+![Chrome DevTools accessibility inspector](../chrome-a11y-inspector.png)
 
 </Slide>
 
@@ -350,8 +354,17 @@ Semantic markup and CSS styles impact the accessibility tree
 document.body.addEventListener('focusin', (event) => {
     console.log(document.activeElement)
 })
-
 ```
+
+</Slide>
+
+---
+
+<Slide>
+
+# Safari, y u no focus?
+
+<p><img src="../safari-settings.png" alt="Safari Preferences" style="max-width: 70%;" /></p>
 
 </Slide>
 
@@ -362,7 +375,7 @@ document.body.addEventListener('focusin', (event) => {
 # Exercise 1
 ## Test pages with the keyboard
 
-![a wooden doll thing repeatedly hitting a keyboard](/keyboard.gif)
+![a wooden doll thing repeatedly hitting a keyboard](../keyboard.gif)
 
 </Slide>
 
@@ -413,11 +426,11 @@ Cheat sheets for getting started
 # Exercise 4
 ## Screen reader testing
 
-- OSX Voiceover
-- NVDA and Firefox
+- OSX Voiceover and Safari
+- NVDA and Firefox Windows
 - JAWS and IE11 or Edge
 - iOS Voiceover and Safari
-- Android TalkBack and Chrome
+- Android Accessibility and Chrome
 - Orca on Linux
 
 </Slide>
@@ -431,7 +444,7 @@ Cheat sheets for getting started
 
 - Browser zoom (all the way: 500%!)
 - OS-level zoom
-- ZoomText & other apps
+- ZoomText & other assistive tech
 
 </Slide>
 
@@ -726,7 +739,7 @@ Useful for so many people and situations, but often turned off for everyone
 ```css
 :hover, :focus {
    /* interaction styles here  */
-   outline: 3px solid blue;
+   outline: 5px auto blue;
 }
 ```
 </CodeBlock>
@@ -740,7 +753,7 @@ Useful for so many people and situations, but often turned off for everyone
 
 <div style="margin-top: -2em">
 
-# Styling focus
+# Styling input modalities
 
 </div>
 
@@ -814,10 +827,31 @@ const Layout = () => (
 
 <Slide>
 
-# Exercise
-## Dropdown demo
+# Dropdown Demo
 
-- React: https://marcysutton.github.io/js-a11y-workshop/dropdown
+http://localhost:8000/dropdown
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise
+## Create an accessible dropdown
+
+- React component shell: [dropdown.js](https://github.com/marcysutton/js-a11y-workshop/blob/master/src/components/better/dropdown.js)
+- vanilla.js shell: https://codepen.io/marcysutton/pen/aeJdNq
+
+</Slide>
+
+---
+
+<Slide>
+
+# Dropdown answers
+
+- React: [dropdown component](https://github.com/marcysutton/js-a11y-workshop/blob/master/examples/dropdown/dropdown.js)
 - vanilla.js: https://codepen.io/marcysutton/pen/JgjYVv
 
 </Slide>
@@ -830,7 +864,7 @@ const Layout = () => (
 
 Navigation where JavaScript controls browser history<br />and dynamically maps URLs to each page or view
 
-![Animation of Grommet sorting letters](/mail.gif)
+![Animation of Grommet sorting letters](../mail.gif)
 
 [User testing research on the Gatsby blog](https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/)
 
@@ -846,7 +880,7 @@ Navigation where JavaScript controls browser history<br />and dynamically maps U
 - Label with nearby content and what action it does,<br />e.g. "Portfolio, skip to navigation"
 - When a user clicks a nav link, move focus to this control
 
-![focus diagram](/focus-diagram.png)
+![focus diagram](../focus-diagram.png)
 
 </Slide>
 
@@ -869,11 +903,32 @@ Navigation where JavaScript controls browser history<br />and dynamically maps U
 
 <Slide>
 
-# Exercise
-## Client-side routing demo
+# Client-side routing demo
 
-- React: 
-- vanilla.js: 
+http://localhost:8000
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise
+## Focus on client-side route change
+
+- Gatsby [`onRouteUpdate` method](https://www.gatsbyjs.org/docs/browser-apis/#onRouteUpdate)
+- vanilla.js shell: []()
+
+</Slide>
+
+---
+
+<Slide>
+
+# Client-side routing answers
+
+- Gatsby component: [examples/client-side-routing](https://github.com/marcysutton/js-a11y-workshop/tree/master/examples/client-side-routing)
+- vanilla.js: []()
 
 </Slide>
 
@@ -883,7 +938,7 @@ Navigation where JavaScript controls browser history<br />and dynamically maps U
 
 # Announcements using<br />ARIA Live Regions
 
-![BBC GIF with a young girl with a megaphone saying attention please](/announcement.webp)
+![BBC GIF with a young girl with a megaphone saying attention please](../announcement.webp)
 
 </Slide>
 
@@ -965,10 +1020,31 @@ https://github.com/AlmeroSteyn/react-aria-live
 
 <Slide>
 
-# Exercise
-## Async action demo
+# Live region demo
 
-https://marcysutton.github.io/js-a11y-workshop/async-form
+http://localhost:8000/async-form
+
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise
+## Build a live region
+
+- vanilla.js shell: []()
+
+</Slide>
+
+---
+
+<Slide>
+
+# Live region answers
+
+- React component: [examples/live-region](https://github.com/marcysutton/js-a11y-workshop/tree/master/examples/live-region)
+- vanilla.js: []()
 
 </Slide>
 
@@ -1003,7 +1079,7 @@ Semantic HTML communicates what's on a page to users of assistive technology, re
 # Semantics IRL
 </div>
 
-![An Event Apart homepage in Chrome DevTools](/aea-grid-inspect.png)
+![An Event Apart homepage in Chrome DevTools](../aea-grid-inspect.png)
 
 ---
 
@@ -1024,11 +1100,21 @@ Semantic HTML communicates what's on a page to users of assistive technology, re
 
 <Slide>
 
-# Exercise!
+# Semantics demo
 
-## Semantics demo
+http://localhost:8000/layout
 
-https://marcysutton.github.io/js-a11y-workshop/layout
+</Slide>
+
+---
+
+<Slide>
+
+# Exercise
+## Use semantic markup
+
+- Gatsby page shell: [pages/semantics.jsx](https://github.com/marcysutton/js-a11y-workshop/tree/master/pages/semantics.jsx)
+- vanilla.js shell on [Codepen]()
 
 </Slide>
 
@@ -1107,11 +1193,33 @@ handleReduceMotionChanged(); // trigger once on load
 
 <Slide>
 
+# reduced-motion demo
+
+http://localhost:8000/animation
+
+</Slide>
+
+---
+
+<Slide>
+
 # Exercise!
 
-## Play with reduced-motion<br />and CSS animation or transitions
+Play with reduced-motion and CSS animation or transitions
 
-https://marcysutton.github.io/js-a11y-workshop/animation
+- React component shell: [reduced-motion.js](https://github.com/marcysutton/js-a11y-workshop/blob/master/src/components/better/reduced-motion.js)
+- vanilla.js shell: []()
+
+</Slide>
+
+---
+
+<Slide>
+
+# Reduced-motion answers
+
+- React: [animation component](https://github.com/marcysutton/js-a11y-workshop/blob/master/examples/reduced-motion/animation.js)
+- vanilla.js: https://codepen.io/marcysutton/pen/JgjYVv
 
 </Slide>
 
@@ -1196,13 +1304,33 @@ export default AccessibleList
 
 <Slide>
 
+# Progressive enhancement demo
+
+http://localhost:8000/enhanced-tablist
+
+</Slide>
+
+---
+
+<Slide>
+
 # Exercise!
 
 Play with progressive enhancement
 
-https://codepen.io/marcysutton/pen/WBvRxq
+- React component shell: [components/tab-list.js](https://github.com/marcysutton/js-a11y-workshop/blob/master/src/components/tab-list.js)
+- vanilla.js starter: https://codepen.io/marcysutton/pen/WBvRxq
 
-https://marcysutton.github.io/js-a11y-workshop/enhanced-tablist
+</Slide>
+
+---
+
+<Slide>
+
+# Progressive enhancement <br />answers
+
+- React: [tab-list component](https://github.com/marcysutton/js-a11y-workshop/blob/master/examples/progressive-enhancement/tab-list.js)
+- vanilla.js: https://codepen.io/marcysutton/pen/oKBzdr
 
 </Slide>
 
@@ -1284,11 +1412,9 @@ Article: [Writing Automated tests for Accessibility](https://www.deque.com/blog/
 
 <Slide>
 
-# Unit test example
+# Unit test demo
 
-Modal dialog with Jasmine tests
-
-https://codepen.io/marcysutton/pen/YbXZYK?editors=1010
+- Dropdown with Jest: [\__tests\__](https://github.com/marcysutton/js-a11y-workshop/tree/master/src/components/better/__tests__)
 
 </Slide>
 
@@ -1300,7 +1426,21 @@ https://codepen.io/marcysutton/pen/YbXZYK?editors=1010
 
 Write an accessibility unit test!
 
-[Test example](https://github.com/marcysutton/js-a11y-workshop/tree/master/src/components/better/__tests__)
+- Jest test shell: [dropdown.test.js](https://github.com/marcysutton/js-a11y-workshop/tree/master/src/components/better/__tests__/dropdown.test.js)
+- Jasmine shell: https://codepen.io/marcysutton/pen/OKpVKZ?editors=1010
+- https://testing-library.com/docs/dom-testing-library
+- https://github.com/testing-library/jest-dom
+
+</Slide>
+
+---
+
+<Slide>
+
+# Unit testing answers
+
+- Jest test: [dropdown.test.js](https://github.com/marcysutton/js-a11y-workshop/tree/master/examples/unit-testing/dropdown.test.js)
+- Jasmine test: [Modal dialog](https://codepen.io/marcysutton/pen/YbXZYK?editors=1010)
 
 </Slide>
 
@@ -1326,35 +1466,6 @@ Write an accessibility unit test!
 - Widget interrop
 - Color contrast
 - Framework flexibility
-
-</Slide>
-
----
-
-<Slide>
-
-# [Cypress example](https://github.com/marcysutton/empathy-driven-development/blob/master/cypress/integration/nav.spec.js)
-
-<CodeBlock>
-
-```js
-context("Nav menu", () => {
-    beforeEach(() => {
-        cy.visit(`https://marcysutton.github.io/js-a11y-workshop`)
-        cy.injectAxe()
-        cy.wait(100)
-    })
-    it("has no accessibility violations on load", () => {
-        cy.checkA11y()
-    })
-    it("has a focusable, labeled button", () => {
-        cy.get("[aria-label='Open menu']").focus()
-        cy.focused().should("have.attr", "aria-label")
-    })
-})
-```
-
-</CodeBlock>
 
 </Slide>
 
@@ -1388,6 +1499,35 @@ describe('Keyboard tests', () => {
     })
 })
 ```
+</CodeBlock>
+
+</Slide>
+
+---
+
+<Slide>
+
+# [Cypress example](https://www.gatsbyjs.org/docs/end-to-end-testing/)
+
+<CodeBlock>
+
+```js
+/// <reference types="Cypress" />
+describe("Accessibility checks", () => {
+  beforeEach(() => {
+    cy.visit("/")
+    cy.wait(500)
+  })
+  it("Checks if footer link is focusable and has the correct attributes", () => {
+    cy.getAllByText("Gatsby").focus()
+    cy.focused()
+      .should("have.text", "Gatsby")
+      .should("have.attr", "href", "https://www.gatsbyjs.org")
+      .should("not.have.css", "outline-width", "0px")
+  })
+})
+```
+
 </CodeBlock>
 
 </Slide>
@@ -1450,11 +1590,32 @@ Tests can catch roughly 30-50% of accessibility issues,<br />depending on the ru
 
 <Slide>
 
+# Integration test demo
+
+[cypress/integration/index.js](https://github.com/marcysutton/js-a11y-workshop/blob/master/cypress/integration/index.js)
+
+</Slide>
+
+---
+
+<Slide>
+
 # Exercise!
 
 Write an end-to-end accessibility test for<br />keyboard interactions and/or with an accessibility test API
 
-[Test example](https://github.com/marcysutton/js-a11y-workshop/tree/master/cypress/integration)
+- Cypress test shell: [index.js](https://github.com/marcysutton/js-a11y-workshop/blob/master/cypress/integration/index.js)
+- Cypress API docs: https://cypress.io
+
+</Slide>
+
+---
+
+<Slide>
+
+# Integration test answers
+
+- Cypress tests: [examples/integration-testing](https://github.com/marcysutton/js-a11y-workshop/blob/master/examples/integration-testing)
 
 </Slide>
 
@@ -1479,7 +1640,7 @@ https://twitter.com/zqxwzq/status/868039653697482753
 
 <div style="max-width: 65%; margin: 1em auto;">
 
-![A TV monitor with broken build bandits wanted for bounty](/ci-bandits.jpg)
+![A TV monitor with broken build bandits wanted for bounty](../ci-bandits.jpg)
 
 </div>
 

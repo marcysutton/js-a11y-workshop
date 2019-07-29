@@ -3,19 +3,15 @@ import React from "react"
 import Layout from '../components/site-chrome/layout'
 import SEO from '../components/site-chrome/seo'
 
-import RouteTargetHeading from "../components/better/route-target-heading"
+import RouteTargetHeading from "../components/better/route-target-heading.js"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={['javascript', 'accessibility', 'react']} />
     <div>
-      <RouteTargetHeading
-        level={2}
-        className="route-heading home"
-        targetID="navigation"
-      >
+      <h2>
         Let’s make the web more accessible!
-      </RouteTargetHeading>
+      </h2>
       <p>Here are some web accessibility tools, resources, and books for web designers and developers.</p>   
 
       <h3 id="Testing-Tools">Testing Tools</h3>
