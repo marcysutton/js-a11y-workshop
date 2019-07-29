@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
     <div className="js-workshop-app">
       <Header siteTitle={data.site.siteMetadata.title} />
       <Navigation />
-      <main className="app" id="main" tabIndex="-1">
+      <main className="app" id="main">
         {children}
       </main>
     </div>

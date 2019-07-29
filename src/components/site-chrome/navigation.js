@@ -8,14 +8,14 @@ const Navigation = () => (
         <h2 className="visually-hidden">
             Navigation
         </h2>
-        <ul>
+        <ul id="navigation" tabIndex="-1">
             <li><Link to="/">App Home</Link></li>
             <li><Link to="/slides">Slide deck</Link></li>
             <li className={`navItemGroup ${navStyles.navItemGroup} `}>
                 <h3 className={`navHeading ${navStyles.navHeading}`}>
                     Demos
                 </h3>
-                <ul>
+                <ul id="page-navigation">
                     <li><Link to="/dropdown">Dropdown</Link></li>
                     <li><Link to="/async-form">Async Form</Link></li>
                     <li><Link to="/layout">Layout</Link></li>
