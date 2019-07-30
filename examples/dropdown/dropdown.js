@@ -9,7 +9,7 @@ const Dropdown = ({ activatorText = 'Dropdown', items = [] }) => {
     const dropdownListRef = useRef(null)
 
     const wrapKeyHandler = (event) => {
-        if (event.keyCode === 27 && isOpen) {
+        if (event.key === 'Escape' && isOpen) {
             // escape key
             setIsOpen(false)
             activatorRef.current.focus()
@@ -26,21 +26,21 @@ const Dropdown = ({ activatorText = 'Dropdown', items = [] }) => {
     }
     useEffect(() => {
         if (isOpen) {
-            document.addEventListener('mousedown', clickOutsideHandler)
+            document.addEventListener('mouseup', clickOutsideHandler)
 
             dropdownListRef.current.querySelector('a').focus()
         } else {
-            document.removeEventListener('mousedown', clickOutsideHandler)
+            document.removeEventListener('mouseup', clickOutsideHandler)
         }
 
         return () => {
-            document.removeEventListener('mousedown', clickOutsideHandler)
+            document.removeEventListener('mouseup', clickOutsideHandler)
         }
     }, [isOpen])
     return (
         <div
             className="dropdown-wrap"
-            onKeyDown={wrapKeyHandler}
+            onKeyUp={wrapKeyHandler}
         >
             <button
                 aria-haspopup="true"
@@ -55,10 +55,11 @@ const Dropdown = ({ activatorText = 'Dropdown', items = [] }) => {
                 id="dropdown1"
                 ref={dropdownListRef}
                 tabIndex="-1"
-                className={`dropdown-itemList ${isOpen ? 'active' : ''}`}>
+                className={`dropdown-itemList ${isOpen ? 'active' : ''}`}
+                role="list">
                 { items.map((item, index) => {
-                    return <li key={index}>
-                        <a href={item.url}>item.text</a>
+                    return <li key={index} role="listitem">
+                        <a href={item.url}>{item.text}</a>
                     </li>
                 })}
                 { items.length === 0 ? <li>No items</li> : null }
