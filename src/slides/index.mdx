@@ -1281,32 +1281,9 @@ gatsby build
 
 <Slide>
 
-# Considerations
-Automatic hydration is a bit too automatic
+# Gatsby progressive<br />enhancement demo
 
-<CodeBlock>
-
-```jsx
-import React, { useEffect, useState } from 'react'
-
-const AccessibleList = ({ items = [] }) => {
-  const [isClient, setClient] = useState(false)
-  useEffect(() => {
-    setClient(true)
-  }, [])
-  return (
-    <ul {...isClient && { 'role': 'tablist' }}>
-      {items.map(item => (
-        <li key={item.id} {...isClient && { 'role': `tab` }}>{item.label}</li>
-      ))}
-    </ul>
-  )
-}
-
-export default AccessibleList
-```
-
-</CodeBlock>
+http://localhost:8000/enhanced/tablist
 
 </Slide>
 
