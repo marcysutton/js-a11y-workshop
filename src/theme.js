@@ -31,9 +31,6 @@ export default {
     body: {
     },
     Slide: {
-      maxWidth: '95%',
-      marginLeft: 'auto',
-      marginRight: 'auto',
       textAlign: 'center'
     },
     p: {

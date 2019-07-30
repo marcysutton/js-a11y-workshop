@@ -49,6 +49,9 @@ const Separator = styled.hr`
 `
 
 const Main = styled.main`
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
 `
 
@@ -69,7 +72,7 @@ export default ({ children }) => (
     <SEO title="Workshop Slides" keywords={['workshop', 'javascript', 'accessibility', 'react']} />
     <Header className="header">
       <P>
-        <a href="../">
+        <a href="/js-a11y-workshop">
           <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 100 125">
             <title>back arrow</title>
             <path d="M42.7 32.7l-.2-15.8c0-1-.6-1.8-1.5-2.2-.9-.4-1.9-.3-2.7.4L2 45.8c-.6.5-.9 1.2-.9 1.9s.3 1.4.9 1.9l37.2 30c.5.4 1 .6 1.6.6 1.4 0 2.5-1.1 2.5-2.5v-.3L43.1 62h1.4c18.2 0 38.3 2.7 49.8 22.4.5.8 1.3 1.2 2.2 1.2.2 0 .4 0 .7-.1 1.1-.3 1.8-1.3 1.8-2.4-.1-8.2-3.4-20.6-12.2-31.2-7.3-8.5-20.6-18.6-44.1-19.2zm1.7 24.2h-3.9c-.7 0-1.3.3-1.8.8s-.7 1.1-.7 1.8l.2 12.9L7.5 47.6l30.1-25.4.2 12.9c0 1.4 1.1 2.5 2.5 2.5h.2c34.6 0 47.9 20.9 51.9 35.7-13-14.2-31.2-16.4-48-16.4z" />

@@ -16,7 +16,7 @@ import {
   css,
   itemToString,
   getItems,
-} from './shared'
+} from './downshift-utils'
 
 class Autocomplete extends React.Component {
   render() {

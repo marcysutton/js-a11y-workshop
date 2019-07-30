@@ -42,9 +42,9 @@ npx gatsby develop
 
 3. Edit files:
 
-    - Site pages: `src/pages/*`
-    - Site components: `src/components/*`
-    - Templates: `src/templates/*`,
-    - Slide content: `src/slides/index.jsx`
+    - Site pages: [`src/pages/*`](https://github.com/marcysutton/js-a11y-workshop/blob/master/src/pages)
+    - Site components: [`src/components/*`](https://github.com/marcysutton/js-a11y-workshop/blob/master/src/components)
+    - Templates: [`src/templates/*`](https://github.com/marcysutton/js-a11y-workshop/blob/master/src/templates)
+    - Slide content: [`src/slides/index.mdx`](https://github.com/marcysutton/js-a11y-workshop/blob/master/src/slides/index.mdx)
 
-To look at the answers from the exercises, check out the `/examples`
+To look at the answers from the exercises, check out the [`/examples`](https://github.com/marcysutton/js-a11y-workshop/blob/master/examples) directory

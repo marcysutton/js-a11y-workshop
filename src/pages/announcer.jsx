@@ -6,7 +6,7 @@ import SEO from '../components/site-chrome/seo'
 import RouteTargetHeading from "../components/better/route-target-heading.js"
 
 import InaccessibleAsyncFormDemo from "../components/bad/async-form"
-import BetterAsyncFormDemo from "../components/better/async-form"
+import LiveRegion from "../components/better/live-region"
 
 const LiveRegionDemoPage = () => {
   return (
@@ -23,7 +23,7 @@ const LiveRegionDemoPage = () => {
           </div>
           <div>
           <h3>More accessible async form demo</h3>
-            <BetterAsyncFormDemo />
+            <LiveRegion />
           </div>
         </section>
       </div>

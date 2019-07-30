@@ -17,7 +17,7 @@ const Navigation = () => (
                 </h3>
                 <ul id="page-navigation">
                     <li><Link to="/dropdown">Dropdown</Link></li>
-                    <li><Link to="/async-form">Async Form</Link></li>
+                    <li><Link to="/announcer">Announcer</Link></li>
                     <li><Link to="/layout">Layout</Link></li>
                     <li><Link to="/animation">Animation</Link></li>
                     <li><Link to="/enhanced-tablist">Enhanced Tablist</Link></li>
