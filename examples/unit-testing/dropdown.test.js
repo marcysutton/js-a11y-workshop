@@ -1,71 +1,21 @@
-import React, { useState, useRef, useEffect } from "react"
-import uuid from "uuid"
+import React from 'react'
+import { render, fireEvent } from '@testing-library/react'
 
-import "./dropdown.scss"
+import Dropdown from '../dropdown'
 
-const Dropdown = ({ activatorText = 'Dropdown', items = [] }) => {
-    const [isOpen, setIsOpen] = useState(false)
-    const activatorRef = useRef(null)
-    const dropdownListRef = useRef(null)
+describe(`Dropdown`, () => {
+  it(`renders activatorText`, () => {
+    const activatorText = `Hamburgers`
+    const { getByText } = render(<Dropdown activatorText={activatorText} />)
 
-    const wrapKeyHandler = (event) => {
-        if (isOpen && (event.keyCode === 27 || event.key === 'Escape')) {
-            // escape key
-            setIsOpen(false)
-            activatorRef.current.focus()
-        }
-    }
-    const clickHandler = () => {
-        setIsOpen(!isOpen)
-    }
-    const clickOutsideHandler = (event) => {
-        if (dropdownListRef.current.contains(event.target) || activatorRef.current.contains(event.target)) {
-            return
-        }
-        setIsOpen()
-    }
-    useEffect(() => {
-        if (isOpen) {
-            document.addEventListener('mousedown', clickOutsideHandler)
+    const text = getByText(activatorText)
 
-            dropdownListRef.current.querySelector('a').focus()
-        } else {
-            document.removeEventListener('mousedown', clickOutsideHandler)
-        }
+    expect(text).toBeInTheDocument()
+  })
+  it(`renders a focusable activator element`, () => {
 
-        return () => {
-            document.removeEventListener('mousedown', clickOutsideHandler)
-        }
-    }, [isOpen])
-    return (
-        <div
-            className="dropdown-wrap"
-            onKeyDown={wrapKeyHandler}
-        >
-            <button
-                aria-haspopup="true"
-                aria-controls="dropdown1"
-                onClick={clickHandler}
-                className="dropdown-activator"
-                data-testid="dropdown-activator"
-                ref={activatorRef}
-            >
-                {activatorText}
-            </button>
-            <ul
-                id="dropdown1"
-                ref={dropdownListRef}
-                tabIndex="-1"
-                data-testid="dropdownList"
-                className={`dropdown-itemList ${isOpen ? 'active' : ''}`}>
-                { items.map((item, index) => {
-                    return <li key={index}>
-                        <a href={item.url}>item.text</a>
-                    </li>
-                })}
-                { items.length === 0 ? <li>No items</li> : null }
-            </ul>
-        </div>
-    )
-}
-export default Dropdown
+  })
+  it(`sends focus to dropdown content when active`, () => {
+
+  })
+})
