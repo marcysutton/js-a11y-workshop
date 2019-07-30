@@ -28,8 +28,7 @@ const RouteHeading = ({level = 1, targetID, children}) => {
             <a href={`#${targetID}`}
                id="skip-main"
                className="routeSkipLink"
-               aria-label={`back to ${targetID}`}
-               title={`Skip to ${targetID}`}>
+               aria-label={`skip to ${targetID}`}>
             </a>
             {children}
         </Heading>
