@@ -12,10 +12,28 @@ describe(`Dropdown`, () => {
 
     expect(text).toBeInTheDocument()
   })
-  it(`renders a focusable activator element`, () => {
+  it(`renders a focusable button that activates the dropdown`, () => {
+    const activatorText = `Dogs`
+    const items = [{
+      text: 'item 1',
+      url: '#'
+    }, {
+      text: 'item 2',
+      url: '#'
+    }]
+    const dropdown = render(<Dropdown activatorText={activatorText} items={items} />)
 
-  })
-  it(`sends focus to dropdown content when active`, () => {
+    const activator = dropdown.getByTestId('dropdown-activator')
+    activator.focus()
 
+    expect(activator).toHaveFocus()
+    
+    fireEvent.click(activator)
+
+    const dropdownList = dropdown.getByTestId('dropdown-itemList')
+
+    const firstAnchor = dropdownList.querySelector('a')
+    expect(firstAnchor).toHaveFocus()
+    
   })
 })

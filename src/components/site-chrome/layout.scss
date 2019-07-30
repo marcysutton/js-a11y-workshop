@@ -21,7 +21,7 @@ body {
 a, a:link, a:visited {
   color: #333;
 }
-.js-focus-visible :focus {
+.js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }
 .js-focus-visible :focus-visible {
