@@ -67,10 +67,10 @@ const FooterByline = styled.p`
   margin: 0;
   text-align: center;
 `
-export default ({ children }) => (
+export default ({ header = 'true', children }) => (
   <>
     <SEO title="Workshop Slides" keywords={['workshop', 'javascript', 'accessibility', 'react']} />
-    <Header className="header">
+    { header === 'true' ? <Header className="header">
       <P>
         <a href="/js-a11y-workshop">
           <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 100 125">
@@ -80,6 +80,7 @@ export default ({ children }) => (
           back to demos</a>
       </P>
     </Header>
+    : null }
     <Main className="main">
       {children}
     </Main>
