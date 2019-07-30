@@ -31,16 +31,19 @@ export default {
     body: {
     },
     Slide: {
+      maxWidth: '95%',
+      marginLeft: 'auto',
+      marginRight: 'auto',
       textAlign: 'center'
     },
     p: {
-      fontSize: '2.5rem',
+      fontSize: '2.25rem',
       margin: "1rem 0",
       textAlign: 'center'
     },
     h1: {
-      fontSize: '5rem',
-      marginBottom: "0.5rem"
+      fontSize: '4.5rem',
+      marginBottom: "0.25rem"
     },
     h2: {
       fontSize: '4rem',
@@ -53,7 +56,7 @@ export default {
       fontSize: "inherit"
     },
     figcaption: {
-      fontSize: "1.25rem"
+      fontSize: "1.2rem"
     },
     li: {
       marginBottom: "0.5rem",
@@ -62,7 +65,7 @@ export default {
   },
   text: {
     heading: {
-      margin: '0 auto 1rem',
+      margin: '0 auto 0.5rem',
       textAlign: 'center'
     },
   },

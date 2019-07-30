@@ -30,7 +30,7 @@ const Demo = styled.div`
   }
  .animationTarget {
     height: 400px;
-    margin: 1em auto;
+    margin: 0 auto;
     overflow: hidden;
     position: relative;
     width: 400px; 

@@ -70,9 +70,11 @@ http://bit.ly/microsoft-inclusive-toolkit
 
 ---
 
+<Slide>
+
 # What we’ll cover
 
-<div style="font-size: 2.25rem;">
+<div style="font-size: 2.2rem;">
 
 - Accessibility debugging
 - Accessibility in JavaScript apps
@@ -86,6 +88,8 @@ http://bit.ly/microsoft-inclusive-toolkit
 - Q & A
 
 </div>
+
+</Slide>
 
 ---
 
@@ -135,7 +139,7 @@ https://github.com/marcysutton/js-a11y-workshop
 git clone https://github.com/marcysutton/js-a11y-workshop.git
 cd js-a11y-workshop
 npm install
-gatsby develop
+npx gatsby develop
 ```
 
 </CodeBlock>
@@ -215,9 +219,9 @@ Alternatively: Codepen, Codesandbox, etc.
 
 <Slide>
 
-# Responsive design is good<br />for accessibility
+# Responsive design<br />is good for accessibility
 
-<img alt="zoomed-in view of a desktop prototype" src="../magnification-a11y.png" style="margin-top: 1em; max-height: 600px;" />
+<img alt="zoomed-in view of a desktop prototype" src="../magnification-a11y.png" style="margin-top: 1em; max-height: 500px;" />
 
 </Slide>
 
@@ -350,11 +354,15 @@ Semantic markup and CSS styles impact the accessibility tree
 
 ## Paste into browser devTools console
 
+<CodeBlock>
+
 ```js
 document.body.addEventListener('focusin', (event) => {
     console.log(document.activeElement)
 })
 ```
+
+</CodeBlock>
 
 </Slide>
 
@@ -581,7 +589,6 @@ Expose accessibility information for focusable elements.
 
 ---
 
-
 <Slide>
 
 # tabindex + role + name + events
@@ -748,7 +755,6 @@ Useful for so many people and situations, but often turned off for everyone
 
 ---
 
-
 <Slide>
 
 <div style="margin-top: -2em">
@@ -860,6 +866,8 @@ http://localhost:8000/dropdown
 
 <Slide>
 
+<div style="margin-top: -2em">
+
 # Client-side routing
 
 Navigation where JavaScript controls browser history<br />and dynamically maps URLs to each page or view
@@ -868,16 +876,18 @@ Navigation where JavaScript controls browser history<br />and dynamically maps U
 
 [User testing research on the Gatsby blog](https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/)
 
+</div>
+
 </Slide>
 
 ---
 
 <Slide>
 
-# Routing recommendations
+# Routing approach
 
-- A small interactive UI control in each view target, like a skip link
-- Label with nearby content and what action it does,<br />e.g. "Portfolio, skip to navigation"
+- A small UI control in each view target, like a skip link
+- Label with nearby content and its action,<br />e.g. "Portfolio, skip to navigation"
 - When a user clicks a nav link, move focus to this control
 
 ![focus diagram](../focus-diagram.png)
@@ -1075,11 +1085,15 @@ Semantic HTML communicates what's on a page to users of assistive technology, re
 
 ---
 
+<Slide>
+
 <div class="visually-hidden">
 # Semantics IRL
 </div>
 
 ![An Event Apart homepage in Chrome DevTools](../aea-grid-inspect.png)
+
+</Slide>
 
 ---
 
@@ -1089,7 +1103,6 @@ Semantic HTML communicates what's on a page to users of assistive technology, re
 
 - [Accessibility Insights: Headings](https://accessibilityinsights.io)
 - [Firefox Web Developer Extension](https://addons.mozilla.org/en-US/firefox/addon/web-developer/):<br />_Information > View Document Outline_
-- [axe browser extension](http://bit.ly/axe-chrome)
 - [NVDA heading navigation, elements list](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts#nvda-the_basics)
 - [Voiceover rotor](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts#vo-mac-the-rotor)
 - Browser reader modes
@@ -1138,13 +1151,11 @@ https://source.opennews.org/articles/motion-sick/
 
 <Slide>
 
-# Unobtrusive animation demo
+# Animation demo
 
 <AccessibleAnimationDemo></AccessibleAnimationDemo>
 
-<div style="font-size: 2rem; margin-top: 2em;">
-    <a href="https://codepen.io/marcysutton/pen/yqVVeY">https://codepen.io/marcysutton/pen/yqVVeY</a>
-</div>
+https://codepen.io/marcysutton/pen/yqVVeY
 
 </Slide>
 
@@ -1238,8 +1249,6 @@ Emphasize core web page content first, then add layers of presentation and featu
     <li>Prioritize core user flows</li>
 </ul>
 
-<p><a href="https://medium.com/@jacobp100/progressive-enhancement-techniques-for-react-part-1-7a551966e4bf">React suggestions</a></p>
-
 </div>
 
 </Slide>
@@ -1264,7 +1273,6 @@ gatsby build
 
 ---
 
-
 <Slide>
 
 # Considerations
@@ -1277,10 +1285,6 @@ import React, { useEffect, useState } from 'react'
 
 const AccessibleList = ({ items = [] }) => {
   const [isClient, setClient] = useState(false)
-  /*
-   * Think of this as componentDidMount
-   * on the client, it will run once and update state
-   */
   useEffect(() => {
     setClient(true)
   }, [])
@@ -1359,7 +1363,6 @@ Improving quality in development
 
 Testing for quality live in a file or on a commit
 
-["Being a good citizen of the web"](https://github.com/sveltejs/svelte/issues/374)<br />
 [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)
 
 - you might need to [reconfigure rules](https://www.gatsbyjs.org/docs/making-your-site-accessible/#linting-with-eslint-jsx-plugin-a11y)
@@ -1473,7 +1476,7 @@ Write an accessibility unit test!
 
 <Slide>
 
-# [Selenium Webdriverjs example](https://github.com/marcysutton/axe-webdriverjs-demo)
+# [Selenium Webdriver example](https://github.com/marcysutton/axe-webdriverjs-demo)
 
 <CodeBlock>
 
@@ -1648,11 +1651,15 @@ https://twitter.com/zqxwzq/status/868039653697482753
 
 ---
 
+<Slide>
+
 # Spoiler: we need to do more
 
 Automated testing and linting only gets us so far.<br />Projects need manual human testing, too
 
 <span role="img" title="bow in respect">🙇‍♀️</span>
+
+</Slide>
 
 ---
 

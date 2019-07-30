@@ -2,9 +2,7 @@
 
 Learn the necessary techniques and tools for building inclusive web applications with JavaScript from Gatsby's Head of Learning Marcy Sutton.
 
-Presenting at:
-- [Frontend Masters](https://frontendmasters.com/workshops/javascript-accessibility/)
-- [SmashingConf NYC](https://smashingconf.com/ny-2019/)
+Presenting at [Frontend Masters](https://frontendmasters.com/workshops/javascript-accessibility/)
 
 Some key takeaways:
 
@@ -24,30 +22,29 @@ Workshop slides: https://marcysutton.github.io/js-a11y-workshop/slides/
 
 This project was started with [gatsby-starter-mdx-basic](https://github.com/christopherbiscardi/gatsby-starter-mdx-basic) and [@mdx-deck/theme](https://github.com/jxnblk/mdx-deck/tree/master/packages/gatsby-theme).
 
-1. Install Gatsby CLI (or clone/`npm install` this repo instead)
+_Note: This repo requires [Node and npm](https://nodejs.org) to be installed._
+
+1. Create a new Gatsby site and slide deck using this starter
 
 ```sh
-npm install gatsby-cli -g
+git clone https://github.com/marcysutton/js-a11y-workshop
 ```
 
-2. Create a new Gatsby site and slide deck using this starter
-
-```sh
-gatsby new js-a11y-workshop https://github.com/marcysutton/js-a11y-workshop
-```
-
-3. Go into the directory and start the development server
+2. Go into the directory, install dependencies, and start the development server
 
 ```sh
 cd js-a11y-workshop
-npm start
+npm install
+npx gatsby develop
 ```
 
     View in a browser: http://localhost:8000
 
-4. Edit files:
+3. Edit files:
 
     - Site pages: `src/pages/*`
     - Site components: `src/components/*`
     - Templates: `src/templates/*`,
     - Slide content: `src/slides/index.jsx`
+
+To look at the answers from the exercises, check out the `/examples`

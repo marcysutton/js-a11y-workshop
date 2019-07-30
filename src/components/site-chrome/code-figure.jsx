@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 import theme from "../../theme"
 
 const Figure = styled.figure`
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   margin: 0;
   vertical-align: top;
 

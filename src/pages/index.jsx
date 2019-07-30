@@ -3,8 +3,6 @@ import React from "react"
 import Layout from '../components/site-chrome/layout'
 import SEO from '../components/site-chrome/seo'
 
-import RouteTargetHeading from "../components/better/route-target-heading.js"
-
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={['javascript', 'accessibility', 'react']} />
