@@ -5,34 +5,37 @@ const styles = css`
     .routeSkipHeading {
         position: relative;
     }
-    .routeSkipLink {
+    a.routeSkipLink {
         display: inline-block;
         margin-left: -0.75em;
         opacity: 0;
         position: absolute;
         text-decoration: none;
-    }
-    .routeSkipLink:before {
-        content: '⇽';
-        display: block;
+
+        &:before {
+            content: '⇽';
+            display: block;
+        }
     }
     .routeSkipLink:focus,
     .routeSkipLink:hover {
         opacity: 1;
     }
 `
-const RouteHeading = ({level = 1, targetID, children}) => {
-    const Heading = `h${level}`;
+const RouteHeading = ({ level = 1, targetID, children }) => {
+    const Heading = `h${level}`
     return (
         <Heading css={styles} className="routeSkipHeading">
-            <a href={`#${targetID}`}
-               id="skip-main"
-               className="routeSkipLink"
-               aria-label={`back to ${targetID}`}
-               title={`Skip to ${targetID}`}>
+            <a
+                href={`#${targetID}`}
+                id="skip-link"
+                className="routeSkipLink"
+                aria-label={`skip to ${targetID}`}
+            >
             </a>
             {children}
-        </Heading>
+        </Heading>    
     )
 }
+
 export default RouteHeading

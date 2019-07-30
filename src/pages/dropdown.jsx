@@ -12,9 +12,9 @@ const DropdownPage = () => (
   <Layout>
     <SEO title="Dropdown" keywords={['javascript', 'accessibility', 'react']} />
     <div>
-      <h2>
+      <RouteTargetHeading level={2} targetID="navigation">
         Dropdowns
-      </h2>
+      </RouteTargetHeading>
       <p>Tuck controls into an expandible, collapsible, accessible menu. Consider, however, whether you really need a dropdown.</p>
       <p>Keyboard interactions will depend on what's in the menu. List of links? The TAB key is fine.<br />UI actions with a button or radio buttons? Script the arrow keys.</p>
 

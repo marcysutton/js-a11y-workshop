@@ -12,9 +12,9 @@ const ProgressiveEnhancementPage = () => {
     <Layout>
       <SEO title="Progressive Enhancement demos" keywords={['javascript', 'accessibility', 'react']} />
       <div>
-        <h2>
+        <RouteTargetHeading level={2} targetID="navigation">
           Progressive Enhancement Demo
-        </h2>
+        </RouteTargetHeading>
         <p>The goal of an enhanced widget is to output plain HTML markup at build time, with ARIA role enhancements when JavaScript loads.</p>
         <p>To test this kind of demo: run <code>gatsby build && gatsby serve</code> and turn off JavaScript in your browser</p>
         <p><strong>[<a href="https://github.com/marcysutton/js-a11y-workshop/blob/master/src/components/better/enhancing-list.js">starter component source</a>]</strong></p>

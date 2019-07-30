@@ -9,9 +9,9 @@ const LayoutPage = () => (
   <Layout>
     <SEO title="Semantics" keywords={['javascript', 'accessibility', 'react']} />
     <div>
-        <h2>
+        <RouteTargetHeading level={2} targetID="navigation">
             Semantics and CSS layout
-        </h2>
+        </RouteTargetHeading>
         <p>CSS layouts are modern now. You can use CSS Grid and HTML5! Inspect these semantic layouts in DevTools and screen readers. Play with the rotor/elements list, heading navigation, </p>
         <p><strong>[<a href="https://github.com/marcysutton/js-a11y-workshop/blob/master/src/pages/layout.jsx">page source</a>]</strong></p>
         <div className="semantic-layout">

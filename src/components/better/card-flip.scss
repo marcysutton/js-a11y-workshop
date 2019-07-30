@@ -148,3 +148,9 @@
     margin: 0 10px;
     width: 25px;
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .team-content-overlay {
+        transition: none;
+    }
+}

@@ -30,9 +30,9 @@ const ReducedMotionDemoPage = () => (
   <Layout>
     <SEO title="Reducing motion" keywords={['javascript', 'accessibility', 'react']} />
     <div>
-      <h2>
+      <RouteTargetHeading level={2} targetID="navigation">
         Reducing motion for accessibility
-      </h2>
+      </RouteTargetHeading>
       <p>Let‘s build safe interfaces that delight.</p>
       <section className="two-col">
         <div>
