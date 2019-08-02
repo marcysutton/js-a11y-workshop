@@ -12,20 +12,20 @@ const Dropdown = ({ activatorText, items = [] }) => {
         setIsOpen(!isOpen)
     }
     const handleClickOutside = (event) => {
-        if (listRef.current.contains(event.target) || activatorRef.current.contains(event.target)) {
+        if (isOpen && (listRef.current.contains(event.target) || activatorRef.current.contains(event.target))) {
             return
         }
         setIsOpen(false)
     }
     useEffect(() => {
         if (isOpen) {
-          document.addEventListener("mousedown", handleClickOutside)
+            document.addEventListener("mouseup", handleClickOutside)
         } else {
-          document.removeEventListener("mousedown", handleClickOutside)
+            document.removeEventListener("mouseup", handleClickOutside)
         }
-    
-        return () => {
-          document.removeEventListener("mousedown", handleClickOutside)
+        // clean up on unmount
+        return function cleanup () {
+            document.removeEventListener("mouseup", handleClickOutside)
         }
       }, [isOpen])
     return (

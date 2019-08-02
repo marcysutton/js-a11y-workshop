@@ -33,6 +33,11 @@ const Dropdown = ({ activatorText = 'Dropdown', items = [] }) => {
         } else {
             document.removeEventListener('mouseup', clickOutsideHandler)
         }
+
+        // clean up on unmount
+        return function cleanup () {
+            document.removeEventListener("mouseup", clickOutsideHandler)
+        }
     }, [isOpen])
     return (
         <div
