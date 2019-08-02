@@ -23,8 +23,8 @@ const Dropdown = ({ activatorText, items = [] }) => {
         } else {
           document.removeEventListener("mousedown", handleClickOutside)
         }
-    
-        return () => {
+        // clean up on unmount
+        return function cleanup() {
           document.removeEventListener("mousedown", handleClickOutside)
         }
       }, [isOpen])
