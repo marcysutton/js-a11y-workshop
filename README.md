@@ -50,3 +50,7 @@ npm start
 4. To look at the answers from the exercises, check out the [`/examples`](https://github.com/marcysutton/js-a11y-workshop/blob/master/examples) directory in the `master` branch
 
 You can also check out the `solutions` branch to see everything in action: https://github.com/marcysutton/js-a11y-workshop/tree/solutions
+
+### Prerequisites
+1. Have a text editor installed, i.e. VSCode
+2. Have the Gatsby CLI (gatsby-cli) installed globally by running ```npm install -g gatsby-cli```
