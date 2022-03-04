@@ -22,7 +22,7 @@ Workshop slides: https://marcysutton.github.io/js-a11y-workshop/slides/
 
 This project was started with [gatsby-starter-mdx-basic](https://github.com/christopherbiscardi/gatsby-starter-mdx-basic) and [@mdx-deck/theme](https://github.com/jxnblk/mdx-deck/tree/master/packages/gatsby-theme).
 
-_Note: This repo requires [Node 12 and npm](https://nodejs.org) to be installed._
+_Note: This repo requires [Node 16 and npm](https://nodejs.org) to be installed._
 
 1. Create a new Gatsby site and slide deck using this starter
 
@@ -55,7 +55,7 @@ You can also check out the `solutions` branch to see everything in action: https
 
 1. Have a text editor installed, i.e. VSCode
 2. Have the Gatsby CLI (gatsby-cli) installed globally by running ```npm install -g gatsby-cli```
-3. Use Node 12 ([nvm](https://github.com/nvm-sh/nvm) or [n](https://github.com/tj/n) will help you maintain Node versions)
+3. Use Node 16 ([nvm](https://github.com/nvm-sh/nvm) or [n](https://github.com/tj/n) will help you maintain Node versions)
 
 ### Troubleshooting
 
