@@ -59,7 +59,7 @@ You can also check out the `solutions` branch to see everything in action: https
 
 ### Troubleshooting
 
-If you run into errors on the install, check your Node version. Sharp in particular likes to complain a lot.
+If you run into errors on the install, check your Node version for version 12. Sharp in particular likes to complain a lot.
 
 To get Gatsby to install after errors, try deleting files and doing another reinstall:
 
@@ -68,4 +68,4 @@ rm -rf node_modules && rm package-lock.json
 npm install
 ```
 
-If you still run into issues, let me know by [opening an issue](https://github.com/marcysutton/js-a11y-workshop/issues/new) and including details on any errors, Node version, platform, etc.
+If you still run into problems, let me know by [opening an issue](https://github.com/marcysutton/js-a11y-workshop/issues/new) and including details on any errors, Node version, platform, etc.
