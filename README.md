@@ -1,6 +1,6 @@
 # Accessibility in JavaScript Applications
 
-Learn the necessary techniques and tools for building inclusive web applications with JavaScript from Gatsby's Head of Learning Marcy Sutton.
+Learn the necessary techniques and tools for building inclusive web applications with JavaScript from Marcy Sutton.
 
 Presented at Frontend Masters! You can view the videos that go along with the workshop material in the [Accessibility in JavaScript Application course](https://frontendmasters.com/courses/javascript-accessibility/).
 
@@ -52,5 +52,20 @@ npm start
 You can also check out the `solutions` branch to see everything in action: https://github.com/marcysutton/js-a11y-workshop/tree/solutions
 
 ### Prerequisites
+
 1. Have a text editor installed, i.e. VSCode
 2. Have the Gatsby CLI (gatsby-cli) installed globally by running ```npm install -g gatsby-cli```
+3. Use Node 12 ([nvm](https://github.com/nvm-sh/nvm) or [n](https://github.com/tj/n) will help you maintain Node versions)
+
+### Troubleshooting
+
+If you run into errors on the install, check your Node version. Sharp in particular likes to complain a lot.
+
+To get Gatsby to install after errors, try deleting files and doing another reinstall:
+
+```
+rm -rf node_modules && rm package-lock.json
+npm install
+```
+
+If you still run into issues, let me know by [opening an issue](https://github.com/marcysutton/js-a11y-workshop/issues/new) and including details on any errors, Node version, platform, etc.
