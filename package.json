@@ -58,7 +58,7 @@
     "axe-core": "^3.3.1",
     "babel-jest": "^24.8.0",
     "babel-preset-gatsby": "^0.2.7",
-    "cypress": "^3.4.1",
+    "cypress": "^12.7.0",
     "cypress-axe": "^0.5.1",
     "gh-pages": "^2.0.1",
     "identity-obj-proxy": "^3.0.0",
